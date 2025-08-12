@@ -2,862 +2,601 @@
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
+
+const serviceDetails = {
+  title: 'Media Publishing & Interview Services',
+  subtitle: 'Professional media resource network, providing comprehensive media publishing and interview arrangement services',
+  description: 'Leveraging extensive media partnerships across Cambodia, Southeast Asia, and China to amplify your brand voice through strategic content placement and professional interview arrangements.',
+  
+  stats: [
+    { number: '200+', label: 'Cambodian Media Partners' },
+    { number: '150+', label: 'Southeast Asian Media' },
+    { number: '300+', label: 'Chinese Media & WeChat' },
+    { number: '15+', label: 'Cambodian TV Stations' }
+  ],
+  
+ mediaPartners: [
+    // 高棉语媒体
+    { name: 'Fresh News', logo: '/media/Khmer_Media/FN.png', category: 'Local Khmer media' },
+    { name: 'Khmer Load', logo: '/media/Khmer_Media/KL.png', category: 'Local Khmer media' },
+    { name: 'Khmer Times Daily', logo: '/media/Khmer_Media/KTD.png', category: 'Local Khmer media' },
+    { name: 'Dap News', logo: '/media/Khmer_Media/DAP.png', category: 'Local Khmer media' },
+    { name: 'Sabay News', logo: '/media/Khmer_Media/SN.png', category: 'Local Khmer media' },
+    { name: 'Thmey Thmey', logo: '/media/Khmer_Media/TT.png', category: 'Local Khmer media' },
+    { name: 'Khmer Business News', logo: '/media/Khmer_Media/KBN.png', category: 'Local Khmer media' },
+    { name: 'Cambonomist', logo: '/media/Khmer_Media/CAMBONOMIST.png', category: 'Local Khmer media' },
+    { name: 'Maha TV', logo: '/media/Khmer_Media/MAHA TV.png', category: 'local TV stations' },
+    { name: 'Business Cambodia', logo: '/media/Khmer_Media/Business Cambodia logo.jpg', category: 'local business media' },
+    
+    // 英文媒体
+    { name: 'Khmer Times', logo: '/media/English_Media/KT.png', category: 'local English media' },
+    { name: 'Cambodia Daily', logo: '/media/English_Media/CP.png', category: 'local English media' },
+    { name: 'Khmer Post', logo: '/media/English_Media/KP.png', category: 'local English media' },
+    { name: 'Asia Economic News', logo: '/media/English_Media/AEN.png', category: 'local English media' },
+    { name: 'B2B Cambodia', logo: '/media/English_Media/B2B.png', category: 'local English media' },
+    { name: 'Cam Business', logo: '/media/English_Media/CAMNESS.png', category: 'local English media' },
+    { name: 'Phnom Penh Post', logo: '/media/English_Media/PPP.png', category: 'local English media' },
+    
+    // 中文媒体
+    { name: '柬华日报', logo: '/media/Chinese_Media/JHD.png', category: 'local Chinese media' },
+    { name: '柬埔寨头条', logo: '/media/Chinese_Media/JPZ.png', category: 'local Chinese media' },
+    { name: '58同城柬埔寨', logo: '/media/Chinese_Media/58CAM.png', category: 'local Chinese media' },
+    { name: '西港在线', logo: '/media/Chinese_Media/XIGANG.png', category: 'local Chinese media' },
+    { name: 'CCT中文台', logo: '/media/Chinese_Media/CCT.png', category: 'local Chinese media' }
+  ],
+  
+  services: [
+    {
+      id: 'S1',
+      title: 'Media Publishing & Distribution',
+      description: 'Professional content creation and strategic distribution across mainstream media platforms to maximize your brand exposure and credibility.',
+      icon: '📰',
+      popular: true,
+      features: [
+        'Professional press release writing',
+        'Multi-language content adaptation',
+        'Strategic media platform selection',
+        'Publication timing optimization',
+        'Performance tracking and reporting'
+      ]
+    },
+    {
+      id: 'S2',
+      title: 'Interview Arrangement Services',
+      description: 'Comprehensive interview coordination with key media outlets, including preparation, scheduling, and follow-up to ensure optimal coverage.',
+      icon: '🎤',
+      popular: false,
+      features: [
+        'Media outlet relationship management',
+        'Interview preparation and coaching',
+        'Schedule coordination and logistics',
+        'Multi-format interview arrangements',
+        'Post-interview content optimization'
+      ]
+    },
+    {
+      id: 'S3',
+      title: 'Press Conference Organization',
+      description: 'End-to-end press conference planning and execution, from venue selection to media invitation and live coverage coordination.',
+      icon: '📢',
+      popular: false,
+      features: [
+        'Venue selection and setup',
+        'Media invitation and RSVP management',
+        'Technical equipment coordination',
+        'Live streaming and recording',
+        'Post-event content distribution'
+      ]
+    },
+    {
+      id: 'S4',
+      title: 'Crisis Communication Management',
+      description: 'Rapid response crisis communication services to protect and restore your brand reputation through strategic media engagement.',
+      icon: '🛡️',
+      popular: false,
+      features: [
+        '24/7 crisis response team',
+        'Strategic message development',
+        'Media relationship management',
+        'Real-time monitoring and response',
+        'Reputation recovery planning'
+      ]
+    }
+  ],
+  
+  packages: [
+    {
+      name: 'Basic Package',
+      price: '¥3,000',
+      description: 'Essential media publishing services for small businesses and startups looking to establish media presence.',
+      popular: false,
+      features: [
+        '5 media outlet publications',
+        'Basic press release writing',
+        'Publication scheduling',
+        'Performance report',
+        'Email support',
+        '7-day delivery'
+      ]
+    },
+    {
+      name: 'Standard Package',
+      price: '¥8,000',
+      description: 'Comprehensive media services including publishing and interview arrangements for growing businesses.',
+      popular: true,
+      features: [
+        '15 media outlet publications',
+        'Professional content creation',
+        '2 interview arrangements',
+        'Multi-language adaptation',
+        'Detailed analytics report',
+        'Priority support',
+        '5-day delivery'
+      ]
+    },
+    {
+      name: 'Premium Package',
+      price: '¥15,000',
+      description: 'Full-service media solution with extensive coverage, interviews, and crisis management support.',
+      popular: false,
+      features: [
+        '30+ media outlet publications',
+        'Premium content creation',
+        '5 interview arrangements',
+        'Press conference organization',
+        'Crisis communication support',
+        'Dedicated account manager',
+        '3-day delivery'
+      ]
+    }
+  ],
+  
+  process: [
+    {
+      step: '01',
+      title: 'Needs Analysis',
+      description: 'In-depth consultation to understand your communication objectives, target audience, and preferred media channels.'
+    },
+    {
+      step: '02',
+      title: 'Media Strategy Planning',
+      description: 'Development of customized media strategy including platform selection, content themes, and publication timeline.'
+    },
+    {
+      step: '03',
+      title: 'Content Creation',
+      description: 'Professional content development with multi-language adaptation and optimization for different media formats.'
+    },
+    {
+      step: '04',
+      title: 'Media Distribution',
+      description: 'Strategic content distribution across selected media platforms with optimal timing and placement.'
+    },
+    {
+      step: '05',
+      title: 'Performance Monitoring',
+      description: 'Comprehensive tracking and analysis of publication performance with detailed reporting and optimization recommendations.'
+    }
+  ],
+  
+  successCases: [
+    {
+      title: 'Tech Company Product Launch',
+      description: 'Successfully launched a fintech product across 25 media outlets in Cambodia and Southeast Asia.',
+      results: ['500K+ reach', '50+ media mentions', '300% brand awareness increase']
+    },
+    {
+      title: 'Real Estate Development Promotion',
+      description: 'Comprehensive media campaign for luxury residential project targeting Chinese and local investors.',
+      results: ['1M+ impressions', '80+ publications', '200% inquiry increase']
+    },
+    {
+      title: 'Corporate Crisis Management',
+      description: 'Rapid response crisis communication that successfully restored client reputation within 72 hours.',
+      results: ['Crisis contained', 'Positive sentiment restored', 'Media relations maintained']
+    }
+  ],
+  
+  faq: [
+    {
+      question: 'How do you ensure content quality and accuracy?',
+      answer: 'Our team includes native speakers and professional journalists who review all content for accuracy, cultural appropriateness, and media standards before publication.'
+    },
+    {
+      question: 'Can you guarantee publication in specific media outlets?',
+      answer: 'While we have strong relationships with our media partners, publication decisions ultimately rest with editorial teams. We work closely with outlets to maximize acceptance rates.'
+    },
+    {
+      question: 'What languages do you support for content creation?',
+      answer: 'We provide content creation and adaptation services in Khmer, English, and Chinese, ensuring your message resonates with diverse audiences.'
+    },
+    {
+      question: 'How quickly can you respond to crisis situations?',
+      answer: 'Our crisis communication team is available 24/7 and can initiate response strategies within 2 hours of notification for urgent situations.'
+    }
+  ]
+};
 ---
 
-<Layout title="Video Production & Design Services - Media Communication" description="Professional video production team providing one-stop video production services from planning to post-production, creating high-quality visual content">
+<Layout title={serviceDetails.title}>
   <Header />
   
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-purple-600 via-pink-600 to-red-500 text-white py-24 overflow-hidden">
-      <!-- Dynamic Background -->
-      <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full animate-pulse"></div>
-        <div class="absolute top-40 right-20 w-24 h-24 bg-white/15 rounded-full animate-bounce"></div>
-        <div class="absolute bottom-20 left-1/3 w-40 h-40 bg-white/5 rounded-full animate-pulse"></div>
+    <section class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 text-white overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10" style="background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 600&quot;><defs><linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.1&quot; /><stop offset=&quot;100%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.05&quot; /></linearGradient></defs><rect width=&quot;1200&quot; height=&quot;600&quot; fill=&quot;url(%23grad1)&quot; /><circle cx=&quot;150&quot; cy=&quot;100&quot; r=&quot;60&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.1&quot; /><circle cx=&quot;900&quot; cy=&quot;200&quot; r=&quot;100&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /><circle cx=&quot;1100&quot; cy=&quot;400&quot; r=&quot;80&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.12&quot; /><rect x=&quot;300&quot; y=&quot;300&quot; width=&quot;150&quot; height=&quot;100&quot; rx=&quot;10&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.06&quot; /><polygon points=&quot;600,100 700,50 800,150 700,200&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /></svg>');">
       </div>
       
-      <div class="container relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Main Content -->
+      <div class="container relative z-10 py-24">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
           <!-- Left Content -->
-          <div>
-            <div class="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <span class="text-sm font-medium">🎬 Professional Video Production Services</span>
-            </div>
-            <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              Creative Video
-              <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Production</span>
-            </h1>
-            <p class="text-xl text-purple-100 mb-8 leading-relaxed">
-              From short videos to corporate promotional films, we create compelling visual content that makes your brand story resonate deeply
-            </p>
-            
-            <!-- Core Data -->
-            <div class="grid grid-cols-3 gap-6 mb-8">
-              <div class="text-center">
-                <div class="text-2xl font-bold">500+</div>
-                <div class="text-sm text-purple-200">Success Cases</div>
+          <div class="space-y-8">
+            <div class="space-y-6">
+              <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                Professional Media Services
               </div>
-              <div class="text-center">
-                <div class="text-2xl font-bold">98%</div>
-                <div class="text-sm text-purple-200">Client Satisfaction</div>
-              </div>
-              <div class="text-center">
-                <div class="text-2xl font-bold">24h</div>
-                <div class="text-sm text-purple-200">Quick Response</div>
-              </div>
+              <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
+                <span class="block">{serviceDetails.title}</span>
+              </h1>
+              <p class="text-xl lg:text-2xl text-blue-100 leading-relaxed">
+                {serviceDetails.subtitle}
+              </p>
+              <p class="text-lg text-blue-50 leading-relaxed max-w-xl">
+                {serviceDetails.description}
+              </p>
             </div>
             
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/en/contact" class="bg-white text-purple-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">
-                Get Consultation
+              <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl">
+                View Pricing Plans
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
               </a>
-              <a href="#cases" class="border-2 border-white/50 text-white hover:bg-white/10 font-semibold py-4 px-8 rounded-xl transition-all duration-200">
-                View Cases
+              <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-200">
+                Free Consultation
               </a>
             </div>
           </div>
           
-          <!-- Right Visual Elements -->
+          <!-- Right Statistics -->
+          <div class="grid grid-cols-2 gap-6">
+            {serviceDetails.stats.map(stat => (
+              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300">
+                <div class="text-3xl lg:text-4xl font-bold mb-2">{stat.number}</div>
+                <div class="text-blue-100 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Media Partners -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Authoritative Media Partners</h2>
+          <p class="text-xl text-gray-600">Long-term strategic partnerships with mainstream media outlets</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {serviceDetails.mediaPartners.map(partner => (
+            <div class="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-all duration-200 group border border-gray-100">
+              <div class="w-16 h-16 mx-auto mb-3 flex items-center justify-center bg-gray-50 rounded-lg group-hover:bg-gray-100 transition-colors duration-200">
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name} 
+                  class="max-w-full max-h-full object-contain filter group-hover:brightness-110 transition-all duration-200"
+                  loading="lazy"
+                />
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-1 text-sm">{partner.name}</h4>
+              <p class="text-xs text-gray-500">{partner.category}</p>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-12">
+          <p class="text-gray-600 mb-6">More premium media resources available to serve you</p>
+          <a href="#contact" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+            View Complete Media List
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Services -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">
+            <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+            🔥 Popular Services
+          </div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Professional Media Service Portfolio</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive media resource network providing media publishing and interview arrangement services to find the most suitable platform for your brand voice</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {serviceDetails.services.map((service, index) => (
+            <div class={`relative bg-white rounded-2xl p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+              service.popular 
+                ? 'ring-2 ring-blue-500 shadow-xl bg-gradient-to-br from-blue-50 to-white' 
+                : 'shadow-lg border border-gray-200'
+            }`}>
+              {service.popular && (
+                <div class="absolute -top-3 -right-3">
+                  <span class="bg-gradient-to-r from-red-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                    🔥 Most Popular
+                  </span>
+                </div>
+              )}
+              
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl">
+                    {service.icon}
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center space-x-2 mb-2">
+                    <span class="bg-blue-500 text-white text-sm font-bold px-2 py-1 rounded">{service.id}</span>
+                    <h3 class="text-xl font-bold text-gray-900">{service.title}</h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed">{service.description}</p>
+                </div>
+              </div>
+              
+              <div class="space-y-3 mb-6">
+                {service.features.map(feature => (
+                  <div class="flex items-center space-x-3">
+                    <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="text-gray-700 font-medium">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <button class={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-200 ${
+                service.popular 
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl' 
+                  : 'bg-gray-100 text-gray-900 hover:bg-blue-50 hover:text-blue-600 border border-gray-300'
+              }`}>
+                Learn More
+              </button>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-12">
+          <p class="text-gray-600 mb-6">Need a customized media service solution?</p>
+          <a href="#contact" class="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200">
+            Free Consultation for Custom Solutions
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Packages -->
+    <section id="pricing" class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Flexible Pricing Plans</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose the most suitable media publishing service package based on your needs and budget</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {serviceDetails.packages.map((pkg, index) => (
+            <div class={`relative bg-white rounded-3xl p-8 transition-all duration-300 hover:scale-105 ${
+              pkg.popular 
+                ? 'ring-2 ring-blue-500 shadow-2xl bg-gradient-to-b from-blue-50 to-white' 
+                : 'shadow-lg hover:shadow-xl border border-gray-200'
+            }`}>
+              {pkg.popular && (
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    🔥 Most Popular
+                  </span>
+                </div>
+              )}
+              
+              <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">{pkg.name}</h3>
+                <div class="mb-4">
+                  <span class="text-5xl font-bold text-gray-900">{pkg.price.replace('¥', '')}</span>
+                  <span class="text-xl text-gray-500 ml-1">CNY</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">{pkg.description}</p>
+              </div>
+              
+              <ul class="space-y-4 mb-8">
+                {pkg.features.map(feature => (
+                  <li class="flex items-start">
+                    <div class="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                      <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="ml-3 text-gray-700 leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <button class={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 ${
+                pkg.popular 
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl' 
+                  : 'bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-300'
+              }`}>
+                {pkg.popular ? 'Choose Now' : 'Select Package'}
+              </button>
+              
+              {pkg.popular && (
+                <div class="mt-4 text-center">
+                  <p class="text-sm text-gray-500">30-day money-back guarantee</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-12">
+          <p class="text-gray-600 mb-6">Need a customized solution? We provide dedicated services for large enterprises</p>
+          <a href="#contact" class="inline-flex items-center px-8 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors duration-200">
+            Contact Dedicated Consultant
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Professional Service Process</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">Standardized five-step service process ensuring every project achieves optimal communication results</p>
+        </div>
+        
+        <!-- Desktop Process -->
+        <div class="hidden lg:block">
           <div class="relative">
-            <div class="relative z-10 bg-white/10 backdrop-blur-sm rounded-3xl p-8">
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl p-6 text-center">
-                  <div class="text-3xl mb-2">📱</div>
-                  <div class="text-sm font-medium">Short Video Production</div>
-                </div>
-                <div class="bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl p-6 text-center">
-                  <div class="text-3xl mb-2">🎥</div>
-                  <div class="text-sm font-medium">Corporate Promotion</div>
-                </div>
-                <div class="bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl p-6 text-center">
-                  <div class="text-3xl mb-2">🎬</div>
-                  <div class="text-sm font-medium">Advertisement Production</div>
-                </div>
-                <div class="bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-6 text-center">
-                  <div class="text-3xl mb-2">✨</div>
-                  <div class="text-sm font-medium">Post-Production Effects</div>
-                </div>
-              </div>
-            </div>
-            <!-- Decorative Elements -->
-            <div class="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-80 animate-bounce"></div>
-            <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-pink-400 rounded-full opacity-60 animate-pulse"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Core Advantages -->
-    <section class="section-padding bg-white">
-      <div class="container">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional Team × Creative Planning × Advanced Equipment = High-Quality Visual Content
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl mb-6">
-              <div class="aspect-video bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                <div class="text-6xl text-white opacity-80">🎬</div>
-              </div>
-              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Professional Filming Team</h3>
-            <p class="text-gray-600">Experienced directors, cinematographers, and lighting technicians with an average of 8+ years of experience, ensuring professional quality in every shot</p>
-          </div>
-          
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl mb-6">
-              <div class="aspect-video bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-                <div class="text-6xl text-white opacity-80">✨</div>
-              </div>
-              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Excellent Post-Production</h3>
-            <p class="text-gray-600">Professional editors and VFX artists using top-tier software like Adobe Creative Suite and DaVinci to create stunning visual effects</p>
-          </div>
-          
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl mb-6">
-              <div class="aspect-video bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                <div class="text-6xl text-white opacity-80">🚀</div>
-              </div>
-              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">One-Stop Service</h3>
-            <p class="text-gray-600">From creative planning to multi-platform distribution, comprehensive professional services that save you time and effort while delivering quality content</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Video Types -->
-    <section class="section-padding bg-white">
-      <div class="container">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Video Types</h2>
-          <p class="text-xl text-gray-600">Comprehensive coverage of your video production needs</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="group bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-transparent hover:border-purple-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div class="text-3xl">🏢</div>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Corporate Promotional Videos</h3>
-              <p class="text-gray-600 mb-6">Professional promotional videos showcasing corporate image, culture, and strength</p>
-              <div class="space-y-2 text-sm text-gray-600">
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                  Corporate Image Display
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                  Product Introduction
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                  Team Showcase
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="group bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-transparent hover:border-blue-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div class="text-3xl">📱</div>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Short Video Production</h3>
-              <p class="text-gray-600 mb-6">Short video content suitable for social media distribution</p>
-              <div class="space-y-2 text-sm text-gray-600">
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                  TikTok Videos
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                  WeChat Video Channel
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                  Xiaohongshu Videos
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="group bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-transparent hover:border-green-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div class="text-3xl">🎯</div>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Advertisement Videos</h3>
-              <p class="text-gray-600 mb-6">High-conversion commercial advertisement video production</p>
-              <div class="space-y-2 text-sm text-gray-600">
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                  Product Ads
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                  Brand TVC
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                  E-commerce Videos
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="group bg-gradient-to-br from-orange-50 to-red-50 border-2 border-transparent hover:border-orange-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div class="text-3xl">🎓</div>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Training & Education</h3>
-              <p class="text-gray-600 mb-6">Professional educational and training video production</p>
-              <div class="space-y-2 text-sm text-gray-600">
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
-                  Online Courses
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
-                  Tutorial Videos
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
-                  Product Demos
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="group bg-gradient-to-br from-pink-50 to-purple-50 border-2 border-transparent hover:border-pink-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div class="text-3xl">🎉</div>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Event Recording</h3>
-              <p class="text-gray-600 mb-6">Professional recording and production of important events</p>
-              <div class="space-y-2 text-sm text-gray-600">
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-2"></span>
-                  Conference Recording
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-2"></span>
-                  Event Highlights
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-pink-400 rounded-full mr-2"></span>
-                  Celebration Ceremonies
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="group bg-gradient-to-br from-indigo-50 to-blue-50 border-2 border-transparent hover:border-indigo-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="text-center">
-              <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <div class="text-3xl">🎨</div>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Animation Production</h3>
-              <p class="text-gray-600 mb-6">Creative animation and special effects production services</p>
-              <div class="space-y-2 text-sm text-gray-600">
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
-                  2D/3D Animation
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
-                  Motion Graphics
-                </div>
-                <div class="flex items-center justify-center">
-                  <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
-                  VFX Production
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Production Process -->
-    <section class="section-padding bg-gradient-to-br from-gray-50 to-purple-50">
-      <div class="container">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Production Process</h2>
-          <p class="text-xl text-gray-600">Professional production process ensuring high-quality project delivery</p>
-        </div>
-        
-        <div class="relative">
-          <!-- Process Connection Line -->
-          <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-200 via-purple-400 to-purple-200 transform -translate-y-1/2"></div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-            <!-- Requirements Communication -->
-            <div class="relative group">
-              <div class="text-center">
-                <div class="relative z-10 w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <span class="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-purple-600 shadow-md">1</span>
-                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Requirements Communication</h3>
-                <p class="text-sm text-gray-600">In-depth understanding of client needs and project objectives</p>
-              </div>
-            </div>
+            <!-- Connection Line -->
+            <div class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-purple-400 transform -translate-y-1/2 z-0"></div>
             
-            <!-- Creative Planning -->
-            <div class="relative group">
-              <div class="text-center">
-                <div class="relative z-10 w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <span class="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-blue-600 shadow-md">2</span>
-                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                  </svg>
+            <div class="grid grid-cols-5 gap-8 relative z-10">
+              {serviceDetails.process.map((step, index) => (
+                <div class="text-center group">
+                  <div class="relative mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span class="text-white font-bold text-lg">{step.step}</span>
+                    </div>
+                    <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-4 border-blue-500 rounded-full"></div>
+                  </div>
+                  <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                  </div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Creative Planning</h3>
-                <p class="text-sm text-gray-600">Develop creative concepts and storyboard scripts</p>
-              </div>
-            </div>
-            
-            <!-- Pre-Production -->
-            <div class="relative group">
-              <div class="text-center">
-                <div class="relative z-10 w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <span class="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-green-600 shadow-md">3</span>
-                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                  </svg>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Pre-Production</h3>
-                <p class="text-sm text-gray-600">Location scouting and equipment/talent preparation</p>
-              </div>
-            </div>
-            
-            <!-- Filming Execution -->
-            <div class="relative group">
-              <div class="text-center">
-                <div class="relative z-10 w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <span class="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-orange-600 shadow-md">4</span>
-                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Filming Execution</h3>
-                <p class="text-sm text-gray-600">Professional team on-site filming and production</p>
-              </div>
-            </div>
-            
-            <!-- Post-Production -->
-            <div class="relative group">
-              <div class="text-center">
-                <div class="relative z-10 w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <span class="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-indigo-600 shadow-md">5</span>
-                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a1 1 0 01-1-1V9a1 1 0 011-1h1a2 2 0 100-4H4a1 1 0 01-1-1V4a1 1 0 011-1h3a1 1 0 011 1v1a2 2 0 104 0V4z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Post-Production</h3>
-                <p class="text-sm text-gray-600">Editing, color grading, VFX, and audio processing</p>
-              </div>
-            </div>
-            
-            <!-- Delivery & Acceptance -->
-            <div class="relative group">
-              <div class="text-center">
-                <div class="relative z-10 w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <span class="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-emerald-600 shadow-md">6</span>
-                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Delivery & Acceptance</h3>
-                <p class="text-sm text-gray-600">Client acceptance and multi-format delivery</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
         
-        <!-- Process Guarantee -->
-        <div class="mt-16 bg-white rounded-3xl p-8 shadow-lg">
-          <div class="text-center">
-            <h3 class="text-2xl font-bold text-gray-900 mb-8">Professional Guarantee</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="flex flex-col items-center">
-                <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
-                  <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <div class="text-center">
-                  <div class="font-bold text-gray-900 mb-2">On-Time Delivery</div>
-                  <div class="text-sm text-gray-600">Strictly complete projects according to agreed timeline</div>
+        <!-- Mobile Process -->
+        <div class="lg:hidden space-y-8">
+          {serviceDetails.process.map((step, index) => (
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                  <span class="text-white font-bold">{step.step}</span>
                 </div>
               </div>
-              <div class="flex flex-col items-center">
-                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
-                  <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                  </svg>
-                </div>
-                <div class="text-center">
-                  <div class="font-bold text-gray-900 mb-2">Quality Assurance</div>
-                  <div class="text-sm text-gray-600">Professional team strict quality control</div>
-                </div>
-              </div>
-              <div class="flex flex-col items-center">
-                <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
-                  <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                  </svg>
-                </div>
-                <div class="text-center">
-                  <div class="font-bold text-gray-900 mb-2">After-Sales Service</div>
-                  <div class="text-sm text-gray-600">Comprehensive after-sales support system</div>
-                </div>
+              <div class="flex-1 bg-white rounded-2xl p-6 shadow-lg">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                <p class="text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Short Video Case Showcase -->
-    <section id="cases" class="section-padding bg-gradient-to-br from-gray-50 to-purple-50">
-      <div class="container">
-        <div class="text-center mb-16">
-          <div class="inline-flex items-center bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6 shadow-lg">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.43z"/>
-            </svg>
-            Certified Short Video Platform Creator
-          </div>
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Viral Short Video Cases</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">Professionally produced short video content helping brands gain more exposure and engagement across major short video platforms</p>
+          ))}
         </div>
         
-        <!-- Video Case Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <!-- Case 1 -->
-        <a href="https://www.tiktok.com/@tnaot.cn/video/7513100949758446855?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-            <div class="relative overflow-hidden">
-              <div class="aspect-[9/16] bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 flex items-center justify-center relative">
-                <div class="absolute inset-0 bg-black/20"></div>
-                <div class="text-center text-white relative z-10">
-                  <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p class="text-lg font-semibold">Corporate Brand Promotion</p>
-                  <p class="text-sm opacity-80">Short Video Trending</p>
-                </div>
-              </div>
-              <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                LIVE
-              </div>
-              <div class="absolute bottom-4 left-4 right-4">
-                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-3">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="flex items-center text-gray-700 font-medium">
-                      <svg class="w-4 h-4 mr-1 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                      2.3M
-                    </span>
-                    <span class="flex items-center text-gray-700 font-medium">
-                      <svg class="w-4 h-4 mr-1 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                      156K
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Tech Company Brand Story</h3>
-              <p class="text-gray-600 mb-4">Innovative tech company's brand concept communication through youthful expression showcasing corporate culture, achieving ultra-high engagement rates</p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500">Corporate Category</span>
-                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">Viral Video</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-          <!-- Case 2 -->
-        <a href="https://www.tiktok.com/@tnaot.cn/video/7520945613295373586?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-            <div class="relative overflow-hidden">
-              <div class="aspect-[9/16] bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-600 flex items-center justify-center relative">
-                <div class="absolute inset-0 bg-black/20"></div>
-                <div class="text-center text-white relative z-10">
-                  <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p class="text-lg font-semibold">Food Exploration</p>
-                  <p class="text-sm opacity-80">Viral Spread</p>
-                </div>
-              </div>
-              <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                HOT
-              </div>
-              <div class="absolute bottom-4 left-4 right-4">
-                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-3">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="flex items-center text-gray-700 font-medium">
-                      <svg class="w-4 h-4 mr-1 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                      1.8M
-                    </span>
-                    <span class="flex items-center text-gray-700 font-medium">
-                      <svg class="w-4 h-4 mr-1 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                      89K
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Restaurant Brand Promotion</h3>
-              <p class="text-gray-600 mb-4">Local famous restaurant's food showcase video attracting target customers through visual impact, stimulating user appetite</p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500">Food Category</span>
-                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">Hot Recommendation</span>
-              </div>
-            </div>
-          </div>
-          
-        </a>
-
-          <!-- Case 3 -->
-        <a href="https://www.tiktok.com/@tnaot.cn/video/7459398013098675464?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="block">
-          <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-            <div class="relative overflow-hidden">
-              <div class="aspect-[9/16] bg-gradient-to-br from-green-400 via-emerald-500 to-cyan-600 flex items-center justify-center relative">
-                <div class="absolute inset-0 bg-black/20"></div>
-                <div class="text-center text-white relative z-10">
-                  <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p class="text-lg font-semibold">Knowledge Sharing</p>
-                  <p class="text-sm opacity-80">Educational Training</p>
-                </div>
-              </div>
-              <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                EDU
-              </div>
-              <div class="absolute bottom-4 left-4 right-4">
-                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-3">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="flex items-center text-gray-700 font-medium">
-                      <svg class="w-4 h-4 mr-1 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                      3.1M
-                    </span>
-                    <span class="flex items-center text-gray-700 font-medium">
-                      <svg class="w-4 h-4 mr-1 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                      198K
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Learn PS Skills in 60 Seconds</h3>
-              <p class="text-gray-600 mb-4">Practical design skill sharing with simple and easy-to-understand teaching content, loved by designers and learners</p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500">Education Category</span>
-                <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Knowledge Content</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-    </section>
-
-    <!-- Success Cases -->
-    <section class="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
-      <div class="container">
-        <div class="text-center mb-16">
-          <div class="inline-flex items-center bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            Success Cases
-          </div>
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Success Cases</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">High-quality video works we've created for clients across various industries, each project reflecting our professional standards</p>
-        </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          <!-- Case 1 -->
-          <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
-            <div class="relative overflow-hidden">
-              <div class="aspect-video bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 flex items-center justify-center relative">
-                <div class="absolute inset-0 bg-black/30"></div>
-                <div class="text-center text-white relative z-10">
-                  <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p class="text-lg font-semibold">Tech Company Promotional Video</p>
-                  <p class="text-sm opacity-80">Corporate Image Display</p>
-                </div>
-              </div>
-              <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                Popular
-              </div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Innovative Tech Company Image Film</h3>
-              <p class="text-gray-600 mb-6">Corporate image promotional video for a renowned tech company showcasing innovation strength and development vision, receiving high industry recognition</p>
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Views</span>
-                  <span class="font-semibold text-blue-600">500K+</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Client Satisfaction</span>
-                  <span class="font-semibold text-green-600">98%</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Project Duration</span>
-                  <span class="font-semibold text-purple-600">15 Days</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Case 2 -->
-          <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
-            <div class="relative overflow-hidden">
-              <div class="aspect-video bg-gradient-to-br from-green-500 via-emerald-600 to-teal-700 flex items-center justify-center relative">
-                <div class="absolute inset-0 bg-black/30"></div>
-                <div class="text-center text-white relative z-10">
-                  <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p class="text-lg font-semibold">Product Advertisement Video</p>
-                  <p class="text-sm opacity-80">Commercial Promotion</p>
-                </div>
-              </div>
-              <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                Viral
-              </div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Smartphone Product Advertisement</h3>
-              <p class="text-gray-600 mb-6">Product advertisement video for a new smartphone highlighting product features and usage scenarios, effectively enhancing brand awareness</p>
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Views</span>
-                  <span class="font-semibold text-blue-600">1.2M+</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Conversion Rate</span>
-                  <span class="font-semibold text-green-600">15%</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">ROI Improvement</span>
-                  <span class="font-semibold text-purple-600">300%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Case 3 -->
-          <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
-            <div class="relative overflow-hidden">
-              <div class="aspect-video bg-gradient-to-br from-orange-500 via-red-600 to-pink-700 flex items-center justify-center relative">
-                <div class="absolute inset-0 bg-black/30"></div>
-                <div class="text-center text-white relative z-10">
-                  <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <p class="text-lg font-semibold">Event Recording Video</p>
-                  <p class="text-sm opacity-80">Live Recording</p>
-                </div>
-              </div>
-              <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                Premium
-              </div>
-            </div>
-            <div class="p-8">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Annual Gala Event Recording</h3>
-              <p class="text-gray-600 mb-6">Event recording video for a large corporate annual gala, completely capturing exciting moments and conveying corporate cultural values</p>
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Video Duration</span>
-                  <span class="font-semibold text-blue-600">15 Minutes</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Positive Rating</span>
-                  <span class="font-semibold text-green-600">100%</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm text-gray-500">Production Cycle</span>
-                  <span class="font-semibold text-purple-600">7 Days</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Client Feedback -->
-        <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-lg">
-          <div class="text-center mb-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">Client Feedback</h3>
-            <p class="text-gray-600">Hear what our clients have to say</p>
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center">
-              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img  src="/contact/sales/ceo-avatar.jpg" alt="" class="rounded-full flex items-center justify-center mx-auto mb-4">
-              </div>
-              <blockquote class="text-gray-600 italic mb-4">"Professional team, excellent service, the video produced completely exceeded our expectations!"</blockquote>
-              <div class="font-semibold text-gray-900">Mr. Zhang</div>
-              <div class="text-sm text-gray-500">Tech Company CEO</div>
-            </div>
-            
-            <div class="text-center">
-              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img  src="/contact/sales/operations-director-avatar.jpg" alt="" class="rounded-full flex items-center justify-center mx-auto mb-4">
-              </div>
-              <blockquote class="text-gray-600 italic mb-4">"Very professional from planning to execution, great video results, very pleasant cooperation!"</blockquote>
-              <div class="font-semibold text-gray-900">Manager Li</div>
-              <div class="text-sm text-gray-500">Brand Marketing Director</div>
-            </div>
-            
-            <div class="text-center">
-              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img  src="/contact/sales/creative-director-avatar.jpg" alt="" class="rounded-full flex items-center justify-center mx-auto mb-4">
-              </div>
-              <blockquote class="text-gray-600 italic mb-4">"Efficient workflow, excellent creative performance, trustworthy partner!"</blockquote>
-              <div class="font-semibold text-gray-900">Director Wang</div>
-              <div class="text-sm text-gray-500">Event Planning Manager</div>
-            </div>
+        <div class="text-center mt-16">
+          <div class="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">🎯 Professional Guarantee</h3>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Every step is handled by professional teams to ensure content quality and publication effectiveness. We commit to completing all work within agreed timeframes and providing detailed execution reports.
+            </p>
+            <a href="#contact" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200">
+              Start Your Project
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-700 section-padding relative overflow-hidden">
+    <section class="relative py-20 overflow-hidden">
+      <!-- Background Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700"></div>
+      
       <!-- Background Decoration -->
       <div class="absolute inset-0">
-        <div class="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-        <div class="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
-        <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
+        <div class="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-300/10 rounded-full blur-2xl transform -translate-x-1/2 -translate-y-1/2"></div>
       </div>
       
       <div class="container relative z-10">
-        <div class="text-center text-white">
-          <h2 class="text-3xl lg:text-5xl font-bold mb-6">Ready to Create Stunning Videos?</h2>
-          <p class="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
-            Professional video production team ready to help you create compelling visual content that makes your brand story resonate deeply
+        <div class="text-center max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            Ready to Start Your
+            <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Media Publishing</span>
+            Project?
+          </h2>
+          <p class="text-xl lg:text-2xl text-blue-100 mb-8 leading-relaxed">
+            Contact our professional team to get personalized media publishing solutions
           </p>
           
           <!-- Feature Highlights -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="flex items-center justify-center">
-              <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div class="text-left">
-                <div class="font-semibold">Quick Response</div>
-                <div class="text-sm text-purple-200">24-hour response</div>
-              </div>
+          <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <div class="text-3xl mb-3">⚡</div>
+              <h3 class="text-white font-semibold mb-2">Rapid Response</h3>
+              <p class="text-blue-100 text-sm">Professional reply within 24 hours</p>
             </div>
-            <div class="flex items-center justify-center">
-              <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-              </div>
-              <div class="text-left">
-                <div class="font-semibold">Quality Assurance</div>
-                <div class="text-sm text-purple-200">Professional guarantee</div>
-              </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <div class="text-3xl mb-3">🎯</div>
+              <h3 class="text-white font-semibold mb-2">Precise Targeting</h3>
+              <p class="text-blue-100 text-sm">Customized media strategies</p>
             </div>
-            <div class="flex items-center justify-center">
-              <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                </svg>
-              </div>
-              <div class="text-left">
-                <div class="font-semibold">Professional Team</div>
-                <div class="text-sm text-purple-200">8+ years experience</div>
-              </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+              <div class="text-3xl mb-3">📈</div>
+              <h3 class="text-white font-semibold mb-2">Results Guarantee</h3>
+              <p class="text-blue-100 text-sm">Data-driven outcomes</p>
             </div>
           </div>
           
           <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/en/contact" class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">
-              Get Free Consultation
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <a href="#contact" class="group inline-flex items-center px-8 py-4 bg-white text-blue-600 font-bold rounded-2xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-1">
+              <svg class="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.013 8.013 0 01-7-4L3 20l4-4a8.014 8.014 0 01-4-7c0-4.418 3.582-8 8-8s8 3.582 8 8z"></path>
+              </svg>
+              Get Consultation Now
             </a>
-            <a href="tel:+85512345678" class="border-2 border-white/50 text-white hover:bg-white/10 font-bold py-4 px-8 rounded-xl transition-all duration-200">
-              Call Now: +855 12 345 678
+            <a href="tel:400-123-4567" class="group inline-flex items-center px-8 py-4 border-2 border-white text-white font-bold rounded-2xl hover:bg-white hover:text-blue-600 transition-all duration-200 hover:-translate-y-1">
+              <svg class="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              400-123-4567
             </a>
           </div>
           
           <!-- Trust Indicators -->
-          <div class="mt-12 pt-8 border-t border-white/20">
-            <div class="flex flex-wrap items-center justify-center gap-8 text-sm text-purple-200">
-              <div class="flex items-center">
-                <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                500+ Success Cases
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-                </svg>
-                98% Client Satisfaction
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                24h Quick Response
-              </div>
+          <div class="text-center">
+            <p class="text-blue-200 text-sm mb-4">Serving 500+ enterprises with professional services</p>
+            <div class="flex justify-center items-center space-x-8 opacity-60">
+              <div class="text-white text-xs">✓ Professional Team</div>
+              <div class="text-white text-xs">✓ Quality Guarantee</div>
+              <div class="text-white text-xs">✓ Results Promise</div>
             </div>
           </div>
         </div>
@@ -867,26 +606,3 @@ import Footer from '../../../components/Footer.astro';
   
   <Footer />
 </Layout>
-
-<style>
-  .section-padding {
-    @apply py-16 lg:py-24;
-  }
-  
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-</style>
