@@ -49,34 +49,38 @@ const t = useTranslations(lang);
 
       <!-- 语言切换和CTA -->
       <div class="hidden lg:flex items-center space-x-4">
-        <!-- 语言切换 -->
-        <div class="relative group">
-          <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-            </svg>
-            {lang === 'zh' ? '中文' : 'English'}
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-1">
-              <a href={Astro.url.pathname.replace('/en', '') || '/'} 
-                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
-                 title="切换到中文">
-                中文
-              </a>
-              <a href={'/en' + (Astro.url.pathname === '/' ? '' : Astro.url.pathname)} 
-                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
-                 title="Switch to English">
-                English
-              </a>
+            <!-- 语言切换 -->
+            <div class="relative group">
+              <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                </svg>
+                {lang === 'zh' ? '中文' : 'English'}
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div class="py-1">
+                  <a 
+                    href={Astro.url.pathname.replace(/^\/en/, '') || '/'} 
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                    title="切换到中文"
+                  >
+                    中文
+                  </a>
+                  <a 
+                    href={Astro.url.pathname.startsWith('/en') ? Astro.url.pathname : '/en' + (Astro.url.pathname === '/' ? '' : Astro.url.pathname)} 
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                    title="Switch to English"
+                  >
+                    English
+                  </a>
+                </div>
+              </div>
             </div>
+            <a href="/contact" class="btn-primary text-sm py-2 px-4">免费咨询</a>
           </div>
-        </div>
-        <a href="/contact" class="btn-primary text-sm py-2 px-4">免费咨询</a>
-      </div>
 
       <!-- 移动端菜单按钮 -->
       <div class="md:hidden">
