@@ -50,7 +50,7 @@ import Footer from '../../../components/Footer.astro';
             
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" class="bg-white text-purple-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">
+              <a href="/en/contact" class="bg-white text-purple-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">
                 Get Consultation
               </a>
               <a href="#cases" class="border-2 border-white/50 text-white hover:bg-white/10 font-semibold py-4 px-8 rounded-xl transition-all duration-200">
@@ -436,7 +436,7 @@ import Footer from '../../../components/Footer.astro';
     </section>
 
     <!-- Short Video Case Showcase -->
-    <section class="section-padding bg-gradient-to-br from-gray-50 to-purple-50">
+    <section id="cases" class="section-padding bg-gradient-to-br from-gray-50 to-purple-50">
       <div class="container">
         <div class="text-center mb-16">
           <div class="inline-flex items-center bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6 shadow-lg">
@@ -452,6 +452,7 @@ import Footer from '../../../components/Footer.astro';
         <!-- Video Case Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <!-- Case 1 -->
+        <a href="https://www.tiktok.com/@tnaot.cn/video/7513100949758446855?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="block">
           <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
             <div class="relative overflow-hidden">
               <div class="aspect-[9/16] bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 flex items-center justify-center relative">
@@ -497,8 +498,10 @@ import Footer from '../../../components/Footer.astro';
               </div>
             </div>
           </div>
-          
+        </a>
+
           <!-- Case 2 -->
+        <a href="https://www.tiktok.com/@tnaot.cn/video/7520945613295373586?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="block">
           <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
             <div class="relative overflow-hidden">
               <div class="aspect-[9/16] bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-600 flex items-center justify-center relative">
@@ -544,8 +547,10 @@ import Footer from '../../../components/Footer.astro';
               </div>
             </div>
           </div>
-          
+        </a>
+
           <!-- Case 3 -->
+        <a href="https://www.tiktok.com/@tnaot.cn/video/7459398013098675464?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="block">
           <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
             <div class="relative overflow-hidden">
               <div class="aspect-[9/16] bg-gradient-to-br from-green-400 via-emerald-500 to-cyan-600 flex items-center justify-center relative">
@@ -593,6 +598,7 @@ import Footer from '../../../components/Footer.astro';
           </div>
         </div>
       </div>
+    </a>
     </section>
 
     <!-- Success Cases -->
@@ -738,7 +744,7 @@ import Footer from '../../../components/Footer.astro';
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="text-center">
               <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-2xl font-bold text-blue-600">A</span>
+                <img  src="/contact/sales/ceo-avatar.jpg" alt="" class="rounded-full flex items-center justify-center mx-auto mb-4">
               </div>
               <blockquote class="text-gray-600 italic mb-4">"Professional team, excellent service, the video produced completely exceeded our expectations!"</blockquote>
               <div class="font-semibold text-gray-900">Mr. Zhang</div>
@@ -747,7 +753,7 @@ import Footer from '../../../components/Footer.astro';
             
             <div class="text-center">
               <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-2xl font-bold text-green-600">B</span>
+                <img  src="/contact/sales/operations-director-avatar.jpg" alt="" class="rounded-full flex items-center justify-center mx-auto mb-4">
               </div>
               <blockquote class="text-gray-600 italic mb-4">"Very professional from planning to execution, great video results, very pleasant cooperation!"</blockquote>
               <div class="font-semibold text-gray-900">Manager Li</div>
@@ -756,7 +762,7 @@ import Footer from '../../../components/Footer.astro';
             
             <div class="text-center">
               <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-2xl font-bold text-purple-600">C</span>
+                <img  src="/contact/sales/creative-director-avatar.jpg" alt="" class="rounded-full flex items-center justify-center mx-auto mb-4">
               </div>
               <blockquote class="text-gray-600 italic mb-4">"Efficient workflow, excellent creative performance, trustworthy partner!"</blockquote>
               <div class="font-semibold text-gray-900">Director Wang</div>
@@ -822,7 +828,7 @@ import Footer from '../../../components/Footer.astro';
           
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">
+            <a href="/en/contact" class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">
               Get Free Consultation
             </a>
             <a href="tel:+85512345678" class="border-2 border-white/50 text-white hover:bg-white/10 font-bold py-4 px-8 rounded-xl transition-all duration-200">

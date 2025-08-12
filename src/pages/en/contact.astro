@@ -14,36 +14,44 @@ const seo = {
 // Sales Team Contact Information
 const salesTeam = [
   {
-    name: 'Sarah Chen',
-    position: 'Senior Account Manager',
-    phone: '+855 23922788',
-    email: 'sarah@kohmedia.com',
-    wechat: '/images/qr/sarah-wechat.png',
-    expertise: ['Media Publishing', 'Brand Strategy', 'Content Marketing']
+    name: 'Cheng Huyleng',
+    position: 'Marketing and Sales Director',
+    phone: '010 688 511',
+    email: 'chenghuyleng@gmail.com',
+    qrCode: '/contact/sales/wechat-cheng.png',
+    wechatQr: '/contact/sales/wechat-cheng.png',
+    telegramQr: '/contact/sales/telegram-cheng.png',
+    speciality: 'Marketing strategy, sales management'
   },
   {
-    name: 'David Wong',
-    position: 'Creative Director',
-    phone: '+855 23922789',
-    email: 'david@kohmedia.com',
-    wechat: '/images/qr/david-wechat.png',
-    expertise: ['Video Production', 'Creative Design', 'Brand Identity']
+    name: 'Chen Vicheka',
+    position: 'Marketing Sales Specialist',
+    phone: '061 520 158',
+    email: 'vicheka.chen@gmail.com',
+    qrCode: '/contact/sales/wechat-vicheka.png',
+    wechatQr: '/contact/sales/wechat-vicheka.png',
+    telegramQr: '/contact/sales/telegram-vicheka.png',
+    speciality: 'Marketing execution, customer development'
   },
   {
-    name: 'Lisa Kim',
-    position: 'Event Planning Manager',
-    phone: '+855 23922790',
-    email: 'lisa@kohmedia.com',
-    wechat: '/images/qr/lisa-wechat.png',
-    expertise: ['Event Planning', 'Project Management', 'Venue Coordination']
+    name: 'Chea Bunlay',
+    position: 'Marketing Sales Specialist',
+    phone: '093 938 282 / 077 741 000',
+    email: 'cheabunlaynu@gmail.com',
+    qrCode: '/contact/sales/wechat-bunlay.png',
+    wechatQr: '/contact/sales/wechat-bunlay.png',
+    telegramQr: '/contact/sales/telegram-bunlay.png',
+    speciality: 'Marketing execution, sales support'
   },
   {
-    name: 'Michael Zhang',
-    position: 'Digital Marketing Specialist',
-    phone: '+855 23922791',
-    email: 'michael@kohmedia.com',
-    wechat: '/images/qr/michael-wechat.png',
-    expertise: ['Social Media Marketing', 'SEO/SEM', 'Data Analytics']
+    name: 'Kang Souheng',
+    position: 'Event Director',
+    phone: '071 848 2828',
+    email: 'kangsouheng28@gmail.com',
+    qrCode: '/contact/sales/wechat-souheng.png',
+    wechatQr: '/contact/sales/wechat-souheng.png',
+    telegramQr: '/contact/sales/telegram-souheng.png',
+    speciality: 'Event planning and project supervision'
   }
 ];
 
@@ -63,28 +71,28 @@ const officeHours = {
 };
 
 // FAQ Data
-const faqs = [
-  {
-    question: 'What services does TNAOT Media provide?',
-    answer: 'We provide comprehensive media and marketing services including media publishing, creative production, event planning, digital marketing, and technical services.'
-  },
-  {
-    question: 'How long does it take to get a project quote?',
-    answer: 'We typically provide initial quotes within 24 hours. For complex projects, we may need 2-3 business days to provide a detailed proposal.'
-  },
-  {
-    question: 'Do you provide services in multiple languages?',
-    answer: 'Yes, we provide services in Chinese, English, and Khmer to meet the diverse needs of our clients in Cambodia and the region.'
-  },
-  {
-    question: 'What is your payment process?',
-    answer: 'We typically require 50% payment upfront and 50% upon project completion. For long-term projects, we can arrange milestone-based payments.'
-  },
-  {
-    question: 'Do you provide post-project support?',
-    answer: 'Yes, we provide comprehensive post-project support including maintenance, updates, and ongoing consultation services.'
-  }
-];
+// const faqs = [
+//   {
+//     question: 'What services does TNAOT Media provide?',
+//     answer: 'We provide comprehensive media and marketing services including media publishing, creative production, event planning, digital marketing, and technical services.'
+//   },
+//   {
+//     question: 'How long does it take to get a project quote?',
+//     answer: 'We typically provide initial quotes within 24 hours. For complex projects, we may need 2-3 business days to provide a detailed proposal.'
+//   },
+//   {
+//     question: 'Do you provide services in multiple languages?',
+//     answer: 'Yes, we provide services in Chinese, English, and Khmer to meet the diverse needs of our clients in Cambodia and the region.'
+//   },
+//   {
+//     question: 'What is your payment process?',
+//     answer: 'We typically require 50% payment upfront and 50% upon project completion. For long-term projects, we can arrange milestone-based payments.'
+//   },
+//   {
+//     question: 'Do you provide post-project support?',
+//     answer: 'Yes, we provide comprehensive post-project support including maintenance, updates, and ongoing consultation services.'
+//   }
+// ];
 ---
 
 <Layout title={seo.title} description={seo.description}>
@@ -96,32 +104,32 @@ const faqs = [
       <div class="container">
         <div class="max-w-4xl mx-auto text-center">
           <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-          <p class="text-xl md:text-2xl text-red-100 mb-8">Professional consultation services, 24/7 customer support</p>
-          <div class="flex flex-wrap justify-center gap-4">
+          <p class="text-xl md:text-2xl text-red-100 mb-8">Professional media communication service team, ready to provide you with consultation and support at any time</p>
+          <!-- <div class="flex flex-wrap justify-center gap-4">
             <a href="tel:+855 23922788" class="bg-white text-red-600 font-semibold py-3 px-6 rounded-lg hover:bg-red-50 transition-colors">
               📞 Call Now
             </a>
             <a href="#contact-form" class="border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-red-600 transition-colors">
               💬 Send Message
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
 
     <!-- Contact Information -->
-    <section class="section-padding">
+    <!-- <section class="section-padding">
       <div class="container">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
           <p class="text-xl text-gray-600">Choose the most convenient way to contact us</p>
         </div>
         
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto"> -->
           <!-- Company Contact Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"> -->
             <!-- Phone -->
-            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+            <!-- <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
               <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
@@ -130,10 +138,10 @@ const faqs = [
               <h3 class="text-lg font-bold text-gray-900 mb-2">Phone</h3>
               <p class="text-gray-600 mb-3">Call us directly</p>
               <a href="tel:+855 23922788" class="text-red-600 font-semibold hover:text-red-700">{companyInfo.phone}</a>
-            </div>
+            </div> -->
             
             <!-- Email -->
-            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+            <!-- <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
               <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -143,10 +151,10 @@ const faqs = [
               <h3 class="text-lg font-bold text-gray-900 mb-2">Email</h3>
               <p class="text-gray-600 mb-3">Send us an email</p>
               <a href="mailto:info@kohmedia.com" class="text-red-600 font-semibold hover:text-red-700">{companyInfo.email}</a>
-            </div>
+            </div> -->
             
             <!-- WeChat -->
-            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+            <!-- <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
               <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 4.882-1.786 7.102-.54-.54-2.411-3.022-4.634-6.845-4.634zM6.5 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm5 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
@@ -156,10 +164,10 @@ const faqs = [
               <h3 class="text-lg font-bold text-gray-900 mb-2">WeChat</h3>
               <p class="text-gray-600 mb-3">Add us on WeChat</p>
               <span class="text-red-600 font-semibold">{companyInfo.wechat}</span>
-            </div>
+            </div> -->
             
             <!-- Office Hours -->
-            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+            <!-- <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
               <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
@@ -169,10 +177,10 @@ const faqs = [
               <p class="text-gray-600 mb-1">Mon-Sat: 9:00-18:00</p>
               <p class="text-gray-600">Sunday: Closed</p>
             </div>
-          </div>
+          </div> -->
           
           <!-- Sales Team -->
-          <div class="mb-16">
+          <!-- <div class="mb-16">
             <div class="text-center mb-12">
               <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Our Sales Team</h3>
               <p class="text-lg text-gray-600">Professional consultants ready to help you</p>
@@ -220,112 +228,154 @@ const faqs = [
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Contact Form -->
-    <section id="contact-form" class="section-padding bg-white">
-      <div class="container">
-        <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Left: FAQ -->
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
-              <p class="text-gray-600 mb-8">Find answers to common questions about our services</p>
-              
-              <div class="space-y-4">
-                {faqs.map((faq, index) => (
-                  <div class="bg-gray-50 rounded-lg p-6">
-                    <button class="w-full text-left" onclick={`toggleFaq(${index})`}>
-                      <div class="flex justify-between items-center">
-                        <h4 class="text-lg font-semibold text-gray-900">{faq.question}</h4>
-                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" id={`faq-icon-${index}`} fill="currentColor" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                        </svg>
+ <!-- Contact information and form-->
+ <section class="section-padding bg-white">
+  <div class="container">
+
+    
+    <div class="max-w-7xl mx-auto">
+      <!-- Two-column layout of contact information and form -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact information (horizontal layout） -->
+        <div class="space-y-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Sales Team</h3>
+          
+          <!-- Contact card (simple horizontal layout) -->
+          <div class="space-y-4">
+            {salesTeam.map(member => (
+              <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-all duration-300">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                  <!-- Basic Information -->
+                  <div class="flex-1">
+                    <div class="flex items-center gap-4 mb-3">
+                      <div>
+                        <h3 class="text-lg font-bold text-gray-900">{member.name}</h3>
+                        <span class="inline-block bg-red-100 text-red-700 text-sm font-medium px-3 py-1 rounded-full">{member.position}</span>
                       </div>
-                    </button>
-                    <div class="mt-4 hidden" id={`faq-answer-${index}`}>
-                      <p class="text-gray-600">{faq.answer}</p>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">{member.speciality}</p>
+                    
+                    <!-- Contact Information" or "Contact Details -->
+                    <div class=" flex-col sm:flex-row gap-4">
+                      <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 bg-red-100 rounded-md flex items-center justify-center">
+                          <svg class="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                          </svg>
+                        </div>
+                        <a href={`tel:${member.phone}`} class="text-gray-700 hover:text-red-600 transition-colors text-sm font-medium">{member.phone}</a>
+                      </div>
+                      
+                      <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 bg-red-100 rounded-md flex items-center justify-center">
+                          <svg class="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                          </svg>
+                        </div>
+                        <a href={`mailto:${member.email}`} class="text-gray-700 hover:text-red-600 transition-colors text-sm font-medium truncate">{member.email}</a>
+                      </div>
                     </div>
                   </div>
-                ))}
+                  
+                  <!-- QR Code Area -->
+                  <div class="flex-shrink-0">
+                    <div class="flex gap-3">
+                      <!-- WeChat QR Code-->
+                      <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <img src={member.wechatQr} alt={`${member.name}的微信二维码`} class="w-16 h-16 mx-auto object-contain mb-2" />
+                        <p class="text-xs text-gray-600 font-medium">WeChat scan code</p>
+                      </div>
+                      <!-- Telegram QR Code-->
+                      <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <img src={member.telegramQr} alt={`${member.name}的Telegram二维码`} class="w-16 h-16 mx-auto object-contain mb-2" />
+                        <p class="text-xs text-gray-600 font-medium">Telegram</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Right side: Contact form -->
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-md">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a message</h3>
+          <p class="text-gray-600 mb-8">Fill out the form below and we will respond to you within 24 hours</p>
+          
+          <form class="space-y-6" id="contactForm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                <input type="text" id="name" name="name" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+              </div>
+              <div>
+                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                <input type="text" id="company" name="company" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
               </div>
             </div>
             
-            <!-- Right: Contact Form -->
-            <div class="bg-gray-50 rounded-2xl p-8 shadow-md">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Message</h3>
-              <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours</p>
-              
-              <form class="space-y-6" id="contactForm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
-                    <input type="text" id="name" name="name" required 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                  </div>
-                  <div>
-                    <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company</label>
-                    <input type="text" id="company" name="company" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                  </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                    <input type="email" id="email" name="email" required 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                  </div>
-                  <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
-                    <input type="tel" id="phone" name="phone" required 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                  </div>
-                </div>
-                
-                <div>
-                  <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service of Interest</label>
-                  <select id="service" name="service" 
-                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                    <option value="">Please select service type</option>
-                    <option value="media-publishing">Media Publishing</option>
-                    <option value="creative-production">Creative Production</option>
-                    <option value="event-planning">Event Planning & Execution</option>
-                    <option value="digital-marketing">Digital Marketing</option>
-                    <option value="technical-services">Technical Services</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
-                  <select id="budget" name="budget" 
-                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                    <option value="">Please select budget range</option>
-                    <option value="under-10k">Under $10,000</option>
-                    <option value="10k-50k">$10,000 - $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="100k-500k">$100,000 - $500,000</option>
-                    <option value="over-500k">Over $500,000</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Detailed Requirements *</label>
-                  <textarea id="message" name="message" rows="5" required 
-                            placeholder="Please describe your requirements and expectations in detail..."
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
-                </div>
-                
-                <button type="submit" 
-                        class="w-full bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition-colors duration-200">
-                  Send Message
-                </button>
-              </form>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Mail *</label>
+                <input type="email" id="email" name="email" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telephone *</label>
+                <input type="tel" id="phone" name="phone" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+              </div>
             </div>
-          </div>
+            
+            <div>
+              <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Services of interest</label>
+              <select id="service" name="service" 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                <option value="">Please select the service type</option>
+                <option value="media-publishing">Media submission release</option>
+                <option value="creative-production">Creative Production</option>
+                <option value="event-planning">Event planning and execution</option>
+                <option value="digital-marketing">Digital Marketing</option>
+                <option value="technical-services">Technical Services</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Budget range</label>
+              <select id="budget" name="budget" 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                <option value="">Please select a budget range</option>
+                <option value="under-10k">Less than 10,000</option>
+                <option value="10k-50k">10,000 - 50,000</option>
+                <option value="50k-100k">50,000 - 100,000</option>
+                <option value="100k-500k">100,000 - 500,000</option>
+                <option value="over-500k">More than 500,000</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Detailed requirements *</label>
+              <textarea id="message" name="message" rows="5" required 
+                        placeholder="Please describe your needs and expectations in detail..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+            </div>
+            
+            <button type="submit" 
+                    class="w-full bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                    Send a Message
+            </button>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Company Location -->
     <section class="section-padding bg-gray-50">
