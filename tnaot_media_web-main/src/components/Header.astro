@@ -1,0 +1,137 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<header class="bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
+  <nav class="container">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="flex items-center space-x-2">
+          <img src="/logo.png" alt="Logo" class="w-8 h-8">
+          <span class="text-xl font-bold text-gray-900">{t('brand.name')}</span>
+        </a>
+      </div>
+
+      <!-- 导航菜单 -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          <a href={lang === 'zh' ? '/' : '/en'} class="text-gray-900 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">{t('nav.home')}</a>
+          <a href={lang === 'zh' ? '/products' : '/en/products'} class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">{t('nav.products')}</a>
+          <div class="relative group">
+            <button class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
+              {t('nav.services')}
+              <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-1">
+                <a href={lang === 'zh' ? '/services' : '/en/services'} class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 font-medium border-b border-gray-100">📋 {t('nav.allServices')}</a>
+                <a href={lang === 'zh' ? '/services/media-publishing' : '/en/services/media-publishing'} class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">📰 {t('nav.mediaPublishing')}</a>
+                <a href={lang === 'zh' ? '/services/video-production' : '/en/services/video-production'} class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">🎬 {t('nav.videoProduction')}</a>
+                <a href={lang === 'zh' ? '/services/event-planning' : '/en/services/event-planning'} class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">🎉 {t('nav.eventPlanning')}</a>
+                <a href={lang === 'zh' ? '/services/social-media' : '/en/services/social-media'} class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">🎯 {t('nav.socialMedia')}</a>
+                <a href={lang === 'zh' ? '/services/digital-tech' : '/en/services/digital-tech'} class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600">💻 {t('nav.digitalTech')}</a>
+              </div>
+            </div>
+          </div>
+          <a href={lang === 'zh' ? '/cases' : '/en/cases'} class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">{t('nav.cases')}</a>
+          <a href={lang === 'zh' ? '/about' : '/en/about'} class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">{t('nav.about')}</a>
+          <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="text-gray-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">{t('nav.contact')}</a>
+          
+
+        </div>
+      </div>
+
+      <!-- 语言切换和CTA -->
+      <div class="hidden lg:flex items-center space-x-4">
+        <!-- 语言切换 -->
+        <div class="relative group">
+          <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+            </svg>
+            {lang === 'zh' ? '中文' : 'English'}
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-1">
+              <a href={Astro.url.pathname.replace('/en', '') || '/'} 
+                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                 title="切换到中文">
+                中文
+              </a>
+              <a href={'/en' + (Astro.url.pathname === '/' ? '' : Astro.url.pathname)} 
+                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                 title="Switch to English">
+                English
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="/contact" class="btn-primary text-sm py-2 px-4">免费咨询</a>
+      </div>
+
+      <!-- 移动端菜单按钮 -->
+      <div class="md:hidden">
+        <button type="button" class="mobile-menu-button text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+        <a href={lang === 'zh' ? '/' : '/en'} class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-blue-50 rounded-md">{t('nav.home')}</a>
+        <a href={lang === 'zh' ? '/products' : '/en/products'} class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">{t('nav.products')}</a>
+        <a href={lang === 'zh' ? '/services' : '/en/services'} class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">{t('nav.services')}</a>
+        <a href={lang === 'zh' ? '/cases' : '/en/cases'} class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">{t('nav.cases')}</a>
+        <a href={lang === 'zh' ? '/about' : '/en/about'} class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">{t('nav.about')}</a>
+        <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md">{t('nav.contact')}</a>
+        
+        <!-- 移动端语言切换 -->
+        <div class="border-t border-gray-200 pt-2 mt-2">
+          <div class="px-3 py-1">
+            <div class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Language</div>
+            <a href={Astro.url.pathname.replace('/en', '') || '/'} 
+               class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+               title="切换到中文">
+              中文
+            </a>
+            <a href={'/en' + (Astro.url.pathname === '/' ? '' : Astro.url.pathname)} 
+               class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+               title="Switch to English">
+              English
+            </a>
+          </div>
+        </div>
+        <div class="pt-4 pb-2">
+          <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="block w-full text-center btn-primary">{lang === 'zh' ? '免费咨询' : 'Free Consultation'}</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // 移动端菜单切换
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

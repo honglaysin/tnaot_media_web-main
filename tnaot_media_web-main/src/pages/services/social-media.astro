@@ -1,0 +1,403 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// 服务详情数据
+const serviceDetails = {
+  title: '社交媒体运营服务',
+  subtitle: '专业的中外社交媒体管理，助力品牌在柬埔寨市场脱颖而出',
+  heroImage: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=600&fit=crop',
+  description: '我们提供全方位的社交媒体运营服务，覆盖中国和海外主流平台，包括内容策划、账号管理、粉丝互动、数据分析等，帮助您在柬埔寨本土市场建立强大的品牌影响力。',
+  features: [
+    {
+      title: '主流平台管理',
+      description: '覆盖中国和海外主流社交媒体平台，实现柬埔寨本土化品牌传播',
+      icon: '📱'
+    },
+    {
+      title: '本土化内容',
+      description: '针对柬埔寨文化特色，创作符合当地用户喜好的内容',
+      icon: '🎨'
+    },
+    {
+      title: '跨文化运营',
+      description: '专业的跨文化团队，精准把握中外用户在柬埔寨的需求差异',
+      icon: '👥'
+    },
+    {
+      title: '多语言服务',
+      description: '提供中文、英文、高棉语等多语言内容创作和客户服务',
+      icon: '🗣️'
+    },
+    {
+      title: '数据分析',
+      description: '深度数据分析，优化运营策略，提升在柬埔寨市场的传播效果',
+      icon: '📈'
+    },
+    {
+      title: '合规运营',
+      description: '严格遵守柬埔寨法律法规，确保品牌安全合规运营',
+      icon: '⚖️'
+    }
+  ],
+  packages: [
+    {
+      name: '中国用户套餐',
+      price: '$3,000/月',
+      description: '专注在柬中国用户群体运营',
+      features: [
+        '微信、抖音、小红书管理',
+        '每周5-7条中文内容发布',
+        '中国文化内容策划',
+        '中文客服支持',
+        '月度数据报告',
+        '中国节假日营销'
+      ]
+    },
+    {
+      name: '本土市场套餐',
+      price: '$3,500/月',
+      description: '专注柬埔寨本土用户运营',
+      features: [
+        'Facebook、TikTok、YouTube管理',
+        '每周5-7条多语言内容发布',
+        '柬埔寨本土化内容策划',
+        '高棉语/英文客服支持',
+        '双周数据分析',
+        '柬埔寨节日营销'
+      ],
+      popular: true
+    },
+    {
+      name: '全平台套餐',
+      price: '$5,000/月',
+      description: '中外平台全覆盖，适合综合性企业',
+      features: [
+        '全部6个平台管理',
+        '每周5-7条多语言内容发布',
+        '中国+柬埔寨双重本土化策略',
+        '24小时多语言客服',
+        '周度深度数据分析',
+        '本土KOL合作对接',
+        '危机公关处理',
+        '专属客户经理'
+      ]
+    }
+  ],
+  chinesePlatforms: [
+    {
+      name: '微信公众号',
+      icon: '💬',
+      description: '深度内容营销，建立品牌权威性',
+      features: ['图文推送', '菜单设计', '粉丝互动', '数据分析']
+    },
+    {
+      name: '抖音',
+      icon: '🎵',
+      description: '短视频营销，触达年轻用户群体',
+      features: ['视频制作', '直播策划', '话题挑战', '达人合作']
+    },
+    {
+      name: '小红书',
+      icon: '📖',
+      description: '种草营销，提升产品转化率',
+      features: ['笔记发布', '话题运营', 'KOL合作', '电商转化']
+    }
+  ],
+  overseasPlatforms: [
+    {
+      name: 'Facebook',
+      icon: '📘',
+      description: '柬埔寨最受欢迎的社交平台，精准广告投放',
+      features: ['页面管理', '广告投放', '社群运营', '数据分析']
+    },
+    {
+      name: 'TikTok',
+      icon: '🎬',
+      description: '年轻用户首选短视频平台，病毒式传播',
+      features: ['短视频制作', '挑战赛', '直播带货', '创意营销']
+    },
+    {
+      name: 'YouTube',
+      icon: '📹',
+      description: '视频内容营销，长期品牌建设',
+      features: ['视频制作', '频道运营', 'SEO优化', '广告变现']
+    }
+  ],
+  process: [
+    {
+      step: '01',
+      title: '品牌分析',
+      description: '深入了解品牌定位、目标用户和竞争环境'
+    },
+    {
+      step: '02',
+      title: '策略制定',
+      description: '制定个性化的社交媒体运营策略和内容规划'
+    },
+    {
+      step: '03',
+      title: '内容创作',
+      description: '专业团队创作高质量的图文、视频等内容'
+    },
+    {
+      step: '04',
+      title: '发布管理',
+      description: '按计划在各平台发布内容，优化发布时机'
+    },
+    {
+      step: '05',
+      title: '互动运营',
+      description: '积极与粉丝互动，建立良好的社区氛围'
+    },
+    {
+      step: '06',
+      title: '数据优化',
+      description: '分析运营数据，持续优化内容和策略'
+    }
+  ],
+  cases: [
+    {
+      title: '某美妆品牌在柬双平台运营',
+      description: '为某国际美妆品牌在柬埔寨提供小红书+Facebook双平台运营服务，通过中文种草内容服务在柬中国用户，高棉语时尚营销覆盖本土用户',
+      image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=300&fit=crop',
+      results: ['小红书在柬粉丝增长200%', 'Facebook本土互动率提升180%', '柬埔寨市场销售额提升250%', '本土化转化率15%']
+    },
+    {
+      title: '某科技公司TikTok+抖音柬埔寨营销',
+      description: '为某B2B科技公司在柬埔寨打造中外短视频营销矩阵，通过中文专业内容和高棉语直播活动，成功拓展柬埔寨企业客户',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop',
+      results: ['柬埔寨地区粉丝50万+', '多语言直播观看量100万+', '柬埔寨商业线索增长200%', '品牌在柬知名度大幅提升']
+    },
+    {
+      title: '某餐饮品牌柬埔寨全平台运营',
+      description: '为某连锁餐饮品牌在柬埔寨提供Facebook、微信等全平台运营，通过本土化美食内容和柬埔寨文化营销，成功扎根柬埔寨市场',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop',
+      results: ['柬埔寨粉丝100万+', '柬埔寨门店客流量增长80%', '本土外卖订单增长120%', '柬埔寨市场成功落地']
+    }
+  ]
+};
+---
+
+<Layout title={serviceDetails.title}>
+  <Header />
+  
+  <main class="pt-16">
+    <!-- 服务介绍区域 -->
+    <section class="relative bg-gradient-to-r from-pink-500 to-purple-600 text-white py-20 overflow-hidden">
+      <!-- 背景图片 -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style="background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 600&quot;><defs><linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.1&quot; /><stop offset=&quot;100%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.05&quot; /></linearGradient></defs><rect width=&quot;1200&quot; height=&quot;600&quot; fill=&quot;url(%23grad1)&quot; /><circle cx=&quot;300&quot; cy=&quot;100&quot; r=&quot;50&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.1&quot; /><circle cx=&quot;700&quot; cy=&quot;250&quot; r=&quot;80&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /><circle cx=&quot;1050&quot; cy=&quot;150&quot; r=&quot;60&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.12&quot; /><rect x=&quot;150&quot; y=&quot;350&quot; width=&quot;120&quot; height=&quot;120&quot; rx=&quot;20&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.06&quot; /><polygon points=&quot;500,450 600,400 700,500 600,550&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /></svg>');"></div>
+      
+      <!-- 内容 -->
+      <div class="container relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">{serviceDetails.title}</h1>
+          <p class="text-xl md:text-2xl mb-8 text-pink-100 drop-shadow-md">{serviceDetails.subtitle}</p>
+          <p class="text-lg leading-relaxed drop-shadow-sm">{serviceDetails.description}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务特色 -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">服务特色</h2>
+          <p class="text-xl text-gray-600">全方位的社交媒体运营解决方案</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviceDetails.features.map(feature => (
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 平台覆盖 -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">平台覆盖</h2>
+          <p class="text-xl text-gray-600">覆盖中国和海外主流社交媒体平台，精准触达柬埔寨本土用户</p>
+        </div>
+        
+        <!-- 中国社交媒体平台 -->
+        <div class="mb-16">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">🇨🇳 中国社交媒体平台</h3>
+            <p class="text-lg text-gray-600">服务在柬中国用户群体，建立品牌影响力</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceDetails.chinesePlatforms.map(platform => (
+              <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="text-3xl mr-4">{platform.icon}</div>
+                  <h4 class="text-xl font-bold text-gray-900">{platform.name}</h4>
+                </div>
+                <p class="text-gray-600 mb-4">{platform.description}</p>
+                <ul class="space-y-2">
+                  {platform.features.map(feature => (
+                    <li class="flex items-center text-sm text-gray-700">
+                      <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- 海外社交媒体平台 -->
+        <div>
+          <div class="text-center mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">🇰🇭 海外社交媒体平台</h3>
+            <p class="text-lg text-gray-600">深耕柬埔寨本土市场，连接当地用户</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceDetails.overseasPlatforms.map(platform => (
+              <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="text-3xl mr-4">{platform.icon}</div>
+                  <h4 class="text-xl font-bold text-gray-900">{platform.name}</h4>
+                </div>
+                <p class="text-gray-600 mb-4">{platform.description}</p>
+                <ul class="space-y-2">
+                  {platform.features.map(feature => (
+                    <li class="flex items-center text-sm text-gray-700">
+                      <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务套餐 -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">服务套餐</h2>
+          <p class="text-xl text-gray-600">选择适合您需求的运营套餐</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {serviceDetails.packages.map(pkg => (
+            <div class={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 ${pkg.popular ? 'ring-2 ring-pink-500 relative' : ''}`}>
+              {pkg.popular && (
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span class="bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium">推荐</span>
+                </div>
+              )}
+              <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
+                <div class="text-4xl font-bold text-pink-600 mb-2">{pkg.price}</div>
+                <p class="text-gray-600">{pkg.description}</p>
+              </div>
+              <ul class="space-y-3 mb-8">
+                {pkg.features.map(feature => (
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <button class={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${pkg.popular ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}>
+                选择套餐
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务流程 -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">服务流程</h2>
+          <p class="text-xl text-gray-600">科学的运营流程，确保最佳效果</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviceDetails.process.map((step, index) => (
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                  {step.step}
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">{step.title}</h3>
+              </div>
+              <p class="text-gray-600">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 成功案例 -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">成功案例</h2>
+          <p class="text-xl text-gray-600">我们为客户创造的价值</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {serviceDetails.cases.map(caseItem => (
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <img src={caseItem.image} alt={caseItem.title} class="w-full h-48 object-cover" />
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{caseItem.title}</h3>
+                <p class="text-gray-600 mb-4">{caseItem.description}</p>
+                <div class="grid grid-cols-2 gap-2">
+                  {caseItem.results.map(result => (
+                    <div class="text-center p-2 bg-pink-50 rounded-lg">
+                      <div class="text-xs text-pink-600 font-medium">{result}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA区域 -->
+    <section class="bg-pink-600 py-16">
+      <div class="container">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">准备提升您的社交媒体影响力？</h2>
+          <p class="text-xl mb-8 text-pink-100">联系我们，获取专业的社交媒体运营方案</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="bg-white text-pink-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              立即咨询
+            </a>
+            <a href="/services" class="border-2 border-white text-white hover:bg-white hover:text-pink-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              查看其他服务
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

@@ -1,0 +1,683 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// 产品数据
+const products = [
+  {
+    id: "tnaot-app",
+    name: "TNAOT App",
+    icon: "📱",
+    description: "双语社交媒体平台，提供高棉语/英语和中文版本",
+    features: ["双语平台", "社交媒体", "内容创作", "收益分成"],
+    stats: {
+      downloads: "500万+",
+      mau: "30万+",
+      dau: "5万+",
+      khmerViews: "400万次/月",
+      chineseViews: "20万次/月"
+    },
+    adTypes: [
+      { 
+        id: "GA01", 
+        name: "开屏广告", 
+        page: "启动页面", 
+        quantity: "2个", 
+        method: "App启动时展示5秒", 
+        size: "720*1520px", 
+        price: "$250/天, $1500/周", 
+        description: "App启动时全屏展示，曝光率最高", 
+        image: "/appads/开屏广告.png" 
+      },
+      { 
+        id: "GA02", 
+        name: "热点页横幅广告", 
+        page: "热点页面", 
+        quantity: "5个", 
+        method: "页面顶部横幅展示", 
+        size: "694*232px", 
+        price: "$1200/月, $350/周", 
+        description: "热点页面顶部固定展示，高频曝光", 
+        image: "/appads/热点横幅广告.png" 
+      },
+      { 
+        id: "GA03", 
+        name: "新闻页信息流广告", 
+        page: "新闻页面", 
+        quantity: "不限", 
+        method: "信息流中插入推广内容", 
+        size: "640*360px", 
+        price: "$270/天", 
+        description: "原生广告形式，融入用户浏览体验", 
+        image: "/appads/新闻页信息流广告.png" 
+      },
+      { 
+        id: "GA04", 
+        name: "关于页横幅广告", 
+        page: "关于页面", 
+        quantity: "3个", 
+        method: "页面顶部横幅展示", 
+        size: "690*132px", 
+        price: "$900/月, $250/周", 
+        description: "关于页面顶部展示，品牌曝光", 
+        image: "/appads/关于页横幅广告.png" 
+      },
+      { 
+        id: "GA06", 
+        name: "新闻页弹窗广告", 
+        page: "新闻页面", 
+        quantity: "1个", 
+        method: "用户进入新页面时弹出", 
+        size: "600*720px", 
+        price: "单次频率: $120/天, $800/周; 无限频率: $240/天, $1600/周", 
+        description: "强制曝光，用户注意力集中", 
+        image: "/appads/新闻页弹窗广告.png" 
+      },
+      { 
+        id: "GA07", 
+        name: "视频页弹窗广告", 
+        page: "视频页面", 
+        quantity: "1个", 
+        method: "用户进入新页面时弹出", 
+        size: "600*720px", 
+        price: "单次频率: $120/天, $800/周; 无限频率: $240/天, $1600/周", 
+        description: "视频内容页面弹窗展示", 
+        image: "/appads/视频页弹窗广告.png" 
+      },
+      { 
+        id: "CA01", 
+        name: "新闻稿发布", 
+        page: "新闻页面", 
+        quantity: "不限", 
+        method: "新闻稿形式发布", 
+        size: "标准新闻格式", 
+        price: "柬文: $150/篇, 中文: $200/篇", 
+        description: "专业新闻稿发布服务，提升品牌曝光度", 
+        image: "/appads/新闻稿发布.png" 
+      },
+      { 
+        id: "CA02", 
+        name: "新闻稿撰写发布", 
+        page: "新闻页面", 
+        quantity: "不限", 
+        method: "专业撰写+发布", 
+        size: "标准新闻格式", 
+        price: "柬文: $248/篇, 中文: $300/篇", 
+        description: "一站式新闻稿撰写和发布服务，专业团队操作", 
+        image: "/appads/新闻稿撰写发布.png" 
+      },
+      { 
+        id: "CA03", 
+        name: "文章置顶广告", 
+        page: "文章页面", 
+        quantity: "1个", 
+        method: "文章顶部固定展示", 
+        size: "640*200px", 
+        price: "$260/天", 
+        description: "文章页面顶部置顶展示，阅读必经之路", 
+        image: "/appads/文章制定广告.png" 
+      },
+      { 
+        id: "CA04", 
+        name: "消息推动广告", 
+        page: "消息推送", 
+        quantity: "不限", 
+        method: "推送消息形式发送", 
+        size: "文本+图片", 
+        price: "$320/篇", 
+        description: "通过消息推送直达用户，高打开率", 
+        image: "/appads/消息推送.png" 
+      }
+    ]
+  },
+  {
+    id: "tnaot-website",
+    name: "TNAOT.com 网站",
+    icon: "🌐",
+    description: "专业新闻资讯网站，覆盖柬埔寨本地和国际新闻",
+    features: ["新闻资讯", "多语言", "实时更新", "专业编辑"],
+    stats: {
+      totalVisits: "700万次/月",
+      chineseVisits: "200万次/月",
+      pageViews: "2000万次/月",
+      avgTime: "3.5分钟"
+    },
+    adTypes: [
+      { 
+        id: "CA07", 
+        name: "手机网页文章内横幅", 
+        page: "文章页面", 
+        quantity: "1个", 
+        method: "文章内嵌入展示", 
+        size: "横幅格式", 
+        price: "$800/月", 
+        description: "手机端文章内横幅广告，阅读流量精准投放", 
+        image: "/websiteads/文章内横幅广告.png" 
+      },
+      { 
+        id: "CA09", 
+        name: "焦点广告", 
+        page: "首页", 
+        quantity: "1个", 
+        method: "首页焦点位置", 
+        size: "焦点展示区", 
+        price: "$1200/月", 
+        description: "首页焦点位置，最高曝光度和关注度", 
+        image: "/websiteads/焦点广告.png" 
+      },
+      { 
+        id: "CA00", 
+        name: "页面弹窗广告", 
+        page: "全站页面", 
+        quantity: "1个", 
+        method: "页面弹窗展示", 
+        size: "弹窗格式", 
+        price: "$1500/月", 
+        description: "全站页面弹窗广告，强制曝光高转化", 
+        image: "/websiteads/页面弹窗广告.png" 
+      }
+    ]
+  },
+  {
+    id: "china-social",
+    name: "中文社交媒体矩阵",
+    icon: "🇨🇳",
+    description: "中文社交媒体矩阵 微信公众号、视频号、抖音、小红书、头条、搜狐等",
+    features: ["微博营销", "抖音推广", "微信传播", "KOL合作"],
+    stats: {
+      totalFollowers: "10万+",
+      monthlyReads: "200万+",
+      platformsCovered: "8个",
+      engagement: "高互动率"
+    },
+    adTypes: [
+      { 
+        id: "CA10", 
+        name: "公众号文章详情顶部横幅", 
+        page: "文章详情页", 
+        quantity: "1个", 
+        method: "顶部横幅展示", 
+        size: "横幅格式", 
+        price: "头条$1200/月，第二条$1000/月，第三四条$800/月，全部文章$3500/月", 
+        description: "公众号文章详情页顶部横幅广告，分级定价精准投放", 
+        image: "/socialads/公众号文章详情顶部横幅.png" 
+      },
+      { 
+        id: "CA11", 
+        name: "公众号文章详情底部横幅", 
+        page: "文章详情页", 
+        quantity: "1个", 
+        method: "底部横幅展示", 
+        size: "横幅格式", 
+        price: "头条$900/月，第二条$800/月，第三四条$600/月，全部文章$2000/月", 
+        description: "公众号文章详情页底部横幅广告，分级定价精准投放", 
+        image: "/socialads/公众号文章详情底部横幅.png" 
+      },
+      { 
+        id: "CA12", 
+        name: "公众号文章投稿", 
+        page: "公众号平台", 
+        quantity: "1篇", 
+        method: "文章投稿发布", 
+        size: "文章格式", 
+        price: "头条$400，第二条$300，第四条$200", 
+        description: "公众号文章投稿服务，分级定价专业发布", 
+        image: "/socialads/公众号文章投稿.png" 
+      }
+    ]
+  },
+  {
+    id: "overseas-social",
+    name: "海外社交媒体矩阵",
+    icon: "🌍",
+    description: "Facebook、TikTok、Instagram等海外社交媒体平台",
+    features: ["Facebook营销", "TikTok推广", "Instagram展示", "跨平台传播"],
+    stats: {
+      tnaotFacebook: "51.6万+",
+      tnaotTikTok: "37.8万+",
+      cambodiaFacebook: "2.1万+",
+      cambodiaTikTok: "25.9万+",
+      monthlyReach: "520万+"
+    },
+    adTypes: [
+      { 
+        id: "CA05", 
+        name: "投稿到Facebook主页", 
+        price: "$100/篇", 
+        description: "专业内容投稿到Facebook主页，提升品牌曝光", 
+        image: "/intersocial/投稿到facebook主页.png" 
+      },
+      { 
+        id: "CA06", 
+        name: "帖子图片视频贴片广告", 
+        price: "$600/月 或 10篇贴片/天", 
+        description: "在帖子图片和视频中插入贴片广告，精准触达目标用户", 
+        image: "/intersocial/帖子图片视频切片.png" 
+      }
+    ]
+  },
+
+];
+
+// 总体统计数据
+const overallStats = [
+  { label: "TNAOT APP总用户", value: "500万+", icon: "📲" },
+  { label: "月活用户", value: "30万+", icon: "👥" },
+  { label: "社交媒体粉丝", value: "210万+", icon: "❤️" },
+  { label: "月度覆盖", value: "520万+", icon: "📊" }
+];
+---
+
+<Layout title={`${t('nav.products')} - ${t('brand.name')}`} description="探索KOH的创新产品和解决方案，为您的业务提供强大的数字化工具和平台。">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative text-white overflow-hidden" style="background: linear-gradient(135deg, #fa4646 0%, #e03e3e 50%, #c73636 100%)">
+      <!-- 背景图片 -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80" style="background-image: url('/hero/produce.jpg');"></div>
+      
+      <!-- 渐变遮罩层 -->
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(250, 70, 70, 0.7) 0%, rgba(224, 62, 62, 0.6) 50%, rgba(199, 54, 54, 0.7) 100%);"></div>
+      
+      <!-- 主要内容 -->
+      <div class="container relative z-10 py-32">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- 左侧内容 -->
+          <div class="space-y-8">
+            <div class="space-y-6">
+              <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                产品矩阵展示
+              </div>
+              <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
+                 <span class="block">柬埔寨头条传播矩阵</span>
+               </h1>
+               <p class="text-xl lg:text-2xl text-red-100 leading-relaxed">
+                 四大核心媒体平台，全方位数字营销解决方案
+               </p>
+               <p class="text-lg text-red-50 leading-relaxed max-w-xl">
+                 聚合TNAOT App移动应用、TNAOT.com新闻网站、以及中文社交媒体矩阵和海外社交媒体账号群，构建柬埔寨最具影响力的中柬双语全媒体传播生态系统
+               </p>
+            </div>
+            
+            <!-- CTA按钮 -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#products" class="inline-flex items-center justify-center px-8 py-4 bg-white font-semibold rounded-xl hover:bg-red-50 transition-all duration-200 shadow-lg hover:shadow-xl" style="color: #fa4646">
+                查看产品详情
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </a>
+              <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl transition-all duration-200" onmouseenter="this.style.backgroundColor='white'; this.style.color='#fa4646'" onmouseleave="this.style.backgroundColor='transparent'; this.style.color='white'">
+                立即咨询
+              </a>
+            </div>
+          </div>
+          
+          <!-- 右侧统计数据 -->
+          <div class="grid grid-cols-2 gap-6">
+            {overallStats.map((stat) => (
+              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300">
+                <div class="text-4xl mb-2">{stat.icon}</div>
+                <div class="text-3xl lg:text-4xl font-bold mb-2">{stat.value}</div>
+                <div class="text-red-100 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品展示区域 -->
+    <section id="products" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-[1400px] mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-thin text-gray-900 mb-6 tracking-tight">我们的产品</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">四大核心产品平台，覆盖移动应用、网站和社交媒体</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {products.map((product) => (
+              <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-auto">
+                <!-- 产品头部 -->
+                <div class="relative p-8 text-white overflow-hidden" style={
+                  product.id === 'tnaot-app' ? "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)" :
+                  product.id === 'tnaot-website' ? "background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)" :
+                  product.id === 'china-social' ? "background: linear-gradient(135deg, #059669 0%, #047857 100%)" :
+                  product.id === 'overseas-social' ? "background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)" :
+                  "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)"
+                }>
+                  <!-- 背景图片 -->
+                  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50" style={
+                    product.id === 'tnaot-app' ? "background-image: url('/produce/app.jpg')" :
+                    product.id === 'tnaot-website' ? "background-image: url('/produce/website.jpg')" :
+                    product.id === 'china-social' ? "background-image: url('/media/Chinese_Media/JPZ.png')" :
+                    product.id === 'overseas-social' ? "background-image: url('/partner/Harbor.png')" :
+                    "background-image: url('/logo.png')"
+                  }></div>
+                  <!-- 渐变遮罩 -->
+                  <div class="absolute inset-0" style={
+                    product.id === 'tnaot-app' ? "background: linear-gradient(135deg, rgba(250, 70, 70, 0.7) 0%, rgba(224, 62, 62, 0.7) 100%)" :
+                    product.id === 'tnaot-website' ? "background: linear-gradient(135deg, rgba(37, 99, 235, 0.7) 0%, rgba(29, 78, 216, 0.7) 100%)" :
+                    product.id === 'china-social' ? "background: linear-gradient(135deg, rgba(5, 150, 105, 0.7) 0%, rgba(4, 120, 87, 0.7) 100%)" :
+                    product.id === 'overseas-social' ? "background: linear-gradient(135deg, rgba(124, 58, 237, 0.7) 0%, rgba(109, 40, 217, 0.7) 100%)" :
+                    "background: linear-gradient(135deg, rgba(250, 70, 70, 0.7) 0%, rgba(224, 62, 62, 0.7) 100%)"
+                  }></div>
+                  <div class="relative z-10 text-center">
+                    <div class="text-6xl mb-4">{product.icon}</div>
+                    <h3 class="text-2xl font-semibold mb-2">{product.name}</h3>
+                    <p class={
+                      product.id === 'tnaot-app' ? "text-red-100 leading-relaxed" :
+                      product.id === 'tnaot-website' ? "text-blue-100 leading-relaxed" :
+                      product.id === 'china-social' ? "text-green-100 leading-relaxed" :
+                      product.id === 'overseas-social' ? "text-purple-100 leading-relaxed" :
+                      "text-red-100 leading-relaxed"
+                    }>{product.description}</p>
+                  </div>
+                </div>
+
+                <!-- 数据表现 -->
+                <div class="p-6 bg-gray-50">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-4">数据表现</h4>
+                  <div class="grid grid-cols-5 gap-3">
+                    {Object.entries(product.stats).map(([key, value]) => (
+                      <div class={
+                        `text-center p-3 rounded-lg shadow-sm ${
+                          product.id === 'tnaot-app' ? 'bg-red-50 border border-red-200' :
+                          product.id === 'tnaot-website' ? 'bg-blue-50 border border-blue-200' :
+                          product.id === 'china-social' ? 'bg-green-50 border border-green-200' :
+                          product.id === 'overseas-social' ? 'bg-purple-50 border border-purple-200' :
+                          'bg-red-50 border border-red-200'
+                        }`
+                      }>
+                        <div class={
+                          `text-base font-bold ${
+                            product.id === 'tnaot-app' ? 'text-red-600' :
+                            product.id === 'tnaot-website' ? 'text-blue-600' :
+                            product.id === 'china-social' ? 'text-green-600' :
+                            product.id === 'overseas-social' ? 'text-purple-600' :
+                            'text-red-600'
+                          }`
+                        }>{value}</div>
+                        <div class={
+                          `text-xs mt-1 ${
+                            product.id === 'tnaot-app' ? 'text-red-500' :
+                            product.id === 'tnaot-website' ? 'text-blue-500' :
+                            product.id === 'china-social' ? 'text-green-500' :
+                            product.id === 'overseas-social' ? 'text-purple-500' :
+                            'text-red-500'
+                          }`
+                        }>
+                          {key === 'downloads' && '下载量'}
+                          {key === 'mau' && '月活'}
+                          {key === 'dau' && '日活'}
+                          {key === 'khmerViews' && '高棉浏览'}
+                          {key === 'chineseViews' && '中文浏览'}
+                          {key === 'totalVisits' && '访问量'}
+                          {key === 'chineseVisits' && '中文访问'}
+                          {key === 'pageViews' && '页面浏览'}
+                          {key === 'avgTime' && '平均时长'}
+                          {key === 'totalFollowers' && '总粉丝数'}
+                          {key === 'monthlyReads' && '月阅读量'}
+                          {key === 'platformsCovered' && '覆盖平台'}
+                          {key === 'engagement' && '互动效果'}
+                          {key === 'tnaotFacebook' && 'tnaot fb'}
+                          {key === 'tnaotTikTok' && 'tnaot tk'}
+                          {key === 'cambodiaFacebook' && '柬头条fb'}
+                          {key === 'cambodiaTikTok' && '柬头条tk'}
+                          {key === 'monthlyReach' && '月覆盖'}
+                          {key === 'realTimeUsers' && '实时用户'}
+                          {key === 'dataPoints' && '数据点'}
+                          {key === 'reports' && '报告类型'}
+                          {key === 'accuracy' && '准确率'}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- 广告服务 -->
+                <div class="p-6">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-4">广告服务</h4>
+                  <div class="ad-content" data-product-id={product.id}>
+                    <div class="space-y-4 ad-list" style="max-height: 300px; overflow: hidden; transition: max-height 0.3s ease;">
+                      {product.adTypes.map((adType) => (
+                      <div class="p-4 border border-gray-200 rounded-lg transition-colors" style="border-color: rgba(250, 70, 70, 0.3)" onmouseenter="this.style.borderColor='#fa4646'" onmouseleave="this.style.borderColor='rgba(250, 70, 70, 0.3)'">
+                        <div class="flex gap-4">
+                          <!-- 广告效果图片 -->
+                           <div class="flex-shrink-0">
+                             <img 
+                               src={adType.image} 
+                               alt={`${adType.name}效果展示`} 
+                               class="w-20 h-20 object-cover rounded-lg border border-gray-200 cursor-pointer hover:opacity-80 transition-opacity" 
+                               onclick={`openImageModal('${adType.image}', '${adType.name}效果展示')`}
+                             />
+                           </div>
+                          
+                          <!-- 广告信息 -->
+                          <div class="flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                              <div class="flex items-center gap-2">
+                                {'id' in adType && <span class="px-2 py-1 bg-red-100 text-red-600 text-xs font-medium rounded">{adType.id}</span>}
+                                <h5 class="font-semibold text-gray-900">{adType.name}</h5>
+                              </div>
+                              <span class="font-bold text-sm" style="color: #fa4646">{adType.price}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">{adType.description}</p>
+                            
+                            <!-- 详细信息 -->
+                            {('page' in adType || 'quantity' in adType || 'method' in adType || 'size' in adType) && (
+                              <div class="grid grid-cols-2 gap-2 text-xs text-gray-500">
+                                {'page' in adType && (
+                                  <div class="flex items-center gap-1">
+                                    <span class="font-medium">页面:</span>
+                                    <span>{adType.page}</span>
+                                  </div>
+                                )}
+                                {'quantity' in adType && (
+                                  <div class="flex items-center gap-1">
+                                    <span class="font-medium">数量:</span>
+                                    <span>{adType.quantity}</span>
+                                  </div>
+                                )}
+                                {'method' in adType && (
+                                  <div class="flex items-center gap-1 col-span-2">
+                                    <span class="font-medium">投放方式:</span>
+                                    <span>{adType.method}</span>
+                                  </div>
+                                )}
+                                {'size' in adType && (
+                                  <div class="flex items-center gap-1 col-span-2">
+                                    <span class="font-medium">尺寸:</span>
+                                    <span>{adType.size}</span>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <!-- 查看更多按钮 -->
+                    <div class="mt-4 text-center">
+                      <button 
+                        class={
+                          product.id === 'tnaot-app' ? "expand-btn text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          product.id === 'tnaot-website' ? "expand-btn text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          product.id === 'china-social' ? "expand-btn text-sm text-gray-600 hover:text-green-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          product.id === 'overseas-social' ? "expand-btn text-sm text-gray-600 hover:text-purple-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          "expand-btn text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1"
+                        }
+                        onclick="toggleAdContent(this)"
+                      >
+                        <span class="expand-text">查看更多</span>
+                        <svg class="w-4 h-4 expand-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  
+                    <!-- 广告咨询按钮 -->
+                    <div class="mt-6">
+                      <a href={`/contact?product=${product.id}`} class="w-full text-white py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center space-x-2" style={
+                        product.id === 'tnaot-app' ? "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)" :
+                        product.id === 'tnaot-website' ? "background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)" :
+                        product.id === 'china-social' ? "background: linear-gradient(135deg, #059669 0%, #047857 100%)" :
+                        product.id === 'overseas-social' ? "background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)" :
+                        "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)"
+                      } onmouseenter={
+                        product.id === 'tnaot-app' ? "this.style.background='linear-gradient(135deg, #e03e3e 0%, #c73636 100%)'" :
+                        product.id === 'tnaot-website' ? "this.style.background='linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)'" :
+                        product.id === 'china-social' ? "this.style.background='linear-gradient(135deg, #047857 0%, #065f46 100%)'" :
+                        product.id === 'overseas-social' ? "this.style.background='linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%)'" :
+                        "this.style.background='linear-gradient(135deg, #e03e3e 0%, #c73636 100%)'"
+                      } onmouseleave={
+                        product.id === 'tnaot-app' ? "this.style.background='linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)'" :
+                        product.id === 'tnaot-website' ? "this.style.background='linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'" :
+                        product.id === 'china-social' ? "this.style.background='linear-gradient(135deg, #059669 0%, #047857 100%)'" :
+                        product.id === 'overseas-social' ? "this.style.background='linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)'" :
+                        "this.style.background='linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)'"
+                      }}>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.959 8.959 0 01-4.906-1.436L3 21l1.436-5.094A8.959 8.959 0 013 12c0-4.418 3.582-8 8-8s8 3.582 8 8z"></path>
+                        </svg>
+                        <span>投放广告咨询</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #fa4646 0%, #e03e3e 50%, #c73636 100%)">
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
+      </div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h2 class="text-4xl md:text-5xl font-thin mb-8 tracking-tight">开始您的广告投放</h2>
+          <p class="text-xl text-gray-300 mb-12 font-light leading-relaxed">
+            选择最适合您的产品平台，我们为您提供专业的广告投放服务
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="/contact" class="inline-flex items-center px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200">
+              立即咨询
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a href="/services" class="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200">
+              了解服务
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<!-- 图片模态框 -->
+<div id="imageModal" class="fixed inset-0 flex items-center justify-center z-50 hidden pointer-events-none">
+  <div class="relative max-w-2xl max-h-96 p-4 pointer-events-auto">
+    <div class="bg-white rounded-lg shadow-2xl border-2 border-gray-200 overflow-hidden">
+      <div class="relative">
+        <button 
+          onclick="closeImageModal()" 
+          class="absolute top-2 right-2 text-gray-600 text-xl font-bold bg-white bg-opacity-90 rounded-full w-7 h-7 flex items-center justify-center hover:bg-gray-100 transition-all z-10 shadow-md"
+        >
+          ×
+        </button>
+        <img id="modalImage" src="" alt="" class="w-full h-auto object-contain" />
+      </div>
+      <div class="p-3 bg-gray-50">
+        <p id="modalCaption" class="text-gray-800 text-center text-sm font-medium"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+</style>
+
+<script is:inline>
+  function openImageModal(imageSrc, caption) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    
+    modalImage.src = imageSrc;
+    modalImage.alt = caption;
+    modalCaption.textContent = caption;
+    modal.classList.remove('hidden');
+  }
+  
+  function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+  }
+  
+  function toggleAdContent(button) {
+    const adContent = button.closest('.ad-content');
+    const adList = adContent.querySelector('.ad-list');
+    const expandText = button.querySelector('.expand-text');
+    const expandIcon = button.querySelector('.expand-icon');
+    
+    const isExpanded = adList.style.maxHeight === 'none';
+    
+    if (isExpanded) {
+      adList.style.maxHeight = '300px';
+      expandText.textContent = '查看更多';
+      expandIcon.style.transform = 'rotate(0deg)';
+    } else {
+      adList.style.maxHeight = 'none';
+      expandText.textContent = '收起';
+      expandIcon.style.transform = 'rotate(180deg)';
+    }
+  }
+  
+  // 等待DOM加载完成后绑定事件
+  document.addEventListener('DOMContentLoaded', function() {
+    // 点击模态框背景关闭
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeImageModal();
+        }
+      });
+    }
+    
+    // ESC键关闭模态框
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+  });
+</script>

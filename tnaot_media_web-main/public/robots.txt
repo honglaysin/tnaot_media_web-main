@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# 禁止访问管理和API目录
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.env
+Disallow: /node_modules/
+
+# 网站地图
+Sitemap: https://kohweb.com/sitemap.xml
+
+# 爬取延迟（可选）
+Crawl-delay: 1

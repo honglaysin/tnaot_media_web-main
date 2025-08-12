@@ -1,0 +1,88 @@
+/* Tailwind CSS 导入 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义样式 */
+@layer base {
+  html {
+    font-family: var(--font-family-sans);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    color: #111827;
+    background-color: #ffffff;
+    line-height: 1.6;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: #fd4b49;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: #fd4b49;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: 2px solid #fd4b49;
+    transition: all 0.2s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #fd4b49;
+    color: #ffffff;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      padding: 0 2rem;
+    }
+  }
+  
+  .section-padding {
+    padding: 5rem 0;
+  }
+  
+  /* 滚动图片动画 */
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-80%);
+    }
+  }
+  
+  /* 悬停时暂停动画 */
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+}

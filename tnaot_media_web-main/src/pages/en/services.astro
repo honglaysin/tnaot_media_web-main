@@ -1,0 +1,462 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+
+// SEO Configuration
+const seoConfig = {
+  title: "Professional Services - TNAOT Media",
+  description: "TNAOT Media provides five core services: media publishing & interviews, creative production, event planning & execution, digital marketing promotion, and technical development services. Professional team provides comprehensive media communication solutions.",
+  keywords: "media publishing,interview services,creative production,video production,event planning,digital marketing,social media,technical development,website development,brand promotion",
+  image: "/hero/produce.jpg",
+  type: "website"
+};
+
+// Service Link Mapping Function
+function getServiceLink(categoryId: string, serviceTitle: string): string {
+  // Media Publishing & Interview Services
+  if (categoryId === 'media') {
+    if (serviceTitle.includes('Media Publishing') || serviceTitle.includes('Media Interview') || serviceTitle.includes('Press Release') || serviceTitle.includes('Crisis PR')) {
+      return '/en/services/media-publishing';
+    }
+  }
+  // Creative Production Services
+  else if (categoryId === 'creative') {
+    if (serviceTitle.includes('Video Production')) {
+      return '/en/services/video-production';
+    }
+    // Other creative services temporarily link to video production page
+    return '/en/services/video-production';
+  }
+  // Event Planning & Execution
+  else if (categoryId === 'events') {
+    return '/en/services/event-planning';
+  }
+  // Digital Marketing Services
+  else if (categoryId === 'marketing') {
+    if (serviceTitle.includes('Social Media')) {
+      return '/en/services/social-media';
+    }
+    // Other marketing services temporarily link to social media page
+    return '/en/services/social-media';
+  }
+  // Technical Services
+  else if (categoryId === 'tech') {
+    return '/en/services/digital-tech';
+  }
+  
+  // Default return to contact page
+  return '/en/contact';
+}
+
+// 5 Core Service Categories
+const coreServiceCategories = [
+  {
+    id: 'media',
+    title: 'Media Publishing & Interview Services',
+    description: 'Professional media resource network, providing media publishing and interview arrangement services to find the most suitable platform for your brand',
+    icon: '📰',
+    color: 'from-blue-500 to-blue-600',
+    popular: true,
+    services: [
+      {
+        title: 'Media Publishing Services',
+        description: 'Authoritative media platform publishing to enhance brand awareness',
+        features: ['Press Release Writing', 'Media Resource Connection', 'Publishing Effect Tracking', 'Communication Data Analysis']
+      },
+      {
+        title: 'Media Interview Arrangement',
+        description: 'Professional interview planning and arrangement to showcase corporate image',
+        features: ['Interview Planning', 'Media Invitation', 'On-site Coordination', 'Post-event Promotion']
+      },
+      {
+        title: 'Press Conference',
+        description: 'Large-scale press conference planning and execution',
+        features: ['Event Planning', 'Media Invitation', 'On-site Execution', 'Follow-up Communication']
+      },
+      {
+        title: 'Crisis PR Management',
+        description: 'Professional crisis PR response and brand reputation management',
+        features: ['Crisis Monitoring', 'Response Strategy', 'Media Communication', 'Reputation Recovery']
+      }
+    ]
+  },
+  {
+    id: 'creative',
+    title: 'Creative Production Services',
+    description: 'Professional video production, graphic design, creative planning services to create high-quality visual content',
+    icon: '🎬',
+    color: 'from-purple-500 to-purple-600',
+    services: [
+      {
+        title: 'Video Production Services',
+        description: 'Professional video shooting and production, one-stop service from planning to post-production',
+        features: ['Creative Planning', 'Professional Shooting', 'Post-production', 'Multi-platform Adaptation']
+      },
+      {
+        title: 'Graphic Design Services',
+        description: 'Brand visual design to enhance brand image recognition',
+        features: ['Logo Design', 'Promotional Materials', 'Packaging Design', 'Brand VI']
+      },
+      {
+        title: 'Creative Planning Services',
+        description: 'Creative marketing planning to create unique brand communication solutions',
+        features: ['Creative Concepts', 'Planning Solutions', 'Execution Guidance', 'Effect Evaluation']
+      },
+      {
+        title: 'Photography Services',
+        description: 'Professional commercial photography, product shooting and corporate image photos',
+        features: ['Product Photography', 'Corporate Image', 'Event Photography', 'Post-processing']
+      }
+    ]
+  },
+  {
+    id: 'events',
+    title: 'Event Planning & Execution',
+    description: 'From creative planning to on-site execution, creating memorable brand events to enhance brand influence and user engagement',
+    icon: '🎉',
+    color: 'from-green-500 to-green-600',
+    services: [
+      {
+        title: 'Corporate Event Planning',
+        description: 'Full planning and execution of corporate events such as annual meetings, celebrations, conferences',
+        features: ['Event Planning', 'Venue Setup', 'Process Management', 'Guest Invitation']
+      },
+      {
+        title: 'Product Launch Events',
+        description: 'New product launch event planning and execution to create brand influence',
+        features: ['Creative Planning', 'Stage Design', 'Media Invitation', 'Live Streaming Execution']
+      },
+      {
+        title: 'Exhibition Services',
+        description: 'Exhibition participation planning, booth design and on-site execution',
+        features: ['Booth Design', 'Material Production', 'On-site Execution', 'Customer Reception']
+      },
+      {
+        title: 'Roadshow Promotion Events',
+        description: 'Brand roadshow event planning to expand brand influence',
+        features: ['Route Planning', 'Event Execution', 'On-site Management', 'Effect Statistics']
+      }
+    ]
+  },
+  {
+    id: 'marketing',
+    title: 'Digital Marketing Services',
+    description: 'Comprehensive digital marketing strategy to enhance brand online influence and achieve precise customer acquisition',
+    icon: '🎯',
+    color: 'from-orange-500 to-orange-600',
+    services: [
+      {
+        title: 'Social Media Management',
+        description: 'Multi-platform social media content planning and operation management',
+        features: ['Content Planning', 'Multi-platform Operation', 'Fan Interaction', 'Data Analysis']
+      },
+      {
+        title: 'Advertising Optimization',
+        description: 'Precise advertising strategy to maximize return on investment',
+        features: ['Precise Targeting', 'Creative Production', 'Data Monitoring', 'Effect Optimization']
+      },
+      {
+        title: 'SEO Search Optimization',
+        description: 'Search engine optimization services to improve website natural ranking',
+        features: ['Keyword Optimization', 'Content Optimization', 'Technical Optimization', 'Link Building']
+      },
+      {
+        title: 'Brand PR Communication',
+        description: 'Brand image building and PR communication strategy execution',
+        features: ['Brand Positioning', 'PR Strategy', 'Media Relations', 'Reputation Management']
+      }
+    ]
+  },
+  {
+    id: 'tech',
+    title: 'Technical Services',
+    description: 'Website development, mini-program development, digital solutions to assist enterprise digital transformation',
+    icon: '💻',
+    color: 'from-indigo-500 to-indigo-600',
+    services: [
+      {
+        title: 'Website Development',
+        description: 'Custom development services for corporate websites, e-commerce websites, etc.',
+        features: ['Responsive Design', 'Custom Functions', 'Performance Optimization', 'Security Assurance']
+      },
+      {
+        title: 'Mini-program Development',
+        description: 'WeChat mini-programs, Alipay mini-programs and other mobile application development',
+        features: ['Interface Design', 'Function Development', 'Data Integration', 'Operation Support']
+      },
+      {
+        title: 'System Integration Services',
+        description: 'Enterprise information system integration and digital solutions',
+        features: ['Requirement Analysis', 'System Design', 'Development Implementation', 'Maintenance Support']
+      },
+      {
+        title: 'Digital Marketing Tools',
+        description: 'Marketing automation tool development and data analysis platform',
+        features: ['Tool Development', 'Data Analysis', 'Automation Process', 'Effect Monitoring']
+      }
+    ]
+  }
+];
+
+// Service Process
+const serviceProcess = [
+  {
+    step: '01',
+    title: 'Requirement Communication',
+    description: 'In-depth understanding of customer needs and goals, formulate preliminary plan'
+  },
+  {
+    step: '02',
+    title: 'Solution Planning',
+    description: 'Based on requirement analysis, develop detailed execution plan'
+  },
+  {
+    step: '03',
+    title: 'Plan Confirmation',
+    description: 'Confirm plan details with customer, sign service agreement'
+  },
+  {
+    step: '04',
+    title: 'Project Execution',
+    description: 'Execute project according to established plan, real-time progress tracking'
+  },
+  {
+    step: '05',
+    title: 'Effect Evaluation',
+    description: 'Conduct effect evaluation and summary report after project completion'
+  }
+];
+
+
+---
+
+<Layout 
+  title={seoConfig.title}
+  description={seoConfig.description}
+  keywords={seoConfig.keywords}
+  image={seoConfig.image}
+  type={seoConfig.type}
+>
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Page Title -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style="background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 600&quot;><defs><linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.1&quot; /><stop offset=&quot;100%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.05&quot; /></linearGradient></defs><rect width=&quot;1200&quot; height=&quot;600&quot; fill=&quot;url(%23grad1)&quot; /><circle cx=&quot;200&quot; cy=&quot;150&quot; r=&quot;80&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.1&quot; /><circle cx=&quot;800&quot; cy=&quot;300&quot; r=&quot;120&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /><circle cx=&quot;1000&quot; cy=&quot;100&quot; r=&quot;60&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.12&quot; /><polygon points=&quot;400,200 500,150 600,250 500,300&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.06&quot; /><polygon points=&quot;100,400 200,350 300,450 200,500&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /></svg>');">
+      </div>
+      
+      <!-- Content -->
+      <div class="container relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">Our Services</h1>
+          <p class="text-xl text-blue-100 drop-shadow-md">
+            Professional team provides customized solutions, covering media communication, creative production, event planning, digital marketing and technical services to help your brand achieve comprehensive development
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Core Service Categories -->
+    <section class="py-12 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {coreServiceCategories.map((category, index) => (
+            <div id={category.id} class={`group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${index === 0 ? 'lg:col-span-2' : ''}`}>
+              <!-- Background Decoration -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <!-- Category Title Area -->
+              <div class={`bg-gradient-to-br ${category.color} p-8 text-white relative overflow-hidden`}>
+                <!-- Decorative Background Pattern -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
+                
+                {category.popular && (
+                  <div class="absolute top-6 right-6 bg-yellow-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                    🔥 Popular
+                  </div>
+                )}
+                
+                <div class="relative z-10">
+                  <div class="flex items-center mb-6">
+                    <div class="text-6xl mr-6 transform group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
+                    <div>
+                      <h3 class="text-3xl font-bold mb-3">{category.title}</h3>
+                      <p class="text-white/90 text-lg leading-relaxed">{category.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Detailed Service Grid -->
+              <div class="p-8 bg-white">
+                <div class={`grid gap-6 ${index === 0 ? 'grid-cols-1 md:grid-cols-4' : 'grid-cols-1 md:grid-cols-2'}`}>
+                  {category.services.map((service, serviceIndex) => (
+                    <div class="group/service relative bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1">
+                      <!-- Service Number -->
+                      <div class="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+                        {serviceIndex + 1}
+                      </div>
+                      
+                      <div class="mb-4">
+                        <h4 class="text-lg font-bold text-gray-900 mb-3 group-hover/service:text-blue-600 transition-colors">
+                          {service.title}
+                        </h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                      </div>
+                      
+                      <!-- Feature Tags -->
+                      <div class="space-y-2 mb-4">
+                        {service.features.map((feature) => (
+                          <div class="flex items-center text-xs text-gray-600 bg-gray-50 rounded-lg px-3 py-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full mr-2 flex-shrink-0"></div>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <!-- Learn More Button -->
+                      <div class="pt-4 border-t border-gray-100">
+                        <a href={getServiceLink(category.id, service.title)} class="block w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg text-center">
+                          Learn More
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <!-- Service Statistics -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-blue-600 mb-2">500+</div>
+            <div class="text-gray-600">Successful Cases</div>
+          </div>
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-green-600 mb-2">98%</div>
+            <div class="text-gray-600">Customer Satisfaction</div>
+          </div>
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-purple-600 mb-2">24h</div>
+            <div class="text-gray-600">Response Time</div>
+          </div>
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-orange-600 mb-2">5+</div>
+            <div class="text-gray-600">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Service Process</h2>
+          <p class="text-xl text-gray-600">Standardized service process to ensure high-quality project delivery</p>
+        </div>
+        <div class="relative">
+          <!-- Process Line -->
+          <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-blue-200 transform -translate-y-1/2"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {serviceProcess.map((process, index) => (
+              <div class="relative text-center">
+                <!-- Step Circle -->
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 font-bold text-lg">
+                  {process.step}
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{process.title}</h3>
+                <p class="text-gray-600 text-sm">{process.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Service Advantages -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Service Advantages</h2>
+          <p class="text-xl text-gray-600">Why choose our services</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Quick Response</h3>
+            <p class="text-gray-600">Respond to customer needs within 24 hours, quickly develop solutions</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Professional Team</h3>
+            <p class="text-gray-600">Experienced professional team ensuring service quality</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Rich Resources</h3>
+            <p class="text-gray-600">Extensive media resource network covering all major mainstream platforms</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Data-Driven</h3>
+            <p class="text-gray-600">Optimize strategies based on data analysis to ensure best results</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-600 section-padding">
+      <div class="container">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Start Your Project?
+          </h2>
+          <p class="text-xl mb-8 text-blue-100">
+            Contact us for professional media communication solutions
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/en/contact" class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              Free Consultation
+            </a>
+            <a href="tel:400-123-4567" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              Phone Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

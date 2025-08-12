@@ -1,0 +1,404 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Service details data
+const serviceDetails = {
+  title: 'Social Media Management Services',
+  subtitle: 'Professional Chinese and international social media management to help your brand stand out in the Cambodian market',
+  heroImage: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=600&fit=crop',
+  description: 'We provide comprehensive social media management services covering Chinese and international mainstream platforms, including content planning, account management, fan engagement, data analysis, and more, helping you build strong brand influence in the Cambodian local market.',
+  features: [
+    {
+      title: 'Mainstream Platform Management',
+      description: 'Covering Chinese and international mainstream social media platforms for localized brand communication in Cambodia',
+      icon: '📱'
+    },
+    {
+      title: 'Localized Content',
+      description: 'Creating content that aligns with Cambodian cultural characteristics and local user preferences',
+      icon: '🎨'
+    },
+    {
+      title: 'Cross-Cultural Operations',
+      description: 'Professional cross-cultural team precisely understanding the needs differences between Chinese and international users in Cambodia',
+      icon: '👥'
+    },
+    {
+      title: 'Multilingual Services',
+      description: 'Providing content creation and customer service in Chinese, English, Khmer, and other languages',
+      icon: '🗣️'
+    },
+    {
+      title: 'Data Analytics',
+      description: 'In-depth data analysis to optimize operational strategies and improve communication effectiveness in the Cambodian market',
+      icon: '📈'
+    },
+    {
+      title: 'Compliant Operations',
+      description: 'Strictly adhering to Cambodian laws and regulations to ensure safe and compliant brand operations',
+      icon: '⚖️'
+    }
+  ],
+  packages: [
+    {
+      name: 'Chinese User Package',
+      price: '$3,000/month',
+      description: 'Focused on Chinese user community operations in Cambodia',
+      features: [
+        'WeChat, TikTok, Xiaohongshu management',
+        '5-7 Chinese content posts per week',
+        'Chinese cultural content planning',
+        'Chinese customer service support',
+        'Monthly data reports',
+        'Chinese holiday marketing'
+      ]
+    },
+    {
+      name: 'Local Market Package',
+      price: '$3,500/month',
+      description: 'Focused on Cambodian local user operations',
+      features: [
+        'Facebook, TikTok, YouTube management',
+        '5-7 multilingual content posts per week',
+        'Cambodian localized content planning',
+        'Khmer/English customer service support',
+        'Bi-weekly data analysis',
+        'Cambodian festival marketing'
+      ],
+      popular: true
+    },
+    {
+      name: 'Full Platform Package',
+      price: '$5,000/month',
+      description: 'Complete coverage of Chinese and international platforms, suitable for comprehensive enterprises',
+      features: [
+        'All 6 platform management',
+        '5-7 multilingual content posts per week',
+        'Chinese + Cambodian dual localization strategy',
+        '24-hour multilingual customer service',
+        'Weekly in-depth data analysis',
+        'Local KOL collaboration coordination',
+        'Crisis PR handling',
+        'Dedicated account manager'
+      ]
+    }
+  ],
+  chinesePlatforms: [
+    {
+      name: 'WeChat Official Account',
+      icon: '💬',
+      description: 'In-depth content marketing to establish brand authority',
+      features: ['Article publishing', 'Menu design', 'Fan interaction', 'Data analysis']
+    },
+    {
+      name: 'TikTok (Douyin)',
+      icon: '🎵',
+      description: 'Short video marketing to reach young user demographics',
+      features: ['Video production', 'Live streaming planning', 'Topic challenges', 'Influencer collaboration']
+    },
+    {
+      name: 'Xiaohongshu (Little Red Book)',
+      icon: '📖',
+      description: 'Seeding marketing to improve product conversion rates',
+      features: ['Note publishing', 'Topic operations', 'KOL collaboration', 'E-commerce conversion']
+    }
+  ],
+  overseasPlatforms: [
+    {
+      name: 'Facebook',
+      icon: '📘',
+      description: 'Cambodia\'s most popular social platform with precise advertising placement',
+      features: ['Page management', 'Ad placement', 'Community operations', 'Data analysis']
+    },
+    {
+      name: 'TikTok',
+      icon: '🎬',
+      description: 'Young users\' preferred short video platform for viral spread',
+      features: ['Short video production', 'Challenge campaigns', 'Live commerce', 'Creative marketing']
+    },
+    {
+      name: 'YouTube',
+      icon: '📹',
+      description: 'Video content marketing for long-term brand building',
+      features: ['Video production', 'Channel operations', 'SEO optimization', 'Ad monetization']
+    }
+  ],
+  process: [
+    {
+      step: '01',
+      title: 'Brand Analysis',
+      description: 'In-depth understanding of brand positioning, target users, and competitive environment'
+    },
+    {
+      step: '02',
+      title: 'Strategy Development',
+      description: 'Develop personalized social media operation strategies and content planning'
+    },
+    {
+      step: '03',
+      title: 'Content Creation',
+      description: 'Professional team creates high-quality text, image, video, and other content'
+    },
+    {
+      step: '04',
+      title: 'Publishing Management',
+      description: 'Publish content on various platforms according to plan, optimizing publishing timing'
+    },
+    {
+      step: '05',
+      title: 'Interactive Operations',
+      description: 'Actively engage with fans to build a positive community atmosphere'
+    },
+    {
+      step: '06',
+      title: 'Data Optimization',
+      description: 'Analyze operational data and continuously optimize content and strategies'
+    }
+  ],
+  cases: [
+    {
+      title: 'Beauty Brand Dual-Platform Operations in Cambodia',
+      description: 'Provided Xiaohongshu + Facebook dual-platform operations for an international beauty brand in Cambodia, serving Chinese users in Cambodia through Chinese seeding content and covering local users with Khmer fashion marketing',
+      image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=300&fit=crop',
+      results: ['200% Xiaohongshu follower growth in Cambodia', '180% Facebook local engagement rate increase', '250% Cambodia market sales growth', '15% localization conversion rate']
+    },
+    {
+      title: 'Tech Company TikTok + Douyin Cambodia Marketing',
+      description: 'Created Chinese and international short video marketing matrix for a B2B tech company in Cambodia, successfully expanding Cambodian enterprise clients through Chinese professional content and Khmer live events',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop',
+      results: ['500K+ followers in Cambodia region', '1M+ multilingual live stream views', '200% Cambodia business lead growth', 'Significant brand awareness increase in Cambodia']
+    },
+    {
+      title: 'Restaurant Brand Full-Platform Operations in Cambodia',
+      description: 'Provided Facebook, WeChat, and other full-platform operations for a chain restaurant brand in Cambodia, successfully establishing roots in the Cambodian market through localized food content and Cambodian cultural marketing',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop',
+      results: ['1M+ followers in Cambodia', '80% Cambodia store traffic increase', '120% local delivery order growth', 'Successful Cambodia market establishment']
+    }
+  ]
+};
+---
+
+<Layout title={serviceDetails.title}>
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Service Introduction Section -->
+    <section class="relative bg-gradient-to-r from-pink-500 to-purple-600 text-white py-20 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style="background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 600&quot;><defs><linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.1&quot; /><stop offset=&quot;100%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.05&quot; /></linearGradient></defs><rect width=&quot;1200&quot; height=&quot;600&quot; fill=&quot;url(%23grad1)&quot; /><circle cx=&quot;300&quot; cy=&quot;100&quot; r=&quot;50&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.1&quot; /><circle cx=&quot;700&quot; cy=&quot;250&quot; r=&quot;80&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /><circle cx=&quot;1050&quot; cy=&quot;150&quot; r=&quot;60&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.12&quot; /><rect x=&quot;150&quot; y=&quot;350&quot; width=&quot;120&quot; height=&quot;120&quot; rx=&quot;20&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.06&quot; /><polygon points=&quot;500,450 600,400 700,500 600,550&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /></svg>');">
+      </div>
+      
+      <!-- Content -->
+      <div class="container relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">{serviceDetails.title}</h1>
+          <p class="text-xl md:text-2xl mb-8 text-pink-100 drop-shadow-md">{serviceDetails.subtitle}</p>
+          <p class="text-lg leading-relaxed drop-shadow-sm">{serviceDetails.description}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Features -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Service Features</h2>
+          <p class="text-xl text-gray-600">Comprehensive social media management solutions</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviceDetails.features.map(feature => (
+            <div class="text-center p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Coverage -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Platform Coverage</h2>
+          <p class="text-xl text-gray-600">Covering Chinese and international mainstream social media platforms, precisely reaching Cambodian local users</p>
+        </div>
+        
+        <!-- Chinese Social Media Platforms -->
+        <div class="mb-16">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">🇨🇳 Chinese Social Media Platforms</h3>
+            <p class="text-lg text-gray-600">Serving Chinese user communities in Cambodia, building brand influence</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceDetails.chinesePlatforms.map(platform => (
+              <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="text-3xl mr-4">{platform.icon}</div>
+                  <h4 class="text-xl font-bold text-gray-900">{platform.name}</h4>
+                </div>
+                <p class="text-gray-600 mb-4">{platform.description}</p>
+                <ul class="space-y-2">
+                  {platform.features.map(feature => (
+                    <li class="flex items-center text-sm text-gray-700">
+                      <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- International Social Media Platforms -->
+        <div>
+          <div class="text-center mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">🇰🇭 International Social Media Platforms</h3>
+            <p class="text-lg text-gray-600">Deep cultivation of the Cambodian local market, connecting with local users</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceDetails.overseasPlatforms.map(platform => (
+              <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="text-3xl mr-4">{platform.icon}</div>
+                  <h4 class="text-xl font-bold text-gray-900">{platform.name}</h4>
+                </div>
+                <p class="text-gray-600 mb-4">{platform.description}</p>
+                <ul class="space-y-2">
+                  {platform.features.map(feature => (
+                    <li class="flex items-center text-sm text-gray-700">
+                      <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Packages -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Service Packages</h2>
+          <p class="text-xl text-gray-600">Choose the operation package that suits your needs</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {serviceDetails.packages.map(pkg => (
+            <div class={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 ${pkg.popular ? 'ring-2 ring-pink-500 relative' : ''}`}>
+              {pkg.popular && (
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span class="bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium">Recommended</span>
+                </div>
+              )}
+              <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
+                <div class="text-4xl font-bold text-pink-600 mb-2">{pkg.price}</div>
+                <p class="text-gray-600">{pkg.description}</p>
+              </div>
+              <ul class="space-y-3 mb-8">
+                {pkg.features.map(feature => (
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <button class={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${pkg.popular ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}>
+                Choose Package
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Service Process</h2>
+          <p class="text-xl text-gray-600">Scientific operational process ensuring optimal results</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviceDetails.process.map((step, index) => (
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                  {step.step}
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">{step.title}</h3>
+              </div>
+              <p class="text-gray-600">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Cases -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Success Cases</h2>
+          <p class="text-xl text-gray-600">The value we create for our clients</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {serviceDetails.cases.map(caseItem => (
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <img src={caseItem.image} alt={caseItem.title} class="w-full h-48 object-cover" />
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{caseItem.title}</h3>
+                <p class="text-gray-600 mb-4">{caseItem.description}</p>
+                <div class="grid grid-cols-2 gap-2">
+                  {caseItem.results.map(result => (
+                    <div class="text-center p-2 bg-pink-50 rounded-lg">
+                      <div class="text-xs text-pink-600 font-medium">{result}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-pink-600 py-16">
+      <div class="container">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Enhance Your Social Media Influence?</h2>
+          <p class="text-xl mb-8 text-pink-100">Contact us to get professional social media management solutions</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/en/contact" class="bg-white text-pink-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              Get Consultation Now
+            </a>
+            <a href="/en/services" class="border-2 border-white text-white hover:bg-white hover:text-pink-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              View Other Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

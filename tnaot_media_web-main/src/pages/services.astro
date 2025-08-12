@@ -1,0 +1,461 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+// SEO配置
+const seoConfig = {
+  title: "专业服务 - 柬埔寨头条传媒",
+  description: "柬埔寨头条传媒提供五大核心服务：媒体投稿与采访、创意制作、活动策划与执行、数字营销推广、技术开发服务。专业团队为您提供全方位的媒体传播解决方案。",
+  keywords: "媒体投稿,采访服务,创意制作,视频制作,活动策划,数字营销,社交媒体,技术开发,网站建设,品牌推广",
+  image: "/hero/produce.jpg",
+  type: "website"
+};
+
+// 服务链接映射函数
+function getServiceLink(categoryId: string, serviceTitle: string): string {
+  // 媒体投稿与采访服务
+  if (categoryId === 'media') {
+    if (serviceTitle.includes('媒体投稿') || serviceTitle.includes('媒体采访') || serviceTitle.includes('新闻发布') || serviceTitle.includes('危机公关')) {
+      return '/services/media-publishing';
+    }
+  }
+  // 创意制作服务
+  else if (categoryId === 'creative') {
+    if (serviceTitle.includes('视频制作')) {
+      return '/services/video-production';
+    }
+    // 其他创意服务暂时链接到视频制作页面
+    return '/services/video-production';
+  }
+  // 活动策划与执行
+  else if (categoryId === 'events') {
+    return '/services/event-planning';
+  }
+  // 数字营销服务
+  else if (categoryId === 'marketing') {
+    if (serviceTitle.includes('社交媒体')) {
+      return '/services/social-media';
+    }
+    // 其他营销服务暂时链接到社交媒体页面
+    return '/services/social-media';
+  }
+  // 技术服务
+  else if (categoryId === 'tech') {
+    return '/services/digital-tech';
+  }
+  
+  // 默认返回联系页面
+  return '/contact';
+}
+
+// 5大核心服务类别
+const coreServiceCategories = [
+  {
+    id: 'media',
+    title: '媒体投稿与采访服务',
+    description: '专业的媒体资源网络，提供媒体投稿发布和采访安排服务，为您的品牌找到最合适的发声平台',
+    icon: '📰',
+    color: 'from-blue-500 to-blue-600',
+    popular: true,
+    services: [
+      {
+        title: '媒体投稿发布',
+        description: '权威媒体平台投稿发布，提升品牌知名度',
+        features: ['新闻稿撰写', '媒体资源对接', '发布效果跟踪', '传播数据分析']
+      },
+      {
+        title: '媒体采访安排',
+        description: '专业采访策划与安排，展示企业形象',
+        features: ['采访策划', '媒体邀请', '现场协调', '后期宣传']
+      },
+      {
+        title: '新闻发布会',
+        description: '大型新闻发布会策划与执行',
+        features: ['活动策划', '媒体邀请', '现场执行', '后续传播']
+      },
+      {
+        title: '危机公关处理',
+        description: '专业危机公关应对与品牌声誉管理',
+        features: ['危机监测', '应对策略', '媒体沟通', '声誉修复']
+      }
+    ]
+  },
+  {
+    id: 'creative',
+    title: '创意制作服务',
+    description: '专业视频制作、平面设计、创意策划服务，打造高质量视觉内容',
+    icon: '🎬',
+    color: 'from-purple-500 to-purple-600',
+    services: [
+      {
+        title: '视频制作服务',
+        description: '专业视频拍摄制作，从策划到后期一站式服务',
+        features: ['创意策划', '专业拍摄', '后期制作', '多平台适配']
+      },
+      {
+        title: '平面设计服务',
+        description: '品牌视觉设计，提升品牌形象识别度',
+        features: ['LOGO设计', '宣传物料', '包装设计', '品牌VI']
+      },
+      {
+        title: '创意策划服务',
+        description: '创意营销策划，打造独特品牌传播方案',
+        features: ['创意概念', '策划方案', '执行指导', '效果评估']
+      },
+      {
+        title: '摄影服务',
+        description: '专业商业摄影，产品拍摄与企业形象照',
+        features: ['产品摄影', '企业形象', '活动拍摄', '后期修图']
+      }
+    ]
+  },
+  {
+    id: 'events',
+    title: '活动策划与执行',
+    description: '从创意策划到现场执行，打造令人难忘的品牌活动，提升品牌影响力和用户参与度',
+    icon: '🎉',
+    color: 'from-green-500 to-green-600',
+    services: [
+      {
+        title: '企业活动策划',
+        description: '年会、庆典、会议等企业活动全程策划执行',
+        features: ['活动策划', '场地布置', '流程管理', '嘉宾邀请']
+      },
+      {
+        title: '产品发布会',
+        description: '新品发布会策划执行，打造品牌影响力',
+        features: ['创意策划', '舞台设计', '媒体邀请', '直播执行']
+      },
+      {
+        title: '展览展示服务',
+        description: '展会参展策划，展台设计与现场执行',
+        features: ['展台设计', '物料制作', '现场执行', '客户接待']
+      },
+      {
+        title: '路演推广活动',
+        description: '品牌路演活动策划，扩大品牌影响范围',
+        features: ['路线规划', '活动执行', '现场管理', '效果统计']
+      }
+    ]
+  },
+  {
+    id: 'marketing',
+    title: '数字营销服务',
+    description: '全方位数字营销策略，提升品牌在线影响力，实现精准获客',
+    icon: '🎯',
+    color: 'from-orange-500 to-orange-600',
+    services: [
+      {
+        title: '社交媒体运营',
+        description: '全平台社交媒体内容策划与运营管理',
+        features: ['内容策划', '多平台运营', '粉丝互动', '数据分析']
+      },
+      {
+        title: '广告投放优化',
+        description: '精准广告投放策略，最大化投资回报率',
+        features: ['精准定向', '创意制作', '数据监控', '效果优化']
+      },
+      {
+        title: 'SEO搜索优化',
+        description: '搜索引擎优化服务，提升网站自然排名',
+        features: ['关键词优化', '内容优化', '技术优化', '外链建设']
+      },
+      {
+        title: '品牌公关传播',
+        description: '品牌形象塑造与公关传播策略执行',
+        features: ['品牌定位', '公关策略', '媒体关系', '口碑管理']
+      }
+    ]
+  },
+  {
+    id: 'tech',
+    title: '技术服务',
+    description: '网站建设、小程序开发、数字化解决方案，助力企业数字化转型',
+    icon: '💻',
+    color: 'from-indigo-500 to-indigo-600',
+    services: [
+      {
+        title: '网站建设开发',
+        description: '企业官网、电商网站等定制开发服务',
+        features: ['响应式设计', '功能定制', '性能优化', '安全保障']
+      },
+      {
+        title: '小程序开发',
+        description: '微信小程序、支付宝小程序等移动应用开发',
+        features: ['界面设计', '功能开发', '数据对接', '运营支持']
+      },
+      {
+        title: '系统集成服务',
+        description: '企业信息系统集成与数字化解决方案',
+        features: ['需求分析', '系统设计', '开发实施', '维护支持']
+      },
+      {
+        title: '数字化营销工具',
+        description: '营销自动化工具开发与数据分析平台',
+        features: ['工具开发', '数据分析', '自动化流程', '效果监控']
+      }
+    ]
+  }
+];
+
+// 服务流程
+const serviceProcess = [
+  {
+    step: '01',
+    title: '需求沟通',
+    description: '深入了解客户需求和目标，制定初步方案'
+  },
+  {
+    step: '02',
+    title: '方案策划',
+    description: '基于需求分析，制定详细的执行方案'
+  },
+  {
+    step: '03',
+    title: '方案确认',
+    description: '与客户确认方案细节，签署服务协议'
+  },
+  {
+    step: '04',
+    title: '项目执行',
+    description: '按照既定方案执行项目，实时跟进进度'
+  },
+  {
+    step: '05',
+    title: '效果评估',
+    description: '项目完成后进行效果评估和总结报告'
+  }
+];
+
+
+---
+
+<Layout 
+  title={seoConfig.title}
+  description={seoConfig.description}
+  keywords={seoConfig.keywords}
+  image={seoConfig.image}
+  type={seoConfig.type}
+>
+  <Header />
+  
+  <main class="pt-16">
+    <!-- 页面标题 -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 overflow-hidden">
+      <!-- 背景图片 -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style="background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 600&quot;><defs><linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.1&quot; /><stop offset=&quot;100%&quot; style=&quot;stop-color:%23ffffff;stop-opacity:0.05&quot; /></linearGradient></defs><rect width=&quot;1200&quot; height=&quot;600&quot; fill=&quot;url(%23grad1)&quot; /><circle cx=&quot;200&quot; cy=&quot;150&quot; r=&quot;80&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.1&quot; /><circle cx=&quot;800&quot; cy=&quot;300&quot; r=&quot;120&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /><circle cx=&quot;1000&quot; cy=&quot;100&quot; r=&quot;60&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.12&quot; /><polygon points=&quot;400,200 500,150 600,250 500,300&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.06&quot; /><polygon points=&quot;100,400 200,350 300,450 200,500&quot; fill=&quot;%23ffffff&quot; opacity=&quot;0.08&quot; /></svg>');"></div>
+      
+      <!-- 内容 -->
+      <div class="container relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">服务项目</h1>
+          <p class="text-xl text-blue-100 drop-shadow-md">
+            专业团队为您量身定制，涵盖媒体传播、创意制作、活动策划、数字营销和技术服务，助力您的品牌实现全面发展
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- 核心服务分类 -->
+    <section class="py-12 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {coreServiceCategories.map((category, index) => (
+            <div id={category.id} class={`group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${index === 0 ? 'lg:col-span-2' : ''}`}>
+              <!-- 背景装饰 -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <!-- 分类标题区域 -->
+              <div class={`bg-gradient-to-br ${category.color} p-8 text-white relative overflow-hidden`}>
+                <!-- 装饰性背景图案 -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
+                
+                {category.popular && (
+                  <div class="absolute top-6 right-6 bg-yellow-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                    🔥 热门推荐
+                  </div>
+                )}
+                
+                <div class="relative z-10">
+                  <div class="flex items-center mb-6">
+                    <div class="text-6xl mr-6 transform group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
+                    <div>
+                      <h3 class="text-3xl font-bold mb-3">{category.title}</h3>
+                      <p class="text-white/90 text-lg leading-relaxed">{category.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 细分服务网格 -->
+              <div class="p-8 bg-white">
+                <div class={`grid gap-6 ${index === 0 ? 'grid-cols-1 md:grid-cols-4' : 'grid-cols-1 md:grid-cols-2'}`}>
+                  {category.services.map((service, serviceIndex) => (
+                    <div class="group/service relative bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1">
+                      <!-- 服务编号 -->
+                      <div class="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+                        {serviceIndex + 1}
+                      </div>
+                      
+                      <div class="mb-4">
+                        <h4 class="text-lg font-bold text-gray-900 mb-3 group-hover/service:text-blue-600 transition-colors">
+                          {service.title}
+                        </h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                      </div>
+                      
+                      <!-- 特色功能标签 -->
+                      <div class="space-y-2 mb-4">
+                        {service.features.map((feature) => (
+                          <div class="flex items-center text-xs text-gray-600 bg-gray-50 rounded-lg px-3 py-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full mr-2 flex-shrink-0"></div>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <!-- 了解详情按钮 -->
+                      <div class="pt-4 border-t border-gray-100">
+                        <a href={getServiceLink(category.id, service.title)} class="block w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg text-center">
+                          了解详情
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <!-- 服务统计 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-blue-600 mb-2">500+</div>
+            <div class="text-gray-600">成功案例</div>
+          </div>
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-green-600 mb-2">98%</div>
+            <div class="text-gray-600">客户满意度</div>
+          </div>
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-purple-600 mb-2">24h</div>
+            <div class="text-gray-600">响应时间</div>
+          </div>
+          <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-3xl font-bold text-orange-600 mb-2">5年+</div>
+            <div class="text-gray-600">行业经验</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务流程 -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">服务流程</h2>
+          <p class="text-xl text-gray-600">标准化的服务流程，确保项目高质量交付</p>
+        </div>
+        <div class="relative">
+          <!-- 流程线 -->
+          <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-blue-200 transform -translate-y-1/2"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {serviceProcess.map((process, index) => (
+              <div class="relative text-center">
+                <!-- 步骤圆圈 -->
+                <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 font-bold text-lg">
+                  {process.step}
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{process.title}</h3>
+                <p class="text-gray-600 text-sm">{process.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- 服务优势 -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">服务优势</h2>
+          <p class="text-xl text-gray-600">为什么选择我们的服务</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">快速响应</h3>
+            <p class="text-gray-600">24小时内响应客户需求，快速制定解决方案</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">专业团队</h3>
+            <p class="text-gray-600">经验丰富的专业团队，确保服务质量</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">丰富资源</h3>
+            <p class="text-gray-600">广泛的媒体资源网络，覆盖各大主流平台</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">数据驱动</h3>
+            <p class="text-gray-600">基于数据分析优化策略，确保最佳效果</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA区域 -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-600 section-padding">
+      <div class="container">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            准备开始您的项目？
+          </h2>
+          <p class="text-xl mb-8 text-blue-100">
+            联系我们获取专业的媒体传播解决方案
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              免费咨询
+            </a>
+            <a href="tel:400-123-4567" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              电话咨询
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

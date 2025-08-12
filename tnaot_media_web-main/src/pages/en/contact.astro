@@ -1,0 +1,536 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// SEO Configuration
+const seo = {
+  title: 'Contact Us - Professional Media & Marketing Services | TNAOT Media',
+  description: 'Contact TNAOT Media for professional media publishing, creative production, event planning, and digital marketing services. 24/7 customer support, professional team.',
+  keywords: 'contact TNAOT Media, media services consultation, event planning consultation, digital marketing consultation, Cambodia media services',
+  canonical: 'https://kohmedia.com/en/contact'
+};
+
+// Sales Team Contact Information
+const salesTeam = [
+  {
+    name: 'Sarah Chen',
+    position: 'Senior Account Manager',
+    phone: '+855 23922788',
+    email: 'sarah@kohmedia.com',
+    wechat: '/images/qr/sarah-wechat.png',
+    expertise: ['Media Publishing', 'Brand Strategy', 'Content Marketing']
+  },
+  {
+    name: 'David Wong',
+    position: 'Creative Director',
+    phone: '+855 23922789',
+    email: 'david@kohmedia.com',
+    wechat: '/images/qr/david-wechat.png',
+    expertise: ['Video Production', 'Creative Design', 'Brand Identity']
+  },
+  {
+    name: 'Lisa Kim',
+    position: 'Event Planning Manager',
+    phone: '+855 23922790',
+    email: 'lisa@kohmedia.com',
+    wechat: '/images/qr/lisa-wechat.png',
+    expertise: ['Event Planning', 'Project Management', 'Venue Coordination']
+  },
+  {
+    name: 'Michael Zhang',
+    position: 'Digital Marketing Specialist',
+    phone: '+855 23922791',
+    email: 'michael@kohmedia.com',
+    wechat: '/images/qr/michael-wechat.png',
+    expertise: ['Social Media Marketing', 'SEO/SEM', 'Data Analytics']
+  }
+];
+
+// Company Contact Information
+const companyInfo = {
+  address: 'No. 356, Preah Sihanouk Blvd, Sangkat Boeung Raing, Khan Daun Penh, Phnom Penh, Cambodia (Near AEON Mall 1)',
+  phone: '+855 23922788',
+  email: 'info@kohmedia.com',
+  wechat: 'KOHMedia2024'
+};
+
+// Office Hours
+const officeHours = {
+  weekdays: 'Monday - Saturday: 9:00 AM - 6:00 PM',
+  weekend: 'Sunday: Closed',
+  emergency: '24/7 Emergency Support Available'
+};
+
+// FAQ Data
+const faqs = [
+  {
+    question: 'What services does TNAOT Media provide?',
+    answer: 'We provide comprehensive media and marketing services including media publishing, creative production, event planning, digital marketing, and technical services.'
+  },
+  {
+    question: 'How long does it take to get a project quote?',
+    answer: 'We typically provide initial quotes within 24 hours. For complex projects, we may need 2-3 business days to provide a detailed proposal.'
+  },
+  {
+    question: 'Do you provide services in multiple languages?',
+    answer: 'Yes, we provide services in Chinese, English, and Khmer to meet the diverse needs of our clients in Cambodia and the region.'
+  },
+  {
+    question: 'What is your payment process?',
+    answer: 'We typically require 50% payment upfront and 50% upon project completion. For long-term projects, we can arrange milestone-based payments.'
+  },
+  {
+    question: 'Do you provide post-project support?',
+    answer: 'Yes, we provide comprehensive post-project support including maintenance, updates, and ongoing consultation services.'
+  }
+];
+---
+
+<Layout title={seo.title} description={seo.description}>
+  <Header />
+  
+  <main>
+    <!-- Page Title -->
+    <section class="bg-gradient-to-r from-red-600 to-red-700 text-white py-20">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+          <p class="text-xl md:text-2xl text-red-100 mb-8">Professional consultation services, 24/7 customer support</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="tel:+855 23922788" class="bg-white text-red-600 font-semibold py-3 px-6 rounded-lg hover:bg-red-50 transition-colors">
+              📞 Call Now
+            </a>
+            <a href="#contact-form" class="border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-red-600 transition-colors">
+              💬 Send Message
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+          <p class="text-xl text-gray-600">Choose the most convenient way to contact us</p>
+        </div>
+        
+        <div class="max-w-7xl mx-auto">
+          <!-- Company Contact Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <!-- Phone -->
+            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Phone</h3>
+              <p class="text-gray-600 mb-3">Call us directly</p>
+              <a href="tel:+855 23922788" class="text-red-600 font-semibold hover:text-red-700">{companyInfo.phone}</a>
+            </div>
+            
+            <!-- Email -->
+            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Email</h3>
+              <p class="text-gray-600 mb-3">Send us an email</p>
+              <a href="mailto:info@kohmedia.com" class="text-red-600 font-semibold hover:text-red-700">{companyInfo.email}</a>
+            </div>
+            
+            <!-- WeChat -->
+            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 4.882-1.786 7.102-.54-.54-2.411-3.022-4.634-6.845-4.634zM6.5 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm5 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                  <path d="M15.5 9.5c-3.5 0-6.5 2.5-6.5 5.5s3 5.5 6.5 5.5c.5 0 1-.1 1.5-.2l1.5.9c.1 0 .2.1.3.1.1 0 .2-.1.2-.2 0-.1 0-.1 0-.2l-.3-1.1c1.2-.9 2-2.3 2-3.8 0-3-3-5.5-6.5-5.5zm-2 4a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm4 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">WeChat</h3>
+              <p class="text-gray-600 mb-3">Add us on WeChat</p>
+              <span class="text-red-600 font-semibold">{companyInfo.wechat}</span>
+            </div>
+            
+            <!-- Office Hours -->
+            <div class="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Office Hours</h3>
+              <p class="text-gray-600 mb-1">Mon-Sat: 9:00-18:00</p>
+              <p class="text-gray-600">Sunday: Closed</p>
+            </div>
+          </div>
+          
+          <!-- Sales Team -->
+          <div class="mb-16">
+            <div class="text-center mb-12">
+              <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Our Sales Team</h3>
+              <p class="text-lg text-gray-600">Professional consultants ready to help you</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {salesTeam.map((member) => (
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                  <div class="text-center mb-4">
+                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span class="text-2xl font-bold text-white">{member.name.split(' ').map(n => n[0]).join('')}</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">{member.name}</h4>
+                    <p class="text-red-600 font-medium">{member.position}</p>
+                  </div>
+                  
+                  <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                      <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                      </svg>
+                      <a href={`tel:${member.phone}`} class="text-gray-700 hover:text-red-600">{member.phone}</a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-3">
+                      <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                      </svg>
+                      <a href={`mailto:${member.email}`} class="text-gray-700 hover:text-red-600">{member.email}</a>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-gray-200">
+                      <p class="text-sm text-gray-600 mb-2">Expertise:</p>
+                      <div class="flex flex-wrap gap-1">
+                        {member.expertise.map((skill) => (
+                          <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">{skill}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form" class="section-padding bg-white">
+      <div class="container">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Left: FAQ -->
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
+              <p class="text-gray-600 mb-8">Find answers to common questions about our services</p>
+              
+              <div class="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div class="bg-gray-50 rounded-lg p-6">
+                    <button class="w-full text-left" onclick={`toggleFaq(${index})`}>
+                      <div class="flex justify-between items-center">
+                        <h4 class="text-lg font-semibold text-gray-900">{faq.question}</h4>
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" id={`faq-icon-${index}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                    </button>
+                    <div class="mt-4 hidden" id={`faq-answer-${index}`}>
+                      <p class="text-gray-600">{faq.answer}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <!-- Right: Contact Form -->
+            <div class="bg-gray-50 rounded-2xl p-8 shadow-md">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Message</h3>
+              <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours</p>
+              
+              <form class="space-y-6" id="contactForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                  <div>
+                    <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                    <input type="text" id="company" name="company" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                  <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service of Interest</label>
+                  <select id="service" name="service" 
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                    <option value="">Please select service type</option>
+                    <option value="media-publishing">Media Publishing</option>
+                    <option value="creative-production">Creative Production</option>
+                    <option value="event-planning">Event Planning & Execution</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="technical-services">Technical Services</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                  <select id="budget" name="budget" 
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                    <option value="">Please select budget range</option>
+                    <option value="under-10k">Under $10,000</option>
+                    <option value="10k-50k">$10,000 - $50,000</option>
+                    <option value="50k-100k">$50,000 - $100,000</option>
+                    <option value="100k-500k">$100,000 - $500,000</option>
+                    <option value="over-500k">Over $500,000</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Detailed Requirements *</label>
+                  <textarea id="message" name="message" rows="5" required 
+                            placeholder="Please describe your requirements and expectations in detail..."
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Location -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Location</h2>
+          <p class="text-xl text-gray-600">Welcome to visit our office</p>
+        </div>
+        
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Left: Map -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden h-[480px]">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.1037587576698!2d104.92719756215457!3d11.5444141886077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109510507457007%3A0xd1a1f280ebcf40f3!2z5p-s5Z-U5a-o5aS05p2h!5e0!3m2!1szh-CN!2skh!4v1750240625702!5m2!1szh-CN!2skh" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            
+            <!-- Right: Address and Transportation Info -->
+            <div class="space-y-8">
+              <!-- Company Address -->
+              <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Company Address</h3>
+                    <p class="text-gray-700">{companyInfo.address}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Office Hours -->
+              <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Office Hours</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                      <p class="text-gray-700">Monday - Saturday:</p>
+                      <p class="text-gray-700">9:00 AM - 6:00 PM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+              
+              <!-- Schedule Visit -->
+              <div class="bg-gradient-to-r from-red-500 to-red-600 rounded-xl p-6 shadow-md text-white">
+                <h3 class="text-xl font-bold mb-3">Schedule a Visit</h3>
+                <p class="mb-4">We recommend scheduling in advance. Our consultants will provide one-on-one consultation services</p>
+                <a href="tel:+855 23922788" class="inline-flex items-center space-x-2 bg-white text-red-600 font-semibold py-2 px-4 rounded-lg hover:bg-red-50 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                  </svg>
+                  <span>+855 23922788</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+  </main>
+  
+  <Footer />
+  
+  <script>
+    // FAQ Toggle Function
+    function toggleFaq(index: number) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      
+      if (answer && icon) {
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        } else {
+          answer.classList.add('hidden');
+          icon.classList.remove('rotate-180');
+        }
+      }
+    }
+    
+    // Form Submission Handler
+    const contactForm = document.getElementById('contactForm') as HTMLFormElement;
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e: Event) {
+        e.preventDefault();
+        
+        const submitButton = this.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalText = submitButton?.textContent || 'Submit Inquiry';
+        
+        if (!submitButton) return;
+        
+        try {
+          // Show loading state
+          submitButton.textContent = 'Sending...';
+          submitButton.disabled = true;
+          
+          // Collect form data
+          const formData = new FormData(this);
+          const data = {
+            name: formData.get('name'),
+            company: formData.get('company'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            service: formData.get('service'),
+            budget: formData.get('budget'),
+            message: formData.get('message')
+          };
+          
+          // Send to API
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // Show success message
+            showNotification('Thank you for your message! We have received your information and will reply within 24 hours.', 'success');
+            // Reset form
+            (this as HTMLFormElement).reset();
+          } else {
+            throw new Error(result.message || 'Send failed');
+          }
+          
+        } catch (error) {
+          console.error('Error:', error);
+          showNotification('Send failed, please try again later or contact our sales team directly.', 'error');
+        } finally {
+          // Restore button state
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+        }
+      });
+    }
+    
+    // Notification function
+    function showNotification(message: string, type: 'success' | 'error') {
+      // Create notification element
+      const notification = document.createElement('div');
+      notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-md transition-all duration-300 transform translate-x-full`;
+      
+      if (type === 'success') {
+        notification.className += ' bg-green-500 text-white';
+        notification.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>${message}</span>
+          </div>
+        `;
+      } else {
+        notification.className += ' bg-red-500 text-white';
+        notification.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <span>${message}</span>
+          </div>
+        `;
+      }
+      
+      document.body.appendChild(notification);
+      
+      // Show animation
+      setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+      }, 100);
+      
+      // Auto hide
+      setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+          if (notification.parentNode) {
+            document.body.removeChild(notification);
+          }
+        }, 300);
+      }, 5000);
+    }
+  </script>
+</Layout>

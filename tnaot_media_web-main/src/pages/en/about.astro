@@ -1,0 +1,290 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Team member data
+const teamMembers = [
+  {
+    name: "Zhang Ming",
+    position: "Founder & CEO",
+    description: "10 years of media industry experience, formerly worked at renowned advertising companies",
+    avatar: "/contact/sales/ceo-avatar.jpg"
+  },
+  {
+    name: "Li Hua",
+    position: "Operations Director",
+    description: "Specializes in media resource integration and customer relationship management",
+    avatar: "/contact/sales/operations-director-avatar.jpg"
+  },
+  {
+    name: "Wang Fang",
+    position: "Creative Director",
+    description: "Senior creative planner, expert in brand communication strategy development",
+    avatar: "/contact/sales/creative-director-avatar.jpg"
+  },
+  {
+    name: "Chen Qiang",
+    position: "Technical Director",
+    description: "Responsible for digital platform construction and data analysis systems",
+    avatar: "/contact/sales/tech-director-avatar.jpg"
+  }
+];
+
+// Development milestones
+const milestones = [
+  {
+    year: "2018",
+    title: "Platform Establishment & Launch",
+    description: "APP V1.0 officially launched, along with social media accounts. Initially focused on daily news services in Chinese and Khmer, providing timely and accurate news information for local Cambodian users.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2019",
+    title: "Service Diversification",
+    description: "Expanded from single daily news service to a diversified service system, launched innovative features like treasure hunting activities, encouraging more user interaction and providing rich entertainment content and practical functions.",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2020",
+    title: "Digital Transformation",
+    description: "Fully embraced digital marketing, launched social media management and digital advertising services, providing professional digital marketing solutions for clients.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2022",
+    title: "Media Service Expansion",
+    description: "Established a comprehensive media submission and interview service system, providing professional media communication services for enterprises and organizations, becoming a well-known media communication service provider in the industry.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2024-Present",
+    title: "Social Media Platform Upgrade",
+    description: "APP fully upgraded to a professional social media platform where professional media companies, NGOs, and various organizations can publish content, announcements, promotions, and videos, achieving content monetization. Provides five core services: media submission, creative production, event planning, digital marketing, and technical development.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+  }
+];
+---
+
+<Layout title="About Us - Media Communication" description="Learn about our company history, team introduction and corporate culture, professional media communication and marketing promotion service team">
+  <Header />
+  
+  <main>
+    <!-- Page Title -->
+    <section class="bg-gradient-to-r from-primary-600 to-red-600 text-white py-16 mt-16">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">{t('about.hero.title')}</h1>
+          <p class="text-xl text-red-100">
+            {t('about.hero.subtitle')}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">{t('about.mission.title')}</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              {t('about.mission.description1')}
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              {t('about.mission.description2')}
+            </p>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="text-center p-4 bg-primary-50 rounded-lg">
+                <div class="text-2xl font-bold text-primary-600 mb-2">500+</div>
+                <div class="text-gray-600">Partner Clients</div>
+              </div>
+              <div class="text-center p-4 bg-primary-50 rounded-lg">
+                <div class="text-2xl font-bold text-primary-600 mb-2">8+</div>
+                <div class="text-gray-600">Years Experience</div>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <img src="/company/company.jpg" alt="Company Values" class="w-full h-96 object-cover rounded-2xl shadow-lg" />
+            <div class="absolute inset-0 rounded-2xl flex items-center justify-center">
+              <div class="text-center text-white bg-black bg-opacity-60 rounded-xl p-6">
+                <div class="w-24 h-24 flex items-center justify-center mx-auto mb-4">
+                  <img src="/company/logo.png" alt="Company Logo" class="w-full h-full object-contain" />
+                </div>
+                <h3 class="text-xl font-bold mb-2">{t('about.values.title')}</h3>
+                <p class="text-gray-200">{t('about.values.subtitle')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Team Introduction -->
+    <section class="section-padding bg-gradient-to-br from-gray-50 to-white">
+      <div class="container">
+        <div class="text-center mb-20">
+          <div class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">
+            Core Team
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Team</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Gathering industry elites, creating value for clients with professional, innovative, and collaborative spirit
+          </p>
+        </div>
+        
+        <!-- Team Member Grid -->
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {teamMembers.map((member, index) => (
+              <div class="group relative">
+                <!-- Background Decoration -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-primary-600 to-red-600 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                
+                <!-- Main Card -->
+                <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform group-hover:-translate-y-2 transition-all duration-500">
+                  <div class="flex flex-col md:flex-row">
+                    <!-- Avatar Section -->
+                    <div class="relative md:w-48 h-64 md:h-auto overflow-hidden">
+                      <img 
+                        src={member.avatar} 
+                        alt={member.name}
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <!-- Gradient Overlay -->
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                      
+                      <!-- Position Label -->
+                      <div class="absolute bottom-4 left-4 right-4">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                          <p class="text-primary-600 font-bold text-sm">{member.position}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Content Section -->
+                    <div class="flex-1 p-8">
+                      <div class="h-full flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                          {member.name}
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                          {member.description}
+                        </p>
+                        
+                        <!-- Skill Tags or Features -->
+                        <div class="flex flex-wrap gap-2">
+                          <span class="px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-medium">
+                            Professional Leadership
+                          </span>
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
+                            Team Collaboration
+                          </span>
+                          <span class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-medium">
+                            Innovative Thinking
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Decorative Element -->
+                  <div class="absolute top-4 right-4 w-8 h-8 border-2 border-primary-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <!-- Team Statistics -->
+          <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">8+</div>
+              <div class="text-gray-600">Years Experience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">200+</div>
+              <div class="text-gray-600">Successful Projects</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">500+</div>
+              <div class="text-gray-600">Partner Clients</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">5</div>
+              <div class="text-gray-600">Core Services</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Development History -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <div class="text-center mb-12">
+           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Development History</h2>
+           <p class="text-xl text-gray-600">Witness our growth journey and milestone moments</p>
+         </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="relative">
+            <!-- Timeline -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary-200"></div>
+            
+            <div class="space-y-8">
+              {milestones.map((milestone, index) => (
+                <div class={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div class="flex-1 px-6">
+                    <div class={`bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                      <div class="text-primary-600 font-bold text-base mb-1">{milestone.year}</div>
+                      <h3 class="text-lg font-bold text-gray-900 mb-2">{milestone.title}</h3>
+                      <p class="text-gray-600 text-sm leading-relaxed">{milestone.description}</p>
+                    </div>
+                  </div>
+                  
+                  <!-- Timeline Point -->
+                  <div class="relative z-10">
+                    <div class="w-4 h-4 bg-primary-600 rounded-full border-2 border-white shadow-md"></div>
+                  </div>
+                  
+                  <div class="flex-1 px-6"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary-600 section-padding">
+      <div class="container">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {t('about.cta.title')}
+          </h2>
+          <p class="text-xl mb-8 opacity-90">
+            {t('about.cta.subtitle')}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              {t('about.cta.button')}
+            </a>
+            <a href={lang === 'zh' ? '/services' : '/en/services'} class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              {t('nav.services')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

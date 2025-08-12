@@ -1,0 +1,683 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Product data
+const products = [
+  {
+    id: "tnaot-app",
+    name: "TNAOT App",
+    icon: "📱",
+    description: "Bilingual social media platform providing Khmer/English and Chinese versions",
+    features: ["Bilingual Platform", "Social Media", "Content Creation", "Revenue Sharing"],
+    stats: {
+      downloads: "5M+",
+      mau: "300K+",
+      dau: "50K+",
+      khmerViews: "4M views/month",
+      chineseViews: "200K views/month"
+    },
+    adTypes: [
+      { 
+        id: "GA01", 
+        name: "Splash Screen Ad", 
+        page: "Launch Page", 
+        quantity: "2 slots", 
+        method: "5-second display on app launch", 
+        size: "720*1520px", 
+        price: "$250/day, $1500/week", 
+        description: "Full-screen display on app launch with highest exposure rate", 
+        image: "/appads/开屏广告.png" 
+      },
+      { 
+        id: "GA02", 
+        name: "Hot Page Banner Ad", 
+        page: "Hot Page", 
+        quantity: "5 slots", 
+        method: "Top banner display", 
+        size: "694*232px", 
+        price: "$1200/month, $350/week", 
+        description: "Fixed display at top of hot page with high-frequency exposure", 
+        image: "/appads/热点横幅广告.png" 
+      },
+      { 
+        id: "GA03", 
+        name: "News Feed Ad", 
+        page: "News Page", 
+        quantity: "Unlimited", 
+        method: "Inserted promotional content in news feed", 
+        size: "640*360px", 
+        price: "$270/day", 
+        description: "Native ad format integrated into user browsing experience", 
+        image: "/appads/新闻页信息流广告.png" 
+      },
+      { 
+        id: "GA04", 
+        name: "About Page Banner Ad", 
+        page: "About Page", 
+        quantity: "3 slots", 
+        method: "Top banner display", 
+        size: "690*132px", 
+        price: "$900/month, $250/week", 
+        description: "Top display on about page for brand exposure", 
+        image: "/appads/关于页横幅广告.png" 
+      },
+      { 
+        id: "GA06", 
+        name: "News Page Popup Ad", 
+        page: "News Page", 
+        quantity: "1 slot", 
+        method: "Popup when user enters new page", 
+        size: "600*720px", 
+        price: "Single frequency: $120/day, $800/week; Unlimited frequency: $240/day, $1600/week", 
+        description: "Forced exposure with concentrated user attention", 
+        image: "/appads/新闻页弹窗广告.png" 
+      },
+      { 
+        id: "GA07", 
+        name: "Video Page Popup Ad", 
+        page: "Video Page", 
+        quantity: "1 slot", 
+        method: "Popup when user enters new page", 
+        size: "600*720px", 
+        price: "Single frequency: $120/day, $800/week; Unlimited frequency: $240/day, $1600/week", 
+        description: "Popup display on video content pages", 
+        image: "/appads/视频页弹窗广告.png" 
+      },
+      { 
+        id: "CA01", 
+        name: "Press Release Publishing", 
+        page: "News Page", 
+        quantity: "Unlimited", 
+        method: "Published as press release", 
+        size: "Standard news format", 
+        price: "Khmer: $150/article, Chinese: $200/article", 
+        description: "Professional press release publishing service to enhance brand exposure", 
+        image: "/appads/新闻稿发布.png" 
+      },
+      { 
+        id: "CA02", 
+        name: "Press Release Writing & Publishing", 
+        page: "News Page", 
+        quantity: "Unlimited", 
+        method: "Professional writing + publishing", 
+        size: "Standard news format", 
+        price: "Khmer: $248/article, Chinese: $300/article", 
+        description: "One-stop press release writing and publishing service with professional team operation", 
+        image: "/appads/新闻稿撰写发布.png" 
+      },
+      { 
+        id: "CA03", 
+        name: "Article Top Ad", 
+        page: "Article Page", 
+        quantity: "1 slot", 
+        method: "Fixed display at top of article", 
+        size: "640*200px", 
+        price: "$260/day", 
+        description: "Top display on article pages, essential reading path", 
+        image: "/appads/文章制定广告.png" 
+      },
+      { 
+        id: "CA04", 
+        name: "Push Notification Ad", 
+        page: "Push Notification", 
+        quantity: "Unlimited", 
+        method: "Sent as push message", 
+        size: "Text + Image", 
+        price: "$320/article", 
+        description: "Direct reach to users through push notifications with high open rates", 
+        image: "/appads/消息推送.png" 
+      }
+    ]
+  },
+  {
+    id: "tnaot-website",
+    name: "TNAOT.com Website",
+    icon: "🌐",
+    description: "Professional news website covering local Cambodian and international news",
+    features: ["News & Information", "Multilingual", "Real-time Updates", "Professional Editing"],
+    stats: {
+      totalVisits: "7M visits/month",
+      chineseVisits: "2M visits/month",
+      pageViews: "20M views/month",
+      avgTime: "3.5 minutes"
+    },
+    adTypes: [
+      { 
+        id: "CA07", 
+        name: "Mobile Article Banner", 
+        page: "Article Page", 
+        quantity: "1 slot", 
+        method: "Embedded in article", 
+        size: "Banner format", 
+        price: "$800/month", 
+        description: "Mobile article banner ad with precise traffic targeting", 
+        image: "/websiteads/文章内横幅广告.png" 
+      },
+      { 
+        id: "CA09", 
+        name: "Featured Ad", 
+        page: "Homepage", 
+        quantity: "1 slot", 
+        method: "Homepage featured position", 
+        size: "Featured display area", 
+        price: "$1200/month", 
+        description: "Homepage featured position with highest exposure and attention", 
+        image: "/websiteads/焦点广告.png" 
+      },
+      { 
+        id: "CA00", 
+        name: "Page Popup Ad", 
+        page: "Site-wide", 
+        quantity: "1 slot", 
+        method: "Page popup display", 
+        size: "Popup format", 
+        price: "$1500/month", 
+        description: "Site-wide popup ad with forced exposure and high conversion", 
+        image: "/websiteads/页面弹窗广告.png" 
+      }
+    ]
+  },
+  {
+    id: "china-social",
+    name: "Chinese Social Media Matrix",
+    icon: "🇨🇳",
+    description: "Chinese social media matrix including WeChat Official Account, Video Account, Douyin, Xiaohongshu, Toutiao, Sohu, etc.",
+    features: ["Weibo Marketing", "Douyin Promotion", "WeChat Distribution", "KOL Collaboration"],
+    stats: {
+      totalFollowers: "100K+",
+      monthlyReads: "2M+",
+      platformsCovered: "8 platforms",
+      engagement: "High engagement rate"
+    },
+    adTypes: [
+      { 
+        id: "CA10", 
+        name: "WeChat Article Top Banner", 
+        page: "Article Detail Page", 
+        quantity: "1 slot", 
+        method: "Top banner display", 
+        size: "Banner format", 
+        price: "Headline $1200/month, Second article $1000/month, Third & fourth articles $800/month, All articles $3500/month", 
+        description: "WeChat article detail page top banner ad with tiered pricing for precise targeting", 
+        image: "/socialads/公众号文章详情顶部横幅.png" 
+      },
+      { 
+        id: "CA11", 
+        name: "WeChat Article Bottom Banner", 
+        page: "Article Detail Page", 
+        quantity: "1 slot", 
+        method: "Bottom banner display", 
+        size: "Banner format", 
+        price: "Headline $900/month, Second article $800/month, Third & fourth articles $600/month, All articles $2000/month", 
+        description: "WeChat article detail page bottom banner ad with tiered pricing for precise targeting", 
+        image: "/socialads/公众号文章详情底部横幅.png" 
+      },
+      { 
+        id: "CA12", 
+        name: "WeChat Article Submission", 
+        page: "WeChat Platform", 
+        quantity: "1 article", 
+        method: "Article submission and publishing", 
+        size: "Article format", 
+        price: "Headline $400, Second article $300, Fourth article $200", 
+        description: "WeChat article submission service with tiered pricing and professional publishing", 
+        image: "/socialads/公众号文章投稿.png" 
+      }
+    ]
+  },
+  {
+    id: "overseas-social",
+    name: "Overseas Social Media Matrix",
+    icon: "🌍",
+    description: "Facebook, TikTok, Instagram and other overseas social media platforms",
+    features: ["Facebook Marketing", "TikTok Promotion", "Instagram Display", "Cross-platform Distribution"],
+    stats: {
+      tnaotFacebook: "516K+",
+      tnaotTikTok: "378K+",
+      cambodiaFacebook: "21K+",
+      cambodiaTikTok: "259K+",
+      monthlyReach: "5.2M+"
+    },
+    adTypes: [
+      { 
+        id: "CA05", 
+        name: "Facebook Page Submission", 
+        price: "$100/article", 
+        description: "Professional content submission to Facebook page to enhance brand exposure", 
+        image: "/intersocial/投稿到facebook主页.png" 
+      },
+      { 
+        id: "CA06", 
+        name: "Post Image/Video Overlay Ad", 
+        price: "$600/month or 10 overlays/day", 
+        description: "Insert overlay ads in post images and videos for precise targeting of users", 
+        image: "/intersocial/帖子图片视频切片.png" 
+      }
+    ]
+  },
+
+];
+
+// Overall statistics
+const overallStats = [
+  { label: "TNAOT APP Total Users", value: "5M+", icon: "📲" },
+  { label: "Monthly Active Users", value: "300K+", icon: "👥" },
+  { label: "Social Media Followers", value: "2.1M+", icon: "❤️" },
+  { label: "Monthly Reach", value: "5.2M+", icon: "📊" }
+];
+---
+
+<Layout title={`${t('nav.products')} - ${t('brand.name')}`} description="Explore KOH's innovative products and solutions, providing powerful digital tools and platforms for your business.">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative text-white overflow-hidden" style="background: linear-gradient(135deg, #fa4646 0%, #e03e3e 50%, #c73636 100%)">
+      <!-- Background image -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80" style="background-image: url('/hero/produce.jpg');"></div>
+      
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(250, 70, 70, 0.7) 0%, rgba(224, 62, 62, 0.6) 50%, rgba(199, 54, 54, 0.7) 100%);"></div>
+      
+      <!-- Main content -->
+      <div class="container relative z-10 py-32">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Left content -->
+          <div class="space-y-8">
+            <div class="space-y-6">
+              <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium">
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                Product Matrix Showcase
+              </div>
+              <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
+                 <span class="block">Cambodia Headlines Media Matrix</span>
+               </h1>
+               <p class="text-xl lg:text-2xl text-red-100 leading-relaxed">
+                 Four core media platforms, comprehensive digital marketing solutions
+               </p>
+               <p class="text-lg text-red-50 leading-relaxed max-w-xl">
+                 Integrating TNAOT App mobile application, TNAOT.com news website, Chinese social media matrix and overseas social media accounts, building Cambodia's most influential Chinese-Khmer bilingual full-media communication ecosystem
+               </p>
+            </div>
+            
+            <!-- CTA buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#products" class="inline-flex items-center justify-center px-8 py-4 bg-white font-semibold rounded-xl hover:bg-red-50 transition-all duration-200 shadow-lg hover:shadow-xl" style="color: #fa4646">
+                View Product Details
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </a>
+              <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl transition-all duration-200" onmouseenter="this.style.backgroundColor='white'; this.style.color='#fa4646'" onmouseleave="this.style.backgroundColor='transparent'; this.style.color='white'">
+                Contact Now
+              </a>
+            </div>
+          </div>
+          
+          <!-- Right statistics -->
+          <div class="grid grid-cols-2 gap-6">
+            {overallStats.map((stat) => (
+              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300">
+                <div class="text-4xl mb-2">{stat.icon}</div>
+                <div class="text-3xl lg:text-4xl font-bold mb-2">{stat.value}</div>
+                <div class="text-red-100 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product showcase section -->
+    <section id="products" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-[1400px] mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-thin text-gray-900 mb-6 tracking-tight">Our Products</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">Four core product platforms covering mobile apps, websites and social media</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {products.map((product) => (
+              <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-auto">
+                <!-- Product header -->
+                <div class="relative p-8 text-white overflow-hidden" style={
+                  product.id === 'tnaot-app' ? "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)" :
+                  product.id === 'tnaot-website' ? "background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)" :
+                  product.id === 'china-social' ? "background: linear-gradient(135deg, #059669 0%, #047857 100%)" :
+                  product.id === 'overseas-social' ? "background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)" :
+                  "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)"
+                }>
+                  <!-- Background image -->
+                  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50" style={
+                    product.id === 'tnaot-app' ? "background-image: url('/produce/app.jpg')" :
+                    product.id === 'tnaot-website' ? "background-image: url('/produce/website.jpg')" :
+                    product.id === 'china-social' ? "background-image: url('/media/Chinese_Media/JPZ.png')" :
+                    product.id === 'overseas-social' ? "background-image: url('/partner/Harbor.png')" :
+                    "background-image: url('/logo.png')"
+                  }></div>
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0" style={
+                    product.id === 'tnaot-app' ? "background: linear-gradient(135deg, rgba(250, 70, 70, 0.7) 0%, rgba(224, 62, 62, 0.7) 100%)" :
+                    product.id === 'tnaot-website' ? "background: linear-gradient(135deg, rgba(37, 99, 235, 0.7) 0%, rgba(29, 78, 216, 0.7) 100%)" :
+                    product.id === 'china-social' ? "background: linear-gradient(135deg, rgba(5, 150, 105, 0.7) 0%, rgba(4, 120, 87, 0.7) 100%)" :
+                    product.id === 'overseas-social' ? "background: linear-gradient(135deg, rgba(124, 58, 237, 0.7) 0%, rgba(109, 40, 217, 0.7) 100%)" :
+                    "background: linear-gradient(135deg, rgba(250, 70, 70, 0.7) 0%, rgba(224, 62, 62, 0.7) 100%)"
+                  }></div>
+                  <div class="relative z-10 text-center">
+                    <div class="text-6xl mb-4">{product.icon}</div>
+                    <h3 class="text-2xl font-semibold mb-2">{product.name}</h3>
+                    <p class={
+                      product.id === 'tnaot-app' ? "text-red-100 leading-relaxed" :
+                      product.id === 'tnaot-website' ? "text-blue-100 leading-relaxed" :
+                      product.id === 'china-social' ? "text-green-100 leading-relaxed" :
+                      product.id === 'overseas-social' ? "text-purple-100 leading-relaxed" :
+                      "text-red-100 leading-relaxed"
+                    }>{product.description}</p>
+                  </div>
+                </div>
+
+                <!-- Data performance -->
+                <div class="p-6 bg-gray-50">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-4">Data Performance</h4>
+                  <div class="grid grid-cols-5 gap-3">
+                    {Object.entries(product.stats).map(([key, value]) => (
+                      <div class={
+                        `text-center p-3 rounded-lg shadow-sm ${
+                          product.id === 'tnaot-app' ? 'bg-red-50 border border-red-200' :
+                          product.id === 'tnaot-website' ? 'bg-blue-50 border border-blue-200' :
+                          product.id === 'china-social' ? 'bg-green-50 border border-green-200' :
+                          product.id === 'overseas-social' ? 'bg-purple-50 border border-purple-200' :
+                          'bg-red-50 border border-red-200'
+                        }`
+                      }>
+                        <div class={
+                          `text-base font-bold ${
+                            product.id === 'tnaot-app' ? 'text-red-600' :
+                            product.id === 'tnaot-website' ? 'text-blue-600' :
+                            product.id === 'china-social' ? 'text-green-600' :
+                            product.id === 'overseas-social' ? 'text-purple-600' :
+                            'text-red-600'
+                          }`
+                        }>{value}</div>
+                        <div class={
+                          `text-xs mt-1 ${
+                            product.id === 'tnaot-app' ? 'text-red-500' :
+                            product.id === 'tnaot-website' ? 'text-blue-500' :
+                            product.id === 'china-social' ? 'text-green-500' :
+                            product.id === 'overseas-social' ? 'text-purple-500' :
+                            'text-red-500'
+                          }`
+                        }>
+                          {key === 'downloads' && 'Downloads'}
+                          {key === 'mau' && 'MAU'}
+                          {key === 'dau' && 'DAU'}
+                          {key === 'khmerViews' && 'Khmer Views'}
+                          {key === 'chineseViews' && 'Chinese Views'}
+                          {key === 'totalVisits' && 'Total Visits'}
+                          {key === 'chineseVisits' && 'Chinese Visits'}
+                          {key === 'pageViews' && 'Page Views'}
+                          {key === 'avgTime' && 'Avg Time'}
+                          {key === 'totalFollowers' && 'Total Followers'}
+                          {key === 'monthlyReads' && 'Monthly Reads'}
+                          {key === 'platformsCovered' && 'Platforms'}
+                          {key === 'engagement' && 'Engagement'}
+                          {key === 'tnaotFacebook' && 'TNAOT FB'}
+                          {key === 'tnaotTikTok' && 'TNAOT TK'}
+                          {key === 'cambodiaFacebook' && 'Cambodia FB'}
+                          {key === 'cambodiaTikTok' && 'Cambodia TK'}
+                          {key === 'monthlyReach' && 'Monthly Reach'}
+                          {key === 'realTimeUsers' && 'Real-time Users'}
+                          {key === 'dataPoints' && 'Data Points'}
+                          {key === 'reports' && 'Report Types'}
+                          {key === 'accuracy' && 'Accuracy'}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Advertising services -->
+                <div class="p-6">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-4">Advertising Services</h4>
+                  <div class="ad-content" data-product-id={product.id}>
+                    <div class="space-y-4 ad-list" style="max-height: 300px; overflow: hidden; transition: max-height 0.3s ease;">
+                      {product.adTypes.map((adType) => (
+                      <div class="p-4 border border-gray-200 rounded-lg transition-colors" style="border-color: rgba(250, 70, 70, 0.3)" onmouseenter="this.style.borderColor='#fa4646'" onmouseleave="this.style.borderColor='rgba(250, 70, 70, 0.3)'">
+                        <div class="flex gap-4">
+                          <!-- Ad effect image -->
+                           <div class="flex-shrink-0">
+                             <img 
+                               src={adType.image} 
+                               alt={`${adType.name} effect display`} 
+                               class="w-20 h-20 object-cover rounded-lg border border-gray-200 cursor-pointer hover:opacity-80 transition-opacity" 
+                               onclick={`openImageModal('${adType.image}', '${adType.name} effect display')`}
+                             />
+                           </div>
+                          
+                          <!-- Ad information -->
+                          <div class="flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                              <div class="flex items-center gap-2">
+                                {'id' in adType && <span class="px-2 py-1 bg-red-100 text-red-600 text-xs font-medium rounded">{adType.id}</span>}
+                                <h5 class="font-semibold text-gray-900">{adType.name}</h5>
+                              </div>
+                              <span class="font-bold text-sm" style="color: #fa4646">{adType.price}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">{adType.description}</p>
+                            
+                            <!-- Detailed information -->
+                            {('page' in adType || 'quantity' in adType || 'method' in adType || 'size' in adType) && (
+                              <div class="grid grid-cols-2 gap-2 text-xs text-gray-500">
+                                {'page' in adType && (
+                                  <div class="flex items-center gap-1">
+                                    <span class="font-medium">Page:</span>
+                                    <span>{adType.page}</span>
+                                  </div>
+                                )}
+                                {'quantity' in adType && (
+                                  <div class="flex items-center gap-1">
+                                    <span class="font-medium">Quantity:</span>
+                                    <span>{adType.quantity}</span>
+                                  </div>
+                                )}
+                                {'method' in adType && (
+                                  <div class="flex items-center gap-1 col-span-2">
+                                    <span class="font-medium">Method:</span>
+                                    <span>{adType.method}</span>
+                                  </div>
+                                )}
+                                {'size' in adType && (
+                                  <div class="flex items-center gap-1 col-span-2">
+                                    <span class="font-medium">Size:</span>
+                                    <span>{adType.size}</span>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <!-- View more button -->
+                    <div class="mt-4 text-center">
+                      <button 
+                        class={
+                          product.id === 'tnaot-app' ? "expand-btn text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          product.id === 'tnaot-website' ? "expand-btn text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          product.id === 'china-social' ? "expand-btn text-sm text-gray-600 hover:text-green-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          product.id === 'overseas-social' ? "expand-btn text-sm text-gray-600 hover:text-purple-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1" :
+                          "expand-btn text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 flex items-center justify-center mx-auto gap-1"
+                        }
+                        onclick="toggleAdContent(this)"
+                      >
+                        <span class="expand-text">View More</span>
+                        <svg class="w-4 h-4 expand-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  
+                    <!-- Ad consultation button -->
+                    <div class="mt-6">
+                      <a href={`/contact?product=${product.id}`} class="w-full text-white py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center space-x-2" style={
+                        product.id === 'tnaot-app' ? "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)" :
+                        product.id === 'tnaot-website' ? "background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)" :
+                        product.id === 'china-social' ? "background: linear-gradient(135deg, #059669 0%, #047857 100%)" :
+                        product.id === 'overseas-social' ? "background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)" :
+                        "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)"
+                      } onmouseenter={
+                        product.id === 'tnaot-app' ? "this.style.background='linear-gradient(135deg, #e03e3e 0%, #c73636 100%)'" :
+                        product.id === 'tnaot-website' ? "this.style.background='linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)'" :
+                        product.id === 'china-social' ? "this.style.background='linear-gradient(135deg, #047857 0%, #065f46 100%)'" :
+                        product.id === 'overseas-social' ? "this.style.background='linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%)'" :
+                        "this.style.background='linear-gradient(135deg, #e03e3e 0%, #c73636 100%)'"
+                      } onmouseleave={
+                        product.id === 'tnaot-app' ? "this.style.background='linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)'" :
+                        product.id === 'tnaot-website' ? "this.style.background='linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'" :
+                        product.id === 'china-social' ? "this.style.background='linear-gradient(135deg, #059669 0%, #047857 100%)'" :
+                        product.id === 'overseas-social' ? "this.style.background='linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)'" :
+                        "this.style.background='linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)'"
+                      }>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.959 8.959 0 01-4.906-1.436L3 21l1.436-5.094A8.959 8.959 0 013 12c0-4.418 3.582-8 8-8s8 3.582 8 8z"></path>
+                        </svg>
+                        <span>Advertising Consultation</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #fa4646 0%, #e03e3e 50%, #c73636 100%)">
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
+      </div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h2 class="text-4xl md:text-5xl font-thin mb-8 tracking-tight">Start Your Advertising Campaign</h2>
+          <p class="text-xl text-gray-300 mb-12 font-light leading-relaxed">
+            Choose the most suitable product platform for you, we provide professional advertising services
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="/contact" class="inline-flex items-center px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200">
+              Contact Now
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a href="/services" class="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-200">
+              Learn About Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<!-- Image modal -->
+<div id="imageModal" class="fixed inset-0 flex items-center justify-center z-50 hidden pointer-events-none">
+  <div class="relative max-w-2xl max-h-96 p-4 pointer-events-auto">
+    <div class="bg-white rounded-lg shadow-2xl border-2 border-gray-200 overflow-hidden">
+      <div class="relative">
+        <button 
+          onclick="closeImageModal()" 
+          class="absolute top-2 right-2 text-gray-600 text-xl font-bold bg-white bg-opacity-90 rounded-full w-7 h-7 flex items-center justify-center hover:bg-gray-100 transition-all z-10 shadow-md"
+        >
+          ×
+        </button>
+        <img id="modalImage" src="" alt="" class="w-full h-auto object-contain" />
+      </div>
+      <div class="p-3 bg-gray-50">
+        <p id="modalCaption" class="text-gray-800 text-center text-sm font-medium"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+</style>
+
+<script is:inline>
+  function openImageModal(imageSrc, caption) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    
+    modalImage.src = imageSrc;
+    modalImage.alt = caption;
+    modalCaption.textContent = caption;
+    modal.classList.remove('hidden');
+  }
+  
+  function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+  }
+  
+  function toggleAdContent(button) {
+    const adContent = button.closest('.ad-content');
+    const adList = adContent.querySelector('.ad-list');
+    const expandText = button.querySelector('.expand-text');
+    const expandIcon = button.querySelector('.expand-icon');
+    
+    const isExpanded = adList.style.maxHeight === 'none';
+    
+    if (isExpanded) {
+      adList.style.maxHeight = '300px';
+      expandText.textContent = 'View More';
+      expandIcon.style.transform = 'rotate(0deg)';
+    } else {
+      adList.style.maxHeight = 'none';
+      expandText.textContent = 'Collapse';
+      expandIcon.style.transform = 'rotate(180deg)';
+    }
+  }
+  
+  // Wait for DOM to load before binding events
+  document.addEventListener('DOMContentLoaded', function() {
+    // Click modal background to close
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeImageModal();
+        }
+      });
+    }
+    
+    // ESC key to close modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+  });
+</script>

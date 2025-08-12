@@ -1,0 +1,8 @@
+{
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "github": {
+    "autoDeployment": true
+  }
+}

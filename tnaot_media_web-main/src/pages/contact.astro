@@ -1,0 +1,475 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// SEO配置
+const seoConfig = {
+  title: "联系我们 - 柬埔寨头条传媒",
+  description: "联系柬埔寨头条传媒专业团队，获取媒体传播、营销推广、活动策划等服务咨询。我们的销售团队和技术团队随时为您提供专业支持和解决方案。",
+  keywords: "联系方式,咨询服务,销售团队,技术支持,媒体合作,营销咨询,活动策划咨询,柬埔寨头条传媒",
+  image: "/hero/produce.jpg",
+  type: "website"
+};
+
+// 销售团队联系信息
+const salesTeam = [
+  {
+    name: 'Cheng Huyleng',
+    position: '营销销售总监',
+    phone: '010 688 511',
+    email: 'chenghuyleng@gmail.com',
+    qrCode: '/contact/sales/wechat-cheng.png',
+    wechatQr: '/contact/sales/wechat-cheng.png',
+    telegramQr: '/contact/sales/telegram-cheng.png',
+    speciality: '营销策略、销售管理'
+  },
+  {
+    name: 'Chea Bunnathisak',
+    position: '营销销售主管',
+    phone: '010 688 511',
+    email: 'bunnathisakchea@gmail.com',
+    qrCode: '/contact/sales/wechat-bunnathisak.png',
+    wechatQr: '/contact/sales/wechat-bunnathisak.png',
+    telegramQr: '/contact/sales/telegram-bunnathisak.png',
+    speciality: '营销监督、团队管理'
+  },
+  {
+    name: 'Chen Vicheka',
+    position: '营销销售专员',
+    phone: '061 520 158',
+    email: 'vicheka.chen@gmail.com',
+    qrCode: '/contact/sales/wechat-vicheka.png',
+    wechatQr: '/contact/sales/wechat-vicheka.png',
+    telegramQr: '/contact/sales/telegram-vicheka.png',
+    speciality: '营销执行、客户开发'
+  },
+  {
+    name: 'Chea Bunlay',
+    position: '营销销售专员',
+    phone: '093 938 282 / 077 741 000',
+    email: 'cheabunlaynu@gmail.com',
+    qrCode: '/contact/sales/wechat-bunlay.png',
+    wechatQr: '/contact/sales/wechat-bunlay.png',
+    telegramQr: '/contact/sales/telegram-bunlay.png',
+    speciality: '营销执行、销售支持'
+  },
+  {
+    name: 'Kang Souheng',
+    position: '活动主管',
+    phone: '071 848 2828',
+    email: 'kangsouheng28@gmail.com',
+    qrCode: '/contact/sales/wechat-souheng.png',
+    wechatQr: '/contact/sales/wechat-souheng.png',
+    telegramQr: '/contact/sales/telegram-souheng.png',
+    speciality: '活动策划、项目监督'
+  }
+];
+
+// 公司联系信息
+const companyInfo = {
+  address: '柬埔寨金边市桑园区，百色河分区，索帝罗亲王大道356号路（永旺1附近）',
+  phone: '+855 23922788',
+  email: 'contact@mediacom.cn',
+  wechat: 'MediaCom2024'
+};
+
+// 办公时间
+const officeHours = [
+  { day: '周一至周六', time: '9:00 - 18:00' }
+];
+
+// 常见问题
+const faqs = [
+  {
+    question: '你们的服务覆盖哪些地区？',
+    answer: '我们的服务覆盖全国各大城市，总部位于北京，在上海、广州、深圳等地设有分支机构。'
+  },
+  {
+    question: '项目周期一般是多长时间？',
+    answer: '项目周期根据服务类型和复杂程度而定，一般媒体投稿1-3天，活动策划2-4周，品牌策略咨询4-8周。'
+  },
+  {
+    question: '如何保证服务质量？',
+    answer: '我们有完善的质量管控体系，每个项目都有专门的项目经理跟进，并提供详细的执行报告和效果评估。'
+  },
+  {
+    question: '费用如何计算？',
+    answer: '我们根据项目的具体需求和复杂程度进行报价，提供透明的价格体系，无隐藏费用。'
+  }
+];
+---
+
+<Layout 
+  title={seoConfig.title}
+  description={seoConfig.description}
+  keywords={seoConfig.keywords}
+  image={seoConfig.image}
+  type={seoConfig.type}
+>
+  <Header />
+  
+  <main>
+    <!-- 页面标题 -->
+    <section class="relative text-white py-16 mt-16 overflow-hidden" style="background: linear-gradient(to right, oklch(57.7% 0.245 27.325), oklch(52% 0.22 35))">
+      <!-- 背景图片 -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDYwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgo8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjEiLz4KPC9wYXR0ZXJuPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNncmlkKSIvPgo8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjMwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4wNSIvPgo8Y2lyY2xlIGN4PSI4MDAiIGN5PSI0NTAiIHI9IjUwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4wNSIvPgo8Y2lyY2xlIGN4PSI2MDAiIGN5PSIxMDAiIHI9IjIwIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4K')"></div>
+      
+      <!-- 渐变叠加 -->
+      <div class="absolute inset-0" style="background: linear-gradient(to right, oklch(57.7% 0.245 27.325 / 0.8), oklch(52% 0.22 35 / 0.8))"></div>
+      
+      <!-- 内容 -->
+      <div class="container relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">联系我们</h1>
+          <p class="text-xl text-white/80 drop-shadow">
+            专业的媒体传播服务团队，随时为您提供咨询和支持
+          </p>
+        </div>
+      </div>
+      
+      <!-- 装饰性元素 -->
+      <div class="absolute top-10 left-10 w-20 h-20 border border-white/20 rounded-full"></div>
+      <div class="absolute bottom-10 right-10 w-16 h-16 border border-white/20 rounded-full"></div>
+      <div class="absolute top-1/2 left-1/4 w-2 h-2 bg-white/30 rounded-full"></div>
+      <div class="absolute top-1/3 right-1/3 w-3 h-3 bg-white/20 rounded-full"></div>
+    </section>
+
+    <!-- 联系信息和表单 -->
+    <section class="section-padding bg-white">
+      <div class="container">
+
+        
+        <div class="max-w-7xl mx-auto">
+          <!-- 联系人信息和表单的两栏布局 -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- 左侧：联系人信息（横排） -->
+            <div class="space-y-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">我们的销售团队</h3>
+              
+              <!-- 联系人卡片（简洁横排布局） -->
+              <div class="space-y-4">
+                {salesTeam.map(member => (
+                  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                      <!-- 基本信息 -->
+                      <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div>
+                            <h3 class="text-lg font-bold text-gray-900">{member.name}</h3>
+                            <span class="inline-block bg-red-100 text-red-700 text-sm font-medium px-3 py-1 rounded-full">{member.position}</span>
+                          </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">{member.speciality}</p>
+                        
+                        <!-- 联系方式 -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                          <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 bg-red-100 rounded-md flex items-center justify-center">
+                              <svg class="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                              </svg>
+                            </div>
+                            <a href={`tel:${member.phone}`} class="text-gray-700 hover:text-red-600 transition-colors text-sm font-medium">{member.phone}</a>
+                          </div>
+                          
+                          <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 bg-red-100 rounded-md flex items-center justify-center">
+                              <svg class="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                              </svg>
+                            </div>
+                            <a href={`mailto:${member.email}`} class="text-gray-700 hover:text-red-600 transition-colors text-sm font-medium truncate">{member.email}</a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- 二维码区域 -->
+                      <div class="flex-shrink-0">
+                        <div class="flex gap-3">
+                          <!-- 微信二维码 -->
+                          <div class="bg-gray-50 rounded-lg p-3 text-center">
+                            <img src={member.wechatQr} alt={`${member.name}的微信二维码`} class="w-16 h-16 mx-auto object-contain mb-2" />
+                            <p class="text-xs text-gray-600 font-medium">微信扫码</p>
+                          </div>
+                          <!-- Telegram二维码 -->
+                          <div class="bg-gray-50 rounded-lg p-3 text-center">
+                            <img src={member.telegramQr} alt={`${member.name}的Telegram二维码`} class="w-16 h-16 mx-auto object-contain mb-2" />
+                            <p class="text-xs text-gray-600 font-medium">Telegram</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <!-- 右侧：联系表单 -->
+            <div class="bg-gray-50 rounded-2xl p-8 shadow-md">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">发送消息</h3>
+              <p class="text-gray-600 mb-8">填写下面的表单，我们会在24小时内回复您</p>
+              
+              <form class="space-y-6" id="contactForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">姓名 *</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                  <div>
+                    <label for="company" class="block text-sm font-medium text-gray-700 mb-2">公司名称</label>
+                    <input type="text" id="company" name="company" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">邮箱 *</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                  <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">电话 *</label>
+                    <input type="tel" id="phone" name="phone" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="service" class="block text-sm font-medium text-gray-700 mb-2">感兴趣的服务</label>
+                  <select id="service" name="service" 
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                    <option value="">请选择服务类型</option>
+                    <option value="media-publishing">媒体投稿发布</option>
+                    <option value="creative-production">创意制作</option>
+                    <option value="event-planning">活动策划与执行</option>
+                    <option value="digital-marketing">数字营销</option>
+                    <option value="technical-services">技术服务</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">预算范围</label>
+                  <select id="budget" name="budget" 
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                    <option value="">请选择预算范围</option>
+                    <option value="under-10k">1万以下</option>
+                    <option value="10k-50k">1-5万</option>
+                    <option value="50k-100k">5-10万</option>
+                    <option value="100k-500k">10-50万</option>
+                    <option value="over-500k">50万以上</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-2">详细需求 *</label>
+                  <textarea id="message" name="message" rows="5" required 
+                            placeholder="请详细描述您的需求和期望..."
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                  发送消息
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 公司位置 -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">公司位置</h2>
+          <p class="text-xl text-gray-600">欢迎您到访我们的办公室</p>
+        </div>
+        
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- 左侧：地图 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden h-[480px]">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.1037587576698!2d104.92719756215457!3d11.5444141886077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109510507457007%3A0xd1a1f280ebcf40f3!2z5p-s5Z-U5a-o5aS05p2h!5e0!3m2!1szh-CN!2skh!4v1750240625702!5m2!1szh-CN!2skh" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            
+            <!-- 右侧：地址和交通信息 -->
+            <div class="space-y-8">
+              <!-- 公司地址 -->
+              <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">公司地址</h3>
+                    <p class="text-gray-700">柬埔寨金边市桑园区，百色河分区，索帝罗亲王大道356号路（永旺1附近）</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 营业时间 -->
+              <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">办公时间</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                      <p class="text-gray-700">周一至周六:</p>
+                      <p class="text-gray-700">9:00 - 18:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+              
+              <!-- 预约到访 -->
+              <div class="bg-gradient-to-r from-red-500 to-red-600 rounded-xl p-6 shadow-md text-white">
+                <h3 class="text-xl font-bold mb-3">预约到访</h3>
+                <p class="mb-4">建议提前预约，我们的顾问将为您提供一对一的咨询服务</p>
+                <a href="tel:+855 23922788" class="inline-flex items-center space-x-2 bg-white text-red-600 font-semibold py-2 px-4 rounded-lg hover:bg-red-50 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                  </svg>
+                  <span>+855 23922788</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+  </main>
+  
+  <Footer />
+  
+  <script>
+    // 表单提交处理
+    const contactForm = document.getElementById('contactForm') as HTMLFormElement;
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e: Event) {
+        e.preventDefault();
+        
+        const submitButton = this.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalText = submitButton?.textContent || '提交咨询';
+        
+        if (!submitButton) return;
+        
+        try {
+          // 显示加载状态
+          submitButton.textContent = '发送中...';
+          submitButton.disabled = true;
+          
+          // 收集表单数据
+          const formData = new FormData(this);
+          const data = {
+            name: formData.get('name'),
+            company: formData.get('company'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            service: formData.get('service'),
+            budget: formData.get('budget'),
+            message: formData.get('message')
+          };
+          
+          // 发送到API
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // 显示成功消息
+            showNotification('感谢您的留言！我们已收到您的信息，会在24小时内回复您。', 'success');
+            // 重置表单
+            (this as HTMLFormElement).reset();
+          } else {
+            throw new Error(result.message || '发送失败');
+          }
+          
+        } catch (error) {
+          console.error('Error:', error);
+          showNotification('发送失败，请稍后重试或直接联系我们的销售团队。', 'error');
+        } finally {
+          // 恢复按钮状态
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+        }
+      });
+    }
+    
+    // 通知函数
+    function showNotification(message: string, type: 'success' | 'error') {
+      // 创建通知元素
+      const notification = document.createElement('div');
+      notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-md transition-all duration-300 transform translate-x-full`;
+      
+      if (type === 'success') {
+        notification.className += ' bg-green-500 text-white';
+        notification.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>${message}</span>
+          </div>
+        `;
+      } else {
+        notification.className += ' bg-red-500 text-white';
+        notification.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <span>${message}</span>
+          </div>
+        `;
+      }
+      
+      document.body.appendChild(notification);
+      
+      // 显示动画
+      setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+      }, 100);
+      
+      // 自动隐藏
+      setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+          if (notification.parentNode) {
+            document.body.removeChild(notification);
+          }
+        }, 300);
+      }, 5000);
+    }
+  </script>
+</Layout>

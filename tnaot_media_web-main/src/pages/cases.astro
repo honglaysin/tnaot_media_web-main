@@ -1,0 +1,651 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// SEO配置
+const seoConfig = {
+  title: "活动纪实 - 柬埔寨头条传媒",
+  description: "柬埔寨头条传媒活动纪实页面，展示我们举办的各类文化交流活动、体育赛事和新闻发布会等精彩瞬间。包括欢乐春节游园会、羽毛球比赛、篮球锦标赛、记者感恩奖等活动的详细记录。",
+  keywords: "柬埔寨头条,活动纪实,文化交流,体育赛事,新闻发布,欢乐春节,羽毛球比赛,篮球锦标赛,记者感恩奖,中柬友谊",
+  image: "/event/chinese/cambo-china-508.jpg",
+  type: "website"
+};
+
+// 活动纪实数据
+const activities = [
+  {
+    id: 1,
+    title: "中柬部门支持！柬埔寨2025年首场大型'新年活动'",
+    category: "文化庆典",
+    date: "2025年1月11日-1月12日",
+    location: "Chip Mong 271 Mega Mall",
+    duration: "2天",
+    description: "承蒙中国驻柬埔寨大使馆、柬埔寨文化与艺术部、新闻部支持，柬埔寨头条举办'欢乐春节'系列活动'欢乐蛇年，中柬同庆'，2025欢乐春节集茂271游园会。",
+    highlights: "免费参与的大型新年庆典，包含中国非遗体验、汉服拍照、传统表演、美食集市等丰富活动，让在柬华人同胞及本地朋友共庆新春。",
+    activities: "非遗漆扇制作、汉服体验拍照、祈福许愿墙、套圈投球游戏、传统舞龙舞狮、变脸吐火表演、古筝演奏、长嘴壶茶艺、美猴王互动、中国书法、知识问答、60+美食摊位。",
+    achievements: [
+      "中柬政府部门联合支持",
+      "免费向公众开放参与",
+      "涵盖多项中国非物质文化遗产",
+      "60+精选美食摊位和年货集市",
+      "限量版'吉祥蛇'玩偶赠送",
+      "专业化妆师和摄影师服务"
+    ],
+    images: [
+      "/event/chinese/cambo-china-508.jpg",
+      "/event/chinese/cambo-china-509.jpg",
+      "/event/chinese/cambo-china-520.jpg",
+      "/event/chinese/cambo-china-521.jpg",
+      "/event/chinese/cambo-china-522.jpg",
+      "/event/chinese/cambo-china-523.jpg",
+      "/event/chinese/cambo-china-524.jpg",
+      "/event/chinese/cambo-china-525.jpg",
+      "/event/chinese/cambo-china-526.jpg"
+    ],
+    tags: ["欢乐春节", "中柬文化", "非遗体验", "新年庆典"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/topic/217"
+  },
+  {
+    id: 2,
+    title: "人文交流杯•业余羽毛球比赛",
+    category: "体育赛事",
+    date: "2024年7月6日-7日",
+    location: "金边金银岛羽毛球俱乐部",
+    duration: "2天",
+    description: "由柬埔寨头条主办的业余羽毛球比赛，旨在促进中柬两国文化交流，增进两国人民友谊。",
+    highlights: "获得柬埔寨新闻部、中国驻柬埔寨大使馆等多部门支持，设置多个组别比赛，奖品丰厚。",
+    activities: "女单、女双、男单、男双、混双、邀请组等多个组别比赛，颁奖仪式及闭幕式典礼。",
+    achievements: [
+      "多部门机构大力支持",
+      "众多赞助商倾力赞助",
+      "促进中柬文化交流",
+      "增进两国人民友谊"
+    ],
+    images: [
+      "/event/yumaoqiu/yumaoqiu1.jpg",
+      "/event/yumaoqiu/yumaoqiu2.jpg",
+      "/event/yumaoqiu/yumaoqiu3.jpg",
+      "/event/yumaoqiu/yumaoqiu4.jpg"
+    ],
+    image: "/event/yumaoqiu/yumaoqiu1.jpg",
+    tags: ["羽毛球", "体育赛事", "中柬交流", "人文交流"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/detail/article/13954854"
+  },
+  {
+    id: 3,
+    title: "柬埔寨国家级3X3篮球锦标赛",
+    category: "体育赛事",
+    date: "2022年10月23日-29日",
+    location: "柬埔寨金边",
+    duration: "7天",
+    description: "柬埔寨首场国家级3X3篮球锦标赛，提升本地青少年及社会企业文体生活及身体素质，促进柬埔寨篮球运动发展，响应和迎接2023年东南亚运动会。",
+    highlights: "年轻人的赛场，展现朝气蓬勃的精神面貌！柬埔寨官方背书活动，面向全社会，触达柬埔寨本地700万+流量。",
+    activities: "新闻发布会暨开幕式、预赛、8强赛、总决赛、颁奖典礼等。",
+    achievements: [
+      "触达柬埔寨本地700万+流量",
+      "成功举办首场国家级3X3篮球锦标赛",
+      "促进柬埔寨篮球运动发展",
+      "获得柬埔寨官方背书"
+    ],
+    images: [
+      "/event/lanqiu/lanqiu1.jpg",
+      "/event/lanqiu/lanqiu2.jpg",
+      "/event/lanqiu/lanqiu3.jpg",
+      "/event/lanqiu/lanqiu4.jpg",
+      "/event/lanqiu/lanqiu5.jpg",
+      "/event/lanqiu/lanqiu6.jpg",
+      "/event/lanqiu/lanqiu7.jpg",
+      "/event/lanqiu/lanqiu8.jpg"
+    ],
+    image: "/event/lanqiu/lanqiu1.jpg",
+    tags: ["篮球", "体育赛事", "国家级锦标赛", "青少年体育"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/topic/192"
+  },
+  {
+    id: 4,
+    title: "柬埔寨新闻部《历代记者感恩奖》活动",
+    category: "行业盛典",
+    date: "2024年3月24日",
+    location: "柬埔寨金边",
+    duration: "1天",
+    description: "柬埔寨新闻部首次举办的历代记者感恩奖活动，旨在表彰历代记者对社会发展做出的贡献。14位来自1970-2010年代的记者获奖，最年长的已有73岁。",
+    highlights: "柬埔寨新闻行业的盛会，现场爆满，数十家媒体齐聚报道，多家媒体进行现场直播，吸引数万人在线观看。",
+    activities: "颁奖典礼、部长致辞、获奖记者表彰、赞助商感谢仪式、媒体采访报道、现场直播互动。",
+    achievements: [
+      "柬埔寨新闻部首次举办历代记者感恩奖",
+      "表彰14位历代记者的杰出贡献",
+      "数十家本地媒体现场报道",
+      "数万人在线观看直播",
+      "获得政府高层及行业认可",
+      "成功协办并获得新闻部感谢函"
+    ],
+    images: [
+      "/event/jizhe/jizhe1.jpg",
+      "/event/jizhe/jizhe2.jpg",
+      "/event/jizhe/jizhe3.jpg",
+      "/event/jizhe/jizhe4.jpg"
+    ],
+    image: "/event/jizhe/jizhe1.jpg",
+    tags: ["新闻行业", "记者表彰", "行业盛典", "媒体活动"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/detail/article/12666459"
+  }
+];
+
+// 参与者反馈数据
+const feedbacks = [
+  {
+    name: "陈丽",
+    position: "文化活动爱好者",
+    company: "金边华人社区",
+    content: "欢乐春节游园会让我们在异国他乡感受到了浓浓的年味，各种传统文化活动都很精彩，孩子们玩得特别开心！",
+    rating: 5
+  },
+  {
+    name: "李强",
+    position: "羽毛球爱好者",
+    company: "柬埔寨华人体育协会",
+    content: "人文交流杯羽毛球比赛组织得非常专业，不仅提高了我的球技，还结识了很多志同道合的朋友，期待下次比赛！",
+    rating: 5
+  },
+  {
+    name: "王明",
+    position: "篮球教练",
+    company: "金边青少年体育中心",
+    content: "3X3篮球锦标赛为柬埔寨的篮球运动发展做出了重要贡献，比赛水平很高，青少年们的表现令人印象深刻！",
+    rating: 5
+  },
+  {
+    name: "张华",
+    position: "资深记者",
+    company: "柬埔寨华文媒体",
+    content: "历代记者感恩奖活动非常有意义，表彰了为柬埔寨新闻事业做出贡献的前辈们，活动组织专业，现场氛围热烈！",
+    rating: 5
+  }
+];
+
+// 定义活动类型
+interface Activity {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  location: string;
+  images?: string[];
+  category: string;
+  featured?: boolean;
+}
+
+// 生成活动的结构化数据
+const generateEventStructuredData = (activities: Activity[]) => {
+  return activities.map((activity: Activity) => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": activity.title,
+    "description": activity.description,
+    "startDate": activity.date.split("-")[0],
+    "endDate": activity.date.includes("-") ? activity.date.split("-")[1] : activity.date,
+    "location": {
+      "@type": "Place",
+      "name": activity.location,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "金边",
+        "addressCountry": "柬埔寨"
+      }
+    },
+    "image": activity.images && activity.images.length > 0 ? activity.images[0] : "/logo.png",
+    "organizer": {
+      "@type": "Organization",
+      "name": "柬埔寨头条传媒",
+      "url": "https://kohweb.com"
+    },
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+  }));
+};
+
+const eventsStructuredData = generateEventStructuredData(activities);
+
+---
+
+<Layout 
+  title={seoConfig.title}
+  description={seoConfig.description}
+  keywords={seoConfig.keywords}
+  image={seoConfig.image}
+  type={seoConfig.type}
+>
+  <!-- 活动页面结构化数据 -->
+  <script type="application/ld+json" set:html={JSON.stringify(eventsStructuredData)} />
+  
+  <!-- 面包屑导航结构化数据 -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://kohweb.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "活动纪实",
+          "item": "https://kohweb.com/cases"
+        }
+      ]
+    }
+  </script>
+  
+  <Header />
+  
+  <main>
+    <!-- Hero区域 -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white pt-32 pb-20 mt-16">
+      <div class="container relative z-10">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">活动纪实</h1>
+          <p class="text-xl md:text-2xl mb-8 text-blue-100">
+            记录我们举办的精彩活动瞬间
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#activities" class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              查看活动
+            </a>
+            <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              参与活动
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 装饰性背景 -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
+        <div class="absolute top-32 right-20 w-16 h-16 bg-white rounded-full"></div>
+        <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white rounded-full"></div>
+        <div class="absolute bottom-32 right-1/3 w-24 h-24 bg-white rounded-full"></div>
+      </div>
+    </section>
+
+
+
+    <!-- 活动展示 -->
+    <section id="activities" class="section-padding bg-gray-50">
+      <div class="container">
+        <div id="activitiesGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {activities.map(activity => (
+            <div class={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 activity-item ${
+              activity.featured ? 'lg:col-span-2' : ''
+            }`} 
+            data-type={activity.category} 
+            data-scale={activity.category.includes('峰会') ? '大型' : activity.category.includes('团建') ? '中型' : '小型'}>
+              
+              {activity.featured && (
+                <div class="bg-orange-500 text-white px-4 py-1 text-sm font-medium inline-block">
+                  精选活动
+                </div>
+              )}
+              
+              <div class={`${activity.featured ? 'lg:flex' : ''}`}>
+                <!-- 活动图片 -->
+                <div class={`${activity.featured ? 'lg:w-1/2' : ''} relative overflow-hidden`}>
+                  {activity.images ? (
+                    <!-- 图片轮播 -->
+                    <div class="slideshow-container relative w-full h-full" data-activity-id={activity.id}>
+                      {activity.images.map((image, index) => (
+                        <div class={`slide ${index === 0 ? 'active' : ''} absolute inset-0 transition-opacity duration-500`}>
+                          <img src={image} alt={`${activity.title} - 图片 ${index + 1}`} class="w-full h-full object-cover object-center" />
+                        </div>
+                      ))}
+                      
+                      <!-- 导航按钮 -->
+                      <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all">
+                        ❮
+                      </button>
+                      <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all">
+                        ❯
+                      </button>
+                      
+                      <!-- 指示器 -->
+                      <div class="dots-container absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        {activity.images.map((_, index) => (
+                          <span class={`dot w-3 h-3 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white bg-opacity-50'}`} data-slide={index}></span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <!-- 默认图片显示 -->
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-full flex items-center justify-center">
+                      <div class="text-center">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <p class="text-gray-600">{activity.title}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                <!-- 活动内容 -->
+                <div class={`p-6 ${activity.featured ? 'lg:w-1/2' : ''}`}>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                      {activity.category}
+                    </span>
+                    <span class="text-gray-500 text-sm">{activity.duration}</span>
+                  </div>
+                  
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">{activity.title}</h3>
+                  <p class="text-gray-600 mb-4">{activity.description}</p>
+                  
+                  <div class="mb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">时间地点：</h4>
+                    <p class="text-gray-600">{activity.date} · {activity.location}</p>
+                  </div>
+                  
+                  <div class="mb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">活动亮点：</h4>
+                    <p class="text-gray-600 text-sm">{activity.highlights}</p>
+                  </div>
+                  
+                  <div class="mb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">活动内容：</h4>
+                    <p class="text-gray-600 text-sm">{activity.activities}</p>
+                  </div>
+                  
+                  <div class="mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-2">活动成果：</h4>
+                    <ul class="space-y-1">
+                      {activity.achievements.map(achievement => (
+                        <li class="text-sm text-gray-600 flex items-center">
+                          <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {activity.tags.map(tag => (
+                      <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {activity.url && (
+                    <div class="mt-4">
+                      <a href={activity.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                        查看活动详情
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 参与者反馈 -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">参与者反馈</h2>
+          <p class="text-xl text-gray-600">听听活动参与者的真实感受</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {feedbacks.map(feedback => (
+            <div class="bg-gray-50 rounded-xl p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-purple-600 font-bold">{feedback.name.charAt(0)}</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">{feedback.name}</h4>
+                  <p class="text-sm text-gray-600">{feedback.position}</p>
+                  <p class="text-sm text-gray-500">{feedback.company}</p>
+                </div>
+              </div>
+              
+              <div class="flex mb-4">
+                {Array.from({length: feedback.rating}).map(() => (
+                  <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                ))}
+              </div>
+              
+              <p class="text-gray-600 italic">"{feedback.content}"</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <section class="bg-purple-600 section-padding">
+      <div class="container">
+        <div class="text-center text-white mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">活动数据</h2>
+          <p class="text-xl text-purple-100">用数据展示我们的活动成果</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold mb-2 text-white">3000+</div>
+            <div class="text-purple-100">参与人次</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold mb-2 text-white">98%</div>
+            <div class="text-purple-100">满意度</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold mb-2 text-white">800万+</div>
+            <div class="text-purple-100">媒体触达</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA区域 -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            想参与我们的活动？
+          </h2>
+          <p class="text-xl text-gray-600 mb-8">
+            关注我们，第一时间了解最新活动信息
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="bg-purple-600 text-white hover:bg-purple-700 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              联系我们
+            </a>
+            <a href="/services" class="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              了解更多
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  
+  <script>
+    // 图片轮播功能
+    document.addEventListener('DOMContentLoaded', function() {
+      const slideshows = document.querySelectorAll('.slideshow-container');
+      
+      slideshows.forEach(slideshow => {
+        const slides = slideshow.querySelectorAll('.slide');
+        const prevBtn = slideshow.querySelector('.prev');
+        const nextBtn = slideshow.querySelector('.next');
+        const dots = slideshow.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let slideInterval: ReturnType<typeof setInterval> | null = null;
+        
+        // 显示指定幻灯片
+        function showSlide(index: number) {
+          slides.forEach((slide, i) => {
+            const slideElement = slide as HTMLElement;
+            if (i === index) {
+              slideElement.style.opacity = '1';
+              slideElement.style.zIndex = '10';
+            } else {
+              slideElement.style.opacity = '0';
+              slideElement.style.zIndex = '1';
+            }
+          });
+          
+          dots.forEach((dot, i) => {
+            const dotElement = dot as HTMLElement;
+            if (i === index) {
+              dotElement.classList.remove('bg-opacity-50');
+              dotElement.classList.add('bg-white');
+            } else {
+              dotElement.classList.add('bg-opacity-50');
+              dotElement.classList.remove('bg-white');
+            }
+          });
+          
+          currentSlide = index;
+        }
+        
+        // 下一张幻灯片
+        function nextSlide() {
+          const next = (currentSlide + 1) % slides.length;
+          showSlide(next);
+        }
+        
+        // 上一张幻灯片
+        function prevSlide() {
+          const prev = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(prev);
+        }
+        
+        // 开始自动播放
+        function startAutoPlay() {
+          slideInterval = setInterval(nextSlide, 4000); // 每4秒切换一次
+        }
+        
+        // 停止自动播放
+        function stopAutoPlay() {
+          if (slideInterval) {
+            clearInterval(slideInterval);
+          }
+        }
+        
+        // 事件监听器
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+            stopAutoPlay();
+            startAutoPlay(); // 重新开始自动播放
+          });
+        }
+        
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+            stopAutoPlay();
+            startAutoPlay(); // 重新开始自动播放
+          });
+        }
+        
+        // 指示器点击事件
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            showSlide(index);
+            stopAutoPlay();
+            startAutoPlay(); // 重新开始自动播放
+          });
+        });
+        
+        // 鼠标悬停时暂停自动播放
+        slideshow.addEventListener('mouseenter', stopAutoPlay);
+        slideshow.addEventListener('mouseleave', startAutoPlay);
+        
+        // 初始化
+        if (slides.length > 1) {
+          showSlide(0);
+          startAutoPlay();
+        }
+      });
+    });
+  </script>
+
+  <style>
+    .section-padding {
+      padding: 4rem 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .hero-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .activity-item {
+      transition: transform 0.2s ease-in-out;
+    }
+    
+    .activity-item:hover {
+      transform: translateY(-2px);
+    }
+    
+    .slide {
+      opacity: 0;
+      z-index: 1;
+    }
+    
+    .slide.active {
+      opacity: 1;
+      z-index: 10;
+    }
+    
+    /* 图片容器优化 */
+    .slideshow-container {
+      aspect-ratio: 16/9;
+      min-height: 200px;
+    }
+    
+    .slideshow-container img {
+      transition: transform 0.3s ease;
+    }
+    
+    .slideshow-container:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* 响应式图片高度 */
+    @media (max-width: 768px) {
+      .slideshow-container {
+        aspect-ratio: 4/3;
+        min-height: 180px;
+      }
+    }
+  </style>
+
+</Layout>

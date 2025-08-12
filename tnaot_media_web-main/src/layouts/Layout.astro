@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+	title: string;
+	description?: string;
+	keywords?: string;
+	image?: string;
+	url?: string;
+	type?: string;
+}
+
+const { 
+	title, 
+	description = "柬埔寨头条传媒 - 专业媒体传播与营销推广服务，提供全方位的媒体解决方案", 
+	keywords = "柬埔寨头条,媒体传播,营销推广,新闻发布,活动策划,品牌宣传,数字营销,社交媒体",
+	image = "/logo.png",
+	url = Astro.url.href,
+	type = "website"
+} = Astro.props;
+
+const siteName = "柬埔寨头条传媒";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		
+		<!-- SEO Meta Tags -->
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="柬埔寨头条传媒" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalURL} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content="zh_CN" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+		
+		<!-- Additional Meta Tags -->
+		<meta name="theme-color" content="#7c3aed" />
+		<meta name="msapplication-TileColor" content="#7c3aed" />
+		
+		<title>{title}</title>
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "柬埔寨头条传媒",
+				"url": "https://kohweb.com",
+				"logo": "https://kohweb.com/logo.png",
+				"description": "柬埔寨头条传媒 - 专业媒体传播与营销推广服务",
+				"sameAs": [
+					"https://www.facebook.com/cambodiatoutiao",
+					"https://t.me/cambodiatoutiao"
+				],
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"contactType": "customer service",
+					"availableLanguage": ["Chinese", "Khmer", "English"]
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

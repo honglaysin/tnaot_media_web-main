@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// 团队成员数据
+const teamMembers = [
+  {
+    name: "张明",
+    position: "创始人 & CEO",
+    description: "10年媒体行业经验，曾任职于知名广告公司",
+    avatar: "/contact/sales/ceo-avatar.jpg"
+  },
+  {
+    name: "李华",
+    position: "运营总监",
+    description: "专注于媒体资源整合和客户关系管理",
+    avatar: "/contact/sales/operations-director-avatar.jpg"
+  },
+  {
+    name: "王芳",
+    position: "创意总监",
+    description: "资深创意策划，擅长品牌传播策略制定",
+    avatar: "/contact/sales/creative-director-avatar.jpg"
+  },
+  {
+    name: "陈强",
+    position: "技术总监",
+    description: "负责数字化平台建设和数据分析系统",
+    avatar: "/contact/sales/tech-director-avatar.jpg"
+  }
+];
+
+// 发展历程
+const milestones = [
+  {
+    year: "2018",
+    title: "平台创立与起步",
+    description: "APP V1.0 正式上线，同时创建社交媒体账号。初期专注于中文和高棉语的日常新闻服务，为柬埔寨本地用户提供及时、准确的新闻资讯。",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2019",
+    title: "服务多元化发展",
+    description: "从单一的日常新闻服务扩展到多元化服务体系，推出寻宝活动等创新功能，鼓励用户更多参与互动，提供丰富多样的娱乐内容和实用功能。",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2020",
+    title: "数字化转型",
+    description: "全面拥抱数字化营销，推出社交媒体代运营和数字广告投放服务，为客户提供专业的数字营销解决方案。",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2022",
+    title: "媒体服务拓展",
+    description: "建立完善的媒体投稿与采访服务体系，为企业和组织提供专业的媒体传播服务，成为行业内知名的媒体传播服务商。",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+  },
+  {
+    year: "2024至今",
+    title: "社交媒体平台升级",
+    description: "APP 全面升级为专业社交媒体平台，专业媒体公司、NGO、各类组织可在平台发布内容、公告、推广和视频，并实现内容变现。提供媒体投稿、创意制作、活动策划、数字营销、技术开发五大核心服务。",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+  }
+];
+---
+
+<Layout title="关于我们 - 媒体传播" description="了解我们的公司历程、团队介绍和企业文化，专业的媒体传播与营销推广服务团队">
+  <Header />
+  
+  <main>
+    <!-- 页面标题 -->
+    <section class="bg-gradient-to-r from-primary-600 to-red-600 text-white py-16 mt-16">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">{t('about.hero.title')}</h1>
+          <p class="text-xl text-red-100">
+            {t('about.hero.subtitle')}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">{t('about.mission.title')}</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              {t('about.mission.description1')}
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              {t('about.mission.description2')}
+            </p>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="text-center p-4 bg-primary-50 rounded-lg">
+                <div class="text-2xl font-bold text-primary-600 mb-2">500+</div>
+                <div class="text-gray-600">合作客户</div>
+              </div>
+              <div class="text-center p-4 bg-primary-50 rounded-lg">
+                <div class="text-2xl font-bold text-primary-600 mb-2">8年+</div>
+                <div class="text-gray-600">行业经验</div>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <img src="/company/company.jpg" alt="公司价值观" class="w-full h-96 object-cover rounded-2xl shadow-lg" />
+            <div class="absolute inset-0 rounded-2xl flex items-center justify-center">
+              <div class="text-center text-white bg-black bg-opacity-60 rounded-xl p-6">
+                <div class="w-24 h-24 flex items-center justify-center mx-auto mb-4">
+                  <img src="/company/logo.png" alt="公司Logo" class="w-full h-full object-contain" />
+                </div>
+                <h3 class="text-xl font-bold mb-2">{t('about.values.title')}</h3>
+                <p class="text-gray-200">{t('about.values.subtitle')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- 团队介绍 -->
+    <section class="section-padding bg-gradient-to-br from-gray-50 to-white">
+      <div class="container">
+        <div class="text-center mb-20">
+          <div class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">
+            核心团队
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">我们的团队</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            汇聚行业精英，以专业、创新、协作的精神为客户创造价值
+          </p>
+        </div>
+        
+        <!-- 团队成员网格 -->
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {teamMembers.map((member, index) => (
+              <div class="group relative">
+                <!-- 背景装饰 -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-primary-600 to-red-600 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                
+                <!-- 主卡片 -->
+                <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform group-hover:-translate-y-2 transition-all duration-500">
+                  <div class="flex flex-col md:flex-row">
+                    <!-- 头像部分 -->
+                    <div class="relative md:w-48 h-64 md:h-auto overflow-hidden">
+                      <img 
+                        src={member.avatar} 
+                        alt={member.name}
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <!-- 渐变遮罩 -->
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                      
+                      <!-- 职位标签 -->
+                      <div class="absolute bottom-4 left-4 right-4">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                          <p class="text-primary-600 font-bold text-sm">{member.position}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- 内容部分 -->
+                    <div class="flex-1 p-8">
+                      <div class="h-full flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                          {member.name}
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                          {member.description}
+                        </p>
+                        
+                        <!-- 技能标签或特色 -->
+                        <div class="flex flex-wrap gap-2">
+                          <span class="px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-medium">
+                            专业领导
+                          </span>
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
+                            团队协作
+                          </span>
+                          <span class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-medium">
+                            创新思维
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- 装饰性元素 -->
+                  <div class="absolute top-4 right-4 w-8 h-8 border-2 border-primary-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <!-- 团队统计 -->
+          <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">8+</div>
+              <div class="text-gray-600">年行业经验</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">200+</div>
+              <div class="text-gray-600">成功项目</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">500+</div>
+              <div class="text-gray-600">合作客户</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600 mb-2">5大</div>
+              <div class="text-gray-600">核心服务</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 发展历程 -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <div class="text-center mb-12">
+           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">发展历程</h2>
+           <p class="text-xl text-gray-600">见证我们的成长足迹与里程碑时刻</p>
+         </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="relative">
+            <!-- 时间线 -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary-200"></div>
+            
+            <div class="space-y-8">
+              {milestones.map((milestone, index) => (
+                <div class={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div class="flex-1 px-6">
+                    <div class={`bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                      <div class="text-primary-600 font-bold text-base mb-1">{milestone.year}</div>
+                      <h3 class="text-lg font-bold text-gray-900 mb-2">{milestone.title}</h3>
+                      <p class="text-gray-600 text-sm leading-relaxed">{milestone.description}</p>
+                    </div>
+                  </div>
+                  
+                  <!-- 时间点 -->
+                  <div class="relative z-10">
+                    <div class="w-4 h-4 bg-primary-600 rounded-full border-2 border-white shadow-md"></div>
+                  </div>
+                  
+                  <div class="flex-1 px-6"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA区域 -->
+    <section class="bg-primary-600 section-padding">
+      <div class="container">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {t('about.cta.title')}
+          </h2>
+          <p class="text-xl mb-8 opacity-90">
+            {t('about.cta.subtitle')}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              {t('about.cta.button')}
+            </a>
+            <a href={lang === 'zh' ? '/services' : '/en/services'} class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              {t('nav.services')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

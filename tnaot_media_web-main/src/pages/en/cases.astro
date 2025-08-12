@@ -1,0 +1,651 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// SEO Configuration
+const seoConfig = {
+  title: "Event Gallery - TNAOT Media",
+  description: "TNAOT Media event gallery page, showcasing various cultural exchange activities, sports events, and press conferences we have organized. Including Happy Chinese New Year Garden Party, badminton competitions, basketball championships, journalist appreciation awards and other exciting moments.",
+  keywords: "TNAOT,event gallery,cultural exchange,sports events,press release,Happy Chinese New Year,badminton competition,basketball championship,journalist appreciation award,China-Cambodia friendship",
+  image: "/event/chinese/cambo-china-508.jpg",
+  type: "website"
+};
+
+// Event gallery data
+const activities = [
+  {
+    id: 1,
+    title: "China-Cambodia Departments Support! Cambodia's First Large-Scale 'New Year Event' of 2025",
+    category: "Cultural Celebration",
+    date: "January 11-12, 2025",
+    location: "Chip Mong 271 Mega Mall",
+    duration: "2 days",
+    description: "With the support of the Chinese Embassy in Cambodia, Cambodia's Ministry of Culture and Arts, and Ministry of Information, TNAOT organized the 'Happy Chinese New Year' series event 'Happy Snake Year, China-Cambodia Celebration Together', 2025 Happy Chinese New Year Jimong 271 Garden Party.",
+    highlights: "Free large-scale New Year celebration including Chinese intangible cultural heritage experiences, Hanfu photography, traditional performances, food markets and other rich activities, allowing overseas Chinese compatriots and local friends to celebrate the New Year together.",
+    activities: "Intangible heritage lacquer fan making, Hanfu experience photography, blessing wish wall, ring toss games, traditional dragon and lion dance, face-changing fire breathing performances, guzheng performances, long-spout teapot tea art, Monkey King interaction, Chinese calligraphy, knowledge quiz, 60+ food stalls.",
+    achievements: [
+      "Joint support from China-Cambodia government departments",
+      "Free public participation",
+      "Covering multiple Chinese intangible cultural heritage items",
+      "60+ selected food stalls and New Year goods market",
+      "Limited edition 'Lucky Snake' doll giveaway",
+      "Professional makeup artist and photographer services"
+    ],
+    images: [
+      "/event/chinese/cambo-china-508.jpg",
+      "/event/chinese/cambo-china-509.jpg",
+      "/event/chinese/cambo-china-520.jpg",
+      "/event/chinese/cambo-china-521.jpg",
+      "/event/chinese/cambo-china-522.jpg",
+      "/event/chinese/cambo-china-523.jpg",
+      "/event/chinese/cambo-china-524.jpg",
+      "/event/chinese/cambo-china-525.jpg",
+      "/event/chinese/cambo-china-526.jpg"
+    ],
+    tags: ["Happy Chinese New Year", "China-Cambodia Culture", "Heritage Experience", "New Year Celebration"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/topic/217"
+  },
+  {
+    id: 2,
+    title: "Humanities Exchange Cup • Amateur Badminton Competition",
+    category: "Sports Event",
+    date: "July 6-7, 2024",
+    location: "Phnom Penh Golden Island Badminton Club",
+    duration: "2 days",
+    description: "Amateur badminton competition organized by TNAOT, aimed at promoting cultural exchange between China and Cambodia and enhancing friendship between the two peoples.",
+    highlights: "Supported by Cambodia's Ministry of Information, Chinese Embassy in Cambodia and other departments, with multiple competition categories and generous prizes.",
+    activities: "Women's singles, women's doubles, men's singles, men's doubles, mixed doubles, invitation group and other competition categories, award ceremony and closing ceremony.",
+    achievements: [
+      "Strong support from multiple departments and institutions",
+      "Generous sponsorship from numerous sponsors",
+      "Promoting China-Cambodia cultural exchange",
+      "Enhancing friendship between the two peoples"
+    ],
+    images: [
+      "/event/yumaoqiu/yumaoqiu1.jpg",
+      "/event/yumaoqiu/yumaoqiu2.jpg",
+      "/event/yumaoqiu/yumaoqiu3.jpg",
+      "/event/yumaoqiu/yumaoqiu4.jpg"
+    ],
+    image: "/event/yumaoqiu/yumaoqiu1.jpg",
+    tags: ["Badminton", "Sports Event", "China-Cambodia Exchange", "Humanities Exchange"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/detail/article/13954854"
+  },
+  {
+    id: 3,
+    title: "Cambodia National 3X3 Basketball Championship",
+    category: "Sports Event",
+    date: "October 23-29, 2022",
+    location: "Phnom Penh, Cambodia",
+    duration: "7 days",
+    description: "Cambodia's first national-level 3X3 basketball championship, aimed at improving the cultural and sports life and physical fitness of local youth and social enterprises, promoting the development of basketball in Cambodia, and responding to and welcoming the 2023 Southeast Asian Games.",
+    highlights: "A stage for young people to showcase their vibrant spirit! Officially endorsed by Cambodia, targeting the entire society, reaching 7 million+ local Cambodian traffic.",
+    activities: "Press conference and opening ceremony, preliminaries, quarterfinals, finals, award ceremony, etc.",
+    achievements: [
+      "Reached 7 million+ local Cambodian traffic",
+      "Successfully held the first national-level 3X3 basketball championship",
+      "Promoted the development of basketball in Cambodia",
+      "Received official endorsement from Cambodia"
+    ],
+    images: [
+      "/event/lanqiu/lanqiu1.jpg",
+      "/event/lanqiu/lanqiu2.jpg",
+      "/event/lanqiu/lanqiu3.jpg",
+      "/event/lanqiu/lanqiu4.jpg",
+      "/event/lanqiu/lanqiu5.jpg",
+      "/event/lanqiu/lanqiu6.jpg",
+      "/event/lanqiu/lanqiu7.jpg",
+      "/event/lanqiu/lanqiu8.jpg"
+    ],
+    image: "/event/lanqiu/lanqiu1.jpg",
+    tags: ["Basketball", "Sports Event", "National Championship", "Youth Sports"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/topic/192"
+  },
+  {
+    id: 4,
+    title: "Cambodia Ministry of Information 'Historical Journalist Appreciation Award' Event",
+    category: "Industry Gala",
+    date: "March 24, 2024",
+    location: "Phnom Penh, Cambodia",
+    duration: "1 day",
+    description: "The first historical journalist appreciation award event organized by Cambodia's Ministry of Information, aimed at recognizing the contributions of historical journalists to social development. 14 journalists from the 1970s-2010s were awarded, with the oldest being 73 years old.",
+    highlights: "A grand event for Cambodia's news industry, with a packed venue, dozens of media outlets reporting on-site, multiple media conducting live broadcasts, attracting tens of thousands of online viewers.",
+    activities: "Award ceremony, minister's speech, journalist recognition, sponsor appreciation ceremony, media interviews and reports, live broadcast interaction.",
+    achievements: [
+      "First historical journalist appreciation award organized by Cambodia's Ministry of Information",
+      "Recognized 14 historical journalists' outstanding contributions",
+      "Dozens of local media outlets reported on-site",
+      "Tens of thousands watched the live broadcast",
+      "Received recognition from government high-level officials and the industry",
+      "Successfully co-organized and received a letter of appreciation from the Ministry of Information"
+    ],
+    images: [
+      "/event/jizhe/jizhe1.jpg",
+      "/event/jizhe/jizhe2.jpg",
+      "/event/jizhe/jizhe3.jpg",
+      "/event/jizhe/jizhe4.jpg"
+    ],
+    image: "/event/jizhe/jizhe1.jpg",
+    tags: ["News Industry", "Journalist Recognition", "Industry Gala", "Media Event"],
+    featured: true,
+    url: "https://tnaot.com/zh/m/detail/article/12666459"
+  }
+];
+
+// Participant feedback data
+const feedbacks = [
+  {
+    name: "Chen Li",
+    position: "Cultural Activity Enthusiast",
+    company: "Phnom Penh Chinese Community",
+    content: "The Happy Chinese New Year Garden Party made us feel the strong New Year atmosphere in a foreign country. All traditional cultural activities were wonderful, and the children had a great time!",
+    rating: 5
+  },
+  {
+    name: "Li Qiang",
+    position: "Badminton Enthusiast",
+    company: "Cambodia Chinese Sports Association",
+    content: "The Humanities Exchange Cup badminton competition was very professionally organized. It not only improved my skills but also helped me meet many like-minded friends. Looking forward to the next competition!",
+    rating: 5
+  },
+  {
+    name: "Wang Ming",
+    position: "Basketball Coach",
+    company: "Phnom Penh Youth Sports Center",
+    content: "The 3X3 basketball championship made an important contribution to the development of basketball in Cambodia. The competition level was high, and the young people's performance was impressive!",
+    rating: 5
+  },
+  {
+    name: "Zhang Hua",
+    position: "Senior Journalist",
+    company: "Cambodia Chinese Media",
+    content: "The Historical Journalist Appreciation Award event was very meaningful, recognizing the predecessors who contributed to Cambodia's journalism industry. The event was professionally organized with a warm atmosphere!",
+    rating: 5
+  }
+];
+
+// Define activity type
+interface Activity {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  location: string;
+  images?: string[];
+  category: string;
+  featured?: boolean;
+}
+
+// Generate structured data for activities
+const generateEventStructuredData = (activities: Activity[]) => {
+  return activities.map((activity: Activity) => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": activity.title,
+    "description": activity.description,
+    "startDate": activity.date.split("-")[0],
+    "endDate": activity.date.includes("-") ? activity.date.split("-")[1] : activity.date,
+    "location": {
+      "@type": "Place",
+      "name": activity.location,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phnom Penh",
+        "addressCountry": "Cambodia"
+      }
+    },
+    "image": activity.images && activity.images.length > 0 ? activity.images[0] : "/logo.png",
+    "organizer": {
+      "@type": "Organization",
+      "name": "TNAOT Media",
+      "url": "https://kohweb.com"
+    },
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+  }));
+};
+
+const eventsStructuredData = generateEventStructuredData(activities);
+
+---
+
+<Layout 
+  title={seoConfig.title}
+  description={seoConfig.description}
+  keywords={seoConfig.keywords}
+  image={seoConfig.image}
+  type={seoConfig.type}
+>
+  <!-- Event page structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(eventsStructuredData)} />
+  
+  <!-- Breadcrumb navigation structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kohweb.com/en"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Event Gallery",
+          "item": "https://kohweb.com/en/cases"
+        }
+      ]
+    }
+  </script>
+  
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white pt-32 pb-20 mt-16">
+      <div class="container relative z-10">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">Event Gallery</h1>
+          <p class="text-xl md:text-2xl mb-8 text-blue-100">
+            Recording the exciting moments of our organized events
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#activities" class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              View Events
+            </a>
+            <a href="/en/contact" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              Join Events
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Decorative background -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full"></div>
+        <div class="absolute top-32 right-20 w-16 h-16 bg-white rounded-full"></div>
+        <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white rounded-full"></div>
+        <div class="absolute bottom-32 right-1/3 w-24 h-24 bg-white rounded-full"></div>
+      </div>
+    </section>
+
+
+
+    <!-- Event Display -->
+    <section id="activities" class="section-padding bg-gray-50">
+      <div class="container">
+        <div id="activitiesGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {activities.map(activity => (
+            <div class={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 activity-item ${
+              activity.featured ? 'lg:col-span-2' : ''
+            }`} 
+            data-type={activity.category} 
+            data-scale={activity.category.includes('Summit') ? 'Large' : activity.category.includes('Team Building') ? 'Medium' : 'Small'}>
+              
+              {activity.featured && (
+                <div class="bg-orange-500 text-white px-4 py-1 text-sm font-medium inline-block">
+                  Featured Event
+                </div>
+              )}
+              
+              <div class={`${activity.featured ? 'lg:flex' : ''}`}>
+                <!-- Event Images -->
+                <div class={`${activity.featured ? 'lg:w-1/2' : ''} relative overflow-hidden`}>
+                  {activity.images ? (
+                    <!-- Image Carousel -->
+                    <div class="slideshow-container relative w-full h-full" data-activity-id={activity.id}>
+                      {activity.images.map((image, index) => (
+                        <div class={`slide ${index === 0 ? 'active' : ''} absolute inset-0 transition-opacity duration-500`}>
+                          <img src={image} alt={`${activity.title} - Image ${index + 1}`} class="w-full h-full object-cover object-center" />
+                        </div>
+                      ))}
+                      
+                      <!-- Navigation Buttons -->
+                      <button class="prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all">
+                        ❮
+                      </button>
+                      <button class="next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all">
+                        ❯
+                      </button>
+                      
+                      <!-- Indicators -->
+                      <div class="dots-container absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        {activity.images.map((_, index) => (
+                          <span class={`dot w-3 h-3 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white bg-opacity-50'}`} data-slide={index}></span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <!-- Default Image Display -->
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-full flex items-center justify-center">
+                      <div class="text-center">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <p class="text-gray-600">{activity.title}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                <!-- Event Content -->
+                <div class={`p-6 ${activity.featured ? 'lg:w-1/2' : ''}`}>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                      {activity.category}
+                    </span>
+                    <span class="text-gray-500 text-sm">{activity.duration}</span>
+                  </div>
+                  
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">{activity.title}</h3>
+                  <p class="text-gray-600 mb-4">{activity.description}</p>
+                  
+                  <div class="mb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">Time & Location:</h4>
+                    <p class="text-gray-600">{activity.date} · {activity.location}</p>
+                  </div>
+                  
+                  <div class="mb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">Event Highlights:</h4>
+                    <p class="text-gray-600 text-sm">{activity.highlights}</p>
+                  </div>
+                  
+                  <div class="mb-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">Event Content:</h4>
+                    <p class="text-gray-600 text-sm">{activity.activities}</p>
+                  </div>
+                  
+                  <div class="mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-2">Event Achievements:</h4>
+                    <ul class="space-y-1">
+                      {activity.achievements.map(achievement => (
+                        <li class="text-sm text-gray-600 flex items-center">
+                          <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {activity.tags.map(tag => (
+                      <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {activity.url && (
+                    <div class="mt-4">
+                      <a href={activity.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-200">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                        View Event Details
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Participant Feedback -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Participant Feedback</h2>
+          <p class="text-xl text-gray-600">Listen to the real feelings of event participants</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {feedbacks.map(feedback => (
+            <div class="bg-gray-50 rounded-xl p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                  <span class="text-purple-600 font-bold">{feedback.name.charAt(0)}</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">{feedback.name}</h4>
+                  <p class="text-sm text-gray-600">{feedback.position}</p>
+                  <p class="text-sm text-gray-500">{feedback.company}</p>
+                </div>
+              </div>
+              
+              <div class="flex mb-4">
+                {Array.from({length: feedback.rating}).map(() => (
+                  <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                ))}
+              </div>
+              
+              <p class="text-gray-600 italic">"{feedback.content}"</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Statistics -->
+    <section class="bg-purple-600 section-padding">
+      <div class="container">
+        <div class="text-center text-white mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Event Data</h2>
+          <p class="text-xl text-purple-100">Showcasing our event achievements with data</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold mb-2 text-white">3000+</div>
+            <div class="text-purple-100">Participants</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold mb-2 text-white">98%</div>
+            <div class="text-purple-100">Satisfaction Rate</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-bold mb-2 text-white">8M+</div>
+            <div class="text-purple-100">Media Reach</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gray-50">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Want to participate in our events?
+          </h2>
+          <p class="text-xl text-gray-600 mb-8">
+            Follow us to get the latest event information first
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/en/contact" class="bg-purple-600 text-white hover:bg-purple-700 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              Contact Us
+            </a>
+            <a href="/en/services" class="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  
+  <script>
+    // Image carousel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const slideshows = document.querySelectorAll('.slideshow-container');
+      
+      slideshows.forEach(slideshow => {
+        const slides = slideshow.querySelectorAll('.slide');
+        const prevBtn = slideshow.querySelector('.prev');
+        const nextBtn = slideshow.querySelector('.next');
+        const dots = slideshow.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let slideInterval: ReturnType<typeof setInterval> | null = null;
+        
+        // Show specified slide
+        function showSlide(index: number) {
+          slides.forEach((slide, i) => {
+            const slideElement = slide as HTMLElement;
+            if (i === index) {
+              slideElement.style.opacity = '1';
+              slideElement.style.zIndex = '10';
+            } else {
+              slideElement.style.opacity = '0';
+              slideElement.style.zIndex = '1';
+            }
+          });
+          
+          dots.forEach((dot, i) => {
+            const dotElement = dot as HTMLElement;
+            if (i === index) {
+              dotElement.classList.remove('bg-opacity-50');
+              dotElement.classList.add('bg-white');
+            } else {
+              dotElement.classList.add('bg-opacity-50');
+              dotElement.classList.remove('bg-white');
+            }
+          });
+          
+          currentSlide = index;
+        }
+        
+        // Next slide
+        function nextSlide() {
+          const next = (currentSlide + 1) % slides.length;
+          showSlide(next);
+        }
+        
+        // Previous slide
+        function prevSlide() {
+          const prev = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(prev);
+        }
+        
+        // Start auto play
+        function startAutoPlay() {
+          slideInterval = setInterval(nextSlide, 4000); // Switch every 4 seconds
+        }
+        
+        // Stop auto play
+        function stopAutoPlay() {
+          if (slideInterval) {
+            clearInterval(slideInterval);
+          }
+        }
+        
+        // Event listeners
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+            stopAutoPlay();
+            startAutoPlay(); // Restart auto play
+          });
+        }
+        
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+            stopAutoPlay();
+            startAutoPlay(); // Restart auto play
+          });
+        }
+        
+        // Indicator click events
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            showSlide(index);
+            stopAutoPlay();
+            startAutoPlay(); // Restart auto play
+          });
+        });
+        
+        // Pause auto play on mouse hover
+        slideshow.addEventListener('mouseenter', stopAutoPlay);
+        slideshow.addEventListener('mouseleave', startAutoPlay);
+        
+        // Initialize
+        if (slides.length > 1) {
+          showSlide(0);
+          startAutoPlay();
+        }
+      });
+    });
+  </script>
+
+  <style>
+    .section-padding {
+      padding: 4rem 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .hero-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .activity-item {
+      transition: transform 0.2s ease-in-out;
+    }
+    
+    .activity-item:hover {
+      transform: translateY(-2px);
+    }
+    
+    .slide {
+      opacity: 0;
+      z-index: 1;
+    }
+    
+    .slide.active {
+      opacity: 1;
+      z-index: 10;
+    }
+    
+    /* Image container optimization */
+    .slideshow-container {
+      aspect-ratio: 16/9;
+      min-height: 200px;
+    }
+    
+    .slideshow-container img {
+      transition: transform 0.3s ease;
+    }
+    
+    .slideshow-container:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Responsive image height */
+    @media (max-width: 768px) {
+      .slideshow-container {
+        aspect-ratio: 4/3;
+        min-height: 180px;
+      }
+    }
+  </style>
+
+</Layout>

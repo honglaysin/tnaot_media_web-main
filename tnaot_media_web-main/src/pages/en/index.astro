@@ -1,0 +1,573 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// SEO Configuration
+const seoConfig = {
+  title: "TNAOT Media - Professional Media Communication & Marketing Services",
+    description: "TNAOT Media provides professional media communication, marketing promotion, event planning, content creation and technical development services. We are committed to providing comprehensive media solutions to help brands succeed in the Cambodian market.",
+    keywords: "TNAOT,media communication,marketing promotion,event planning,content creation,technical development,brand promotion,digital marketing,social media,news release",
+  image: "/hero/produce.jpg",
+  type: "website"
+};
+
+// Core Service Categories (5 services)
+const coreServices = [
+  {
+    icon: "📰",
+    title: t('home.services.media.title'),
+    description: t('home.services.media.description'),
+    link: lang === 'zh' ? '/services' : '/en/services',
+    features: [t('home.services.media.feature1'), t('home.services.media.feature2'), t('home.services.media.feature3')]
+  },
+  {
+    icon: "🎬",
+    title: t('home.services.creative.title'),
+    description: t('home.services.creative.description'),
+    link: lang === 'zh' ? '/services' : '/en/services',
+    features: [t('home.services.creative.feature1'), t('home.services.creative.feature2'), t('home.services.creative.feature3')]
+  },
+  {
+    icon: "🎉",
+    title: t('home.services.events.title'),
+    description: t('home.services.events.description'),
+    link: lang === 'zh' ? '/services' : '/en/services',
+    features: [t('home.services.events.feature1'), t('home.services.events.feature2'), t('home.services.events.feature3')]
+  },
+  {
+    icon: "🎯",
+    title: t('home.services.marketing.title'),
+    description: t('home.services.marketing.description'),
+    link: lang === 'zh' ? '/services' : '/en/services',
+    features: [t('home.services.marketing.feature1'), t('home.services.marketing.feature2'), t('home.services.marketing.feature3')]
+  },
+  {
+    icon: "💻",
+    title: t('home.services.tech.title'),
+    description: t('home.services.tech.description'),
+    link: lang === 'zh' ? '/services' : '/en/services',
+    features: [t('home.services.tech.feature1'), t('home.services.tech.feature2'), t('home.services.tech.feature3')]
+  }
+];
+
+// Competitive Advantages
+const advantages = [
+  {
+    icon: "🏆",
+    title: t('home.advantages.experience.title'),
+    description: t('home.advantages.experience.description')
+  },
+  {
+    icon: "🌐",
+    title: t('home.advantages.network.title'),
+    description: t('home.advantages.network.description')
+  },
+  {
+    icon: "📊",
+    title: t('home.advantages.results.title'),
+    description: t('home.advantages.results.description')
+  }
+];
+
+
+
+// Client Testimonials
+const testimonials = [
+  {
+    name: t('home.testimonials.client1.name'),
+    company: t('home.testimonials.client1.company'),
+    content: t('home.testimonials.client1.content'),
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: t('home.testimonials.client2.name'),
+    company: t('home.testimonials.client2.company'),
+    content: t('home.testimonials.client2.content'),
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: t('home.testimonials.client3.name'),
+    company: t('home.testimonials.client3.company'),
+    content: t('home.testimonials.client3.content'),
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=face"
+  }
+];
+---
+
+<Layout 
+  title={seoConfig.title}
+  description={seoConfig.description}
+  keywords={seoConfig.keywords}
+  image={seoConfig.image}
+  type={seoConfig.type}
+>
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-red-50 to-pink-100 section-padding overflow-hidden">
+      <!-- Background Decoration Image -->
+      <div class="absolute inset-0 opacity-10">
+        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop" alt="Background" class="w-full h-full object-cover" />
+      </div>
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left">
+            <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <span class="text-primary-600">{t('home.hero.title')}</span>
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              {t('home.hero.description')}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="btn-primary text-lg py-4 px-8">
+                {t('home.hero.contact')}
+              </a>
+              <a href={lang === 'zh' ? '/cases' : '/en/cases'} class="btn-secondary text-lg py-4 px-8">
+                {t('home.hero.learn')}
+              </a>
+            </div>
+          </div>
+          <div class="hidden lg:block relative">
+            <!-- Scrolling Image Container -->
+            <div id="hero-carousel" class="relative w-full h-96 rounded-2xl shadow-2xl overflow-hidden">
+              <div id="carousel-track" class="absolute inset-0 flex transition-transform duration-500 ease-in-out">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt={t('home.carousel.teamwork')} class="w-full h-full object-cover flex-shrink-0" />
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop" alt={t('home.carousel.professional')} class="w-full h-full object-cover flex-shrink-0" />
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop" alt={t('home.carousel.meeting')} class="w-full h-full object-cover flex-shrink-0" />
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop" alt={t('home.carousel.creative')} class="w-full h-full object-cover flex-shrink-0" />
+              </div>
+              <!-- Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-red-100/20"></div>
+            </div>
+            
+            <!-- Circle Dot Navigation -->
+            <div class="flex justify-center mt-6 space-x-3">
+              <button class="carousel-dot w-3 h-3 rounded-full bg-red-600 transition-all duration-300" data-slide="0"></button>
+              <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-red-400 transition-all duration-300" data-slide="1"></button>
+              <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-red-400 transition-all duration-300" data-slide="2"></button>
+              <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-red-400 transition-all duration-300" data-slide="3"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Competitive Advantages Display -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {t('home.advantages.title')}
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            {t('home.advantages.subtitle')}
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {advantages.map(advantage => (
+            <div class="text-center bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="text-4xl mb-4">{advantage.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">{advantage.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{advantage.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Services Display -->
+    <section class="section-padding relative" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1080&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            {t('home.services.title')}
+          </h2>
+          <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+            {t('home.services.subtitle')}
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {coreServices.map(service => (
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+              <div class="text-4xl mb-4">{service.icon}</div>
+              <h3 class="text-xl font-bold text-white mb-3">{service.title}</h3>
+              <p class="text-gray-200 mb-4 text-sm leading-relaxed">{service.description}</p>
+              <ul class="text-gray-300 text-sm space-y-1 mb-6">
+                {service.features.map(feature => (
+                  <li class="flex items-center">
+                    <span class="w-1.5 h-1.5 bg-red-400 rounded-full mr-2"></span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a href={service.link} class="inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200">
+                {t('home.services.learn_more')}
+              </a>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href={lang === 'zh' ? '/services' : '/en/services'} class="inline-block bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg">
+            {t('home.services.view_all')}
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Our Clients -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {t('home.clients.title')}
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            {t('home.clients.subtitle')}
+          </p>
+        </div>
+        
+        <!-- Client Logo Display -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg mb-16">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2">
+              {t('home.clients.partners_title')}
+            </h3>
+            <p class="text-gray-600">
+              {t('home.clients.partners_subtitle')}
+            </p>
+          </div>
+          <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-6 items-center">
+            <!-- Client Logos -->
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/ABA.png" alt="ABA Bank" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/Cellcard.png" alt="Cellcard" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/Forte.png" alt="Forte" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/Harbor.png" alt="Harbor" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/Huawei.png" alt="Huawei" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/Le-Conde.png" alt="Le Conde" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/Mekongnet.png" alt="Mekongnet" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/Smart.png" alt="Smart" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/The-Peak.png" alt="The Peak" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+          </div>
+          
+          <!-- Second Row Client Logos -->
+          <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-6 items-center mt-6">
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/truemoney.png" alt="TrueMoney" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/wing.png" alt="Wing" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/abc.jpg" alt="ABC" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/cdf.png" alt="CDF" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/eget.png" alt="Eget" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/prince.jpg" alt="Prince" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/tiger.png" alt="Tiger" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/vattanac.jpg" alt="Vattanac" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+            <div class="aspect-square flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+              <img src="/partner/STAPANA.jpg" alt="STAPANA" class="w-full h-full object-cover rounded-lg transition-all duration-300" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Client Testimonials -->
+        <div class="text-center mb-12">
+          <h3 class="text-2xl font-semibold text-gray-900 mb-2">
+            {t('home.clients.testimonials_title')}
+          </h3>
+          <p class="text-gray-600">
+            {t('home.clients.testimonials_subtitle')}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map(testimonial => (
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="flex items-center mb-4">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                ))}
+              </div>
+              <p class="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
+              <div class="border-t pt-4 flex items-center">
+                <img src={testimonial.avatar} alt={testimonial.name} class="w-12 h-12 rounded-full mr-4 object-cover" />
+                <div>
+                  <div class="font-semibold text-gray-900">{testimonial.name}</div>
+                  <div class="text-sm text-gray-500">{testimonial.company}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Media Partners -->
+    <section class="section-padding relative" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1920&h=1080&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <div class="container relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            {t('home.media_partners.title')}
+          </h2>
+          <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+            {t('home.media_partners.subtitle')}
+          </p>
+        </div>
+        
+        <!-- Media Type Groups -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <!-- Cambodia Chinese Media -->
+          <div class="text-center">
+            <div class="bg-gradient-to-br from-blue-50/80 to-blue-100/80 backdrop-blur-sm rounded-2xl p-6 mb-4 hover:from-blue-50/90 hover:to-blue-100/90 transition-all duration-300">
+              <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {t('home.media_partners.cambodia_chinese.title')}
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                {t('home.media_partners.cambodia_chinese.description')}
+              </p>
+              <div class="text-xs text-gray-500 space-y-1">
+                <div>• Cambodia Chinese Daily</div>
+                <div>• Chinese Business Daily</div>
+                <div>• TNAOT</div>
+                <div>• Khmer Daily</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cambodia Local Media -->
+          <div class="text-center">
+            <div class="bg-gradient-to-br from-green-50/80 to-green-100/80 backdrop-blur-sm rounded-2xl p-6 mb-4 hover:from-green-50/90 hover:to-green-100/90 transition-all duration-300">
+              <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {t('home.media_partners.cambodia_local.title')}
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                {t('home.media_partners.cambodia_local.description')}
+              </p>
+              <div class="text-xs text-gray-500 space-y-1">
+                <div>• The Phnom Penh Post</div>
+                <div>• Khmer Times</div>
+                <div>• Cambodia Daily</div>
+                <div>• Fresh News</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASEAN Media -->
+          <div class="text-center">
+            <div class="bg-gradient-to-br from-purple-50/80 to-purple-100/80 backdrop-blur-sm rounded-2xl p-6 mb-4 hover:from-purple-50/90 hover:to-purple-100/90 transition-all duration-300">
+              <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {t('home.media_partners.asean.title')}
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                {t('home.media_partners.asean.description')}
+              </p>
+              <div class="text-xs text-gray-500 space-y-1">
+                <div>• Lianhe Zaobao (Singapore)</div>
+                <div>• Sin Chew Daily (Malaysia)</div>
+                <div>• Thai World Daily</div>
+                <div>• Indonesia Business Daily</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- China Authority Media -->
+          <div class="text-center">
+            <div class="bg-gradient-to-br from-orange-50/80 to-orange-100/80 backdrop-blur-sm rounded-2xl p-6 mb-4 hover:from-orange-50/90 hover:to-orange-100/90 transition-all duration-300">
+              <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {t('home.media_partners.china_authority.title')}
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                {t('home.media_partners.china_authority.description')}
+              </p>
+              <div class="text-xs text-gray-500 space-y-1">
+                <div>• People's Daily</div>
+                <div>• Xinhua News Agency</div>
+                <div>• CCTV News</div>
+                <div>• Guangming Daily</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cambodia TV Stations -->
+          <div class="text-center">
+            <div class="bg-gradient-to-br from-red-50/80 to-red-100/80 backdrop-blur-sm rounded-2xl p-6 mb-4 hover:from-red-50/90 hover:to-red-100/90 transition-all duration-300">
+              <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {t('home.media_partners.cambodia_tv.title')}
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                {t('home.media_partners.cambodia_tv.description')}
+              </p>
+              <div class="text-xs text-gray-500 space-y-1">
+                <div>• TVK (Cambodia National TV)</div>
+                <div>• Bayon TV</div>
+                <div>• CTN</div>
+                <div>• MyTV</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-red-600 to-red-700 section-padding">
+      <div class="container">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {t('home.cta.title')}
+          </h2>
+          <p class="text-xl mb-8 text-red-100">
+            {t('home.cta.subtitle')}
+          </p>
+          <div class="flex justify-center">
+            <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="bg-white text-red-600 hover:bg-red-50 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+              {t('home.cta.contact')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Carousel functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('carousel-track') as HTMLElement | null;
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    const totalSlides = 4;
+    let autoPlayInterval: number | undefined;
+
+    // Switch to specified slide
+    function goToSlide(slideIndex: number) {
+      if (!track) return;
+      
+      currentSlide = slideIndex;
+      const translateX = -slideIndex * 100;
+      track.style.transform = `translateX(${translateX}%)`;
+      
+      // Update circle dot status
+      dots.forEach((dot, index) => {
+        if (index === slideIndex) {
+          dot.classList.remove('bg-gray-300');
+          dot.classList.add('bg-red-600');
+        } else {
+          dot.classList.remove('bg-red-600');
+          dot.classList.add('bg-gray-300');
+        }
+      });
+    }
+
+    // Auto play
+    function startAutoPlay() {
+      autoPlayInterval = window.setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+      }, 4000);
+    }
+
+    // Stop auto play
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+      }
+    }
+
+    // Add click events for circle dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        stopAutoPlay();
+        goToSlide(index);
+        // Restart auto play
+        setTimeout(startAutoPlay, 5000);
+      });
+    });
+
+    // Pause auto play on mouse hover
+    const carousel = document.getElementById('hero-carousel');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopAutoPlay);
+      carousel.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Start auto play
+    startAutoPlay();
+  });
+</script>
