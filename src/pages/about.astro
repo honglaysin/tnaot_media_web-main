@@ -128,7 +128,7 @@ const milestones = [
 
 
     <!-- 团队介绍 -->
-    <section class="section-padding bg-gradient-to-br from-gray-50 to-white">
+    <!-- <section class="section-padding bg-gradient-to-br from-gray-50 to-white">
       <div class="container">
         <div class="text-center mb-20">
           <div class="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold mb-4">
@@ -138,49 +138,49 @@ const milestones = [
           <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             汇聚行业精英，以专业、创新、协作的精神为客户创造价值
           </p>
-        </div>
+        </div> -->
         
         <!-- 团队成员网格 -->
-        <div class="max-w-6xl mx-auto">
+        <!-- <div class="max-w-6xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {teamMembers.map((member, index) => (
-              <div class="group relative">
+              <div class="group relative"> -->
                 <!-- 背景装饰 -->
-                <div class="absolute -inset-4 bg-gradient-to-r from-primary-600 to-red-600 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                <!-- <div class="absolute -inset-4 bg-gradient-to-r from-primary-600 to-red-600 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div> -->
                 
                 <!-- 主卡片 -->
-                <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform group-hover:-translate-y-2 transition-all duration-500">
-                  <div class="flex flex-col md:flex-row">
+                <!-- <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden transform group-hover:-translate-y-2 transition-all duration-500">
+                  <div class="flex flex-col md:flex-row"> -->
                     <!-- 头像部分 -->
-                    <div class="relative md:w-48 h-64 md:h-auto overflow-hidden">
+                    <!-- <div class="relative md:w-48 h-64 md:h-auto overflow-hidden">
                       <img 
                         src={member.avatar} 
                         alt={member.name}
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
+                      /> -->
                       <!-- 渐变遮罩 -->
-                      <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                      
+                      <!-- <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                       -->
                       <!-- 职位标签 -->
-                      <div class="absolute bottom-4 left-4 right-4">
+                      <!-- <div class="absolute bottom-4 left-4 right-4">
                         <div class="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
                           <p class="text-primary-600 font-bold text-sm">{member.position}</p>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     
                     <!-- 内容部分 -->
-                    <div class="flex-1 p-8">
+                    <!-- <div class="flex-1 p-8">
                       <div class="h-full flex flex-col justify-center">
                         <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
                           {member.name}
                         </h3>
                         <p class="text-gray-600 leading-relaxed mb-6">
                           {member.description}
-                        </p>
+                        </p> -->
                         
                         <!-- 技能标签或特色 -->
-                        <div class="flex flex-wrap gap-2">
+                        <!-- <div class="flex flex-wrap gap-2">
                           <span class="px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-medium">
                             专业领导
                           </span>
@@ -193,17 +193,13 @@ const milestones = [
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   
                   <!-- 装饰性元素 -->
-                  <div class="absolute top-4 right-4 w-8 h-8 border-2 border-primary-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              </div>
-            ))}
-          </div>
+                  
           
           <!-- 团队统计 -->
-          <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <!-- <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="text-center">
               <div class="text-3xl font-bold text-primary-600 mb-2">8+</div>
               <div class="text-gray-600">年行业经验</div>
@@ -223,7 +219,7 @@ const milestones = [
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- 发展历程 -->
     <section class="section-padding bg-white">
@@ -262,6 +258,81 @@ const milestones = [
         </div>
       </div>
     </section>
+    <!-- 公司活动部分 -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <h2 class="text-4xl font-bold text-center mb-12">最新公司活动</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2025/04/lQDPItzFpCEtOAPNEsDND6Cwi4piMn76zc8Hrse9NIU-AA_4000_4800-scaled.jpg" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">妇女节快乐</h3>
+          <p class="text-gray-600 text-sm mb-2">庆祝全球女性的坚韧、勇气和成就。加入我们，共同致敬她们鼓舞人心的旅程。</p>
+          <a href="https://www.facebook.com/share/p/19nqA8PyGC/" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2025/04/486386316_680959801154175_8232811598476195820_n.jpg" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">2025春节活动</h3>
+          <p class="text-gray-600 text-sm mb-2">庆祝2025年春节的多彩传统和节庆活动，包括绚丽的游行、文化表演和社区活动，共迎蛇年。</p>
+          <a href="https://www.facebook.com/share/p/1AFwvc3fN6/" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2025/04/IMG_9071-scaled.jpg" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">2025生日派对</h3>
+          <p class="text-gray-600 text-sm mb-2">加入我们的欢乐庆祝活动，享受乐趣、欢笑和难忘的回忆，一起纪念2025生日派对的特别时刻。</p>
+          <a href="#events" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2025/04/IMG_0490-scaled.jpg" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">2024圣诞派对</h3>
+          <p class="text-gray-600 text-sm mb-2">在2024圣诞派对中庆祝节日的喜悦和温暖，享受音乐、欢乐和全员参与的节庆活动。</p>
+          <a href="https://www.facebook.com/share/p/1FpZSHrM63/" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2025/02/DSC02625logo-1-min-800x533-1.jpg" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">2024民间羽毛球交流锦标赛</h3>
+          <p class="text-gray-600 text-sm mb-2">来自各地的羽毛球爱好者汇聚一堂，在2024业余锦标赛中进行激烈比赛和友好竞争。</p>
+          <a href="#events" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2023/04/photo_2023-04-11_17-44-44.jpg" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">2023港口集团团队建设派对</h3>
+          <p class="text-gray-600 text-sm mb-2">通过有趣的活动和庆祝活动，加强团队凝聚力，提升港口集团2023年的团队建设体验。</p>
+          <a href="https://www.facebook.com/share/p/16wPh1dzMF/" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2022/11/01-100.png" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">2022全国职业博览会在Khos Pich</h3>
+          <p class="text-gray-600 text-sm mb-2">在2022全国职业博览会上探索职业机会和教育途径，该博览会在Khos Pich举办。</p>
+          <a href="https://www.facebook.com/kohthmeykh/posts/pfbid03WcuUPmBoV91fSFxiFtzgaN7LXsP1V7kehrC6EVrDy47KSqq7DrZwwY77HiwpDb2l" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+        <img src="https://www.kohthmey.com/wp-content/uploads/2022/04/IMG_7309-600x400.jpg" alt="活动" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="font-bold text-lg mb-2">2022港口集团年度旅行</h3>
+          <p class="text-gray-600 text-sm mb-2">在港口集团2022年度旅行中体验难忘的瞬间和团队友谊，尽享冒险与乐趣。</p>
+          <a href="https://www.facebook.com/share/p/17G232bAhY/" class="text-primary-600 hover:underline text-sm">阅读更多</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <a href="/cases" class="text-primary-600 font-semibold hover:underline">查看更多 &gt;&gt;</a>
+    </div>
+  </div>
+</section>
 
     <!-- CTA区域 -->
     <section class="bg-primary-600 section-padding">
