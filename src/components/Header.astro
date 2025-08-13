@@ -79,7 +79,7 @@ const t = useTranslations(lang);
                 </div>
               </div>
             </div>
-            <a href="/contact" class="btn-primary text-sm py-2 px-4">免费咨询</a>
+            <a href={lang === 'zh' ? '/contact' : '/en/contact'} class="btn-primary text-sm py-2 px-4">{lang === 'zh' ? '免费咨询' : 'Free Consultation'}</a>
           </div>
 
       <!-- 移动端菜单按钮 -->
