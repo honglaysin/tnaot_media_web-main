@@ -10,7 +10,7 @@ const t = useTranslations(lang);
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <div class="flex items-center">
-        <a href="/" class="flex items-center space-x-2">
+        <a href={lang === 'zh' ? '/' : '/en'} class="flex items-center space-x-2">
           <img src="/logo.png" alt="Logo" class="w-8 h-8">
           <span class="text-xl font-bold text-gray-900">{t('brand.name')}</span>
         </a>
