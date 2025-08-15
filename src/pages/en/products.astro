@@ -347,7 +347,7 @@ const overallStats = [
             {products.map((product) => (
               <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-auto">
                 <!-- Product header -->
-                <div class="relative p-8 text-white overflow-hidden" style={
+                <div class="relative p-6 md:p-8 text-white overflow-hidden" style={
                   product.id === 'tnaot-app' ? "background: linear-gradient(135deg, #fa4646 0%, #e03e3e 100%)" :
                   product.id === 'tnaot-website' ? "background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)" :
                   product.id === 'china-social' ? "background: linear-gradient(135deg, #059669 0%, #047857 100%)" :
@@ -371,14 +371,14 @@ const overallStats = [
                     "background: linear-gradient(135deg, rgba(250, 70, 70, 0.7) 0%, rgba(224, 62, 62, 0.7) 100%)"
                   }></div>
                   <div class="relative z-10 text-center">
-                    <div class="text-6xl mb-4">{product.icon}</div>
-                    <h3 class="text-2xl font-semibold mb-2">{product.name}</h3>
+                    <div class="text-5xl md:text-6xl mb-4">{product.icon}</div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">{product.name}</h3>
                     <p class={
                       product.id === 'tnaot-app' ? "text-red-100 leading-relaxed" :
                       product.id === 'tnaot-website' ? "text-blue-100 leading-relaxed" :
                       product.id === 'china-social' ? "text-green-100 leading-relaxed" :
                       product.id === 'overseas-social' ? "text-purple-100 leading-relaxed" :
-                      "text-red-100 leading-relaxed"
+                      "text-sm md:text-base leading-relaxed"
                     }>{product.description}</p>
                   </div>
                 </div>
@@ -386,7 +386,7 @@ const overallStats = [
                 <!-- Data performance -->
                 <div class="p-6 bg-gray-50">
                   <h4 class="text-lg font-semibold text-gray-900 mb-4">Data Performance</h4>
-                  <div class="grid grid-cols-5 gap-3">
+                  <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 md:gap-3">
                     {Object.entries(product.stats).map(([key, value]) => (
                       <div class={
                         `text-center p-3 rounded-lg shadow-sm ${
