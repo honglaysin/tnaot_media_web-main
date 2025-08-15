@@ -223,41 +223,42 @@ const milestones = [
 
     <!-- 发展历程 -->
     <section class="section-padding bg-white">
-      <div class="container">
-        <div class="text-center mb-12">
-           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">发展历程</h2>
-           <p class="text-xl text-gray-600">见证我们的成长足迹与里程碑时刻</p>
-         </div>
-        
-        <div class="max-w-4xl mx-auto">
-          <div class="relative">
-            <!-- 时间线 -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-primary-200"></div>
-            
-            <div class="space-y-8">
-              {milestones.map((milestone, index) => (
-                <div class={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div class="flex-1 px-6">
-                    <div class={`bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                      <div class="text-primary-600 font-bold text-base mb-1">{milestone.year}</div>
-                      <h3 class="text-lg font-bold text-gray-900 mb-2">{milestone.title}</h3>
-                      <p class="text-gray-600 text-sm leading-relaxed">{milestone.description}</p>
+          <div class="container">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Development History</h2>
+              <p class="text-xl text-gray-600">Witness our growth journey and milestone moments</p>
+            </div>
+
+            <div class="relative max-w-6xl mx-auto">
+              <!-- Timeline Line -->
+              <div class="absolute top-0 left-5 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-primary-200"></div>
+
+              <div class="space-y-8 md:space-y-0 md:divide-y-0">
+                {milestones.map((milestone, index) => (
+                  <div class="flex flex-col md:flex-row md:items-center relative">
+                    
+                    <!-- Left Side (desktop alternating) -->
+                    <div class={`flex-1 px-6 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:order-2 md:pl-8 md:text-left'}`}>
+                      <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                        <div class="text-primary-600 font-bold text-base mb-1">{milestone.year}</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">{milestone.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{milestone.description}</p>
+                      </div>
                     </div>
+
+                    <!-- Timeline Dot -->
+                    <div class="absolute left-5 md:left-1/2 transform md:-translate-x-1/2 z-10">
+                      <div class="w-4 h-4 bg-primary-600 rounded-full border-2 border-white shadow-md"></div>
+                    </div>
+
+                    <!-- Right Side (empty for alignment) -->
+                    <div class={`flex-1 px-6 hidden md:block ${index % 2 === 0 ? 'md:order-2' : ''}`}></div>
                   </div>
-                  
-                  <!-- 时间点 -->
-                  <div class="relative z-10">
-                    <div class="w-4 h-4 bg-primary-600 rounded-full border-2 border-white shadow-md"></div>
-                  </div>
-                  
-                  <div class="flex-1 px-6"></div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
     <!-- 公司活动部分 -->
 <section class="section-padding bg-white">
   <div class="container">
