@@ -343,7 +343,7 @@ const overallStats = [
             <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">Four core product platforms covering mobile apps, websites and social media</p>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             {products.map((product) => (
               <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-auto">
                 <!-- Product header -->
@@ -456,7 +456,7 @@ const overallStats = [
                              <img 
                                src={adType.image} 
                                alt={`${adType.name} effect display`} 
-                               class="w-20 h-20 object-cover rounded-lg border border-gray-200 cursor-pointer hover:opacity-80 transition-opacity" 
+                               class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-lg border border-gray-200 cursor-pointer hover:opacity-80 transition-opacity" 
                                onclick={`openImageModal('${adType.image}', '${adType.name} effect display')`}
                              />
                            </div>
